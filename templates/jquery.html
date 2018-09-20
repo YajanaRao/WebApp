@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("div.animate").animate({
+            left: '250px',
+            //opacity: '0.5',
+            height: '250px',
+            width: '250px'
+        });
+        //$("div.text").show();
+        $("div.text").fadeIn("slow");
+    });
+});
+</script>
+<style>
+#myContainer {
+  width: 800px;
+  height: 400px;
+  position: relative;
+  background: red;
+}
+#myAnimation {
+  width: 50px;
+  height: 10px;
+  position: absolute;
+  background-color: white;
+}
+</style>
+<script>
+function myMove() {
+  var elem = document.getElementById("myAnimation");
+  var pos = 0;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (pos == 750) {
+      clearInterval(id);
+    } else {
+      pos++;
+      //elem.style.top = pos + 'px';
+      elem.style.left = pos + 'px';
+    }
+  }
+}
+myMove();
+</script>
+</head>
+<body>
+
+<button onclick="myMove()">Start Animation</button>
+
+<p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+
+<div id ="myContainer">
+
+<div class="animate" style="background:black;height:100px;width:100px;position:absolute;">
+<div class="text" style="display:none;color:white;">
+<p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+</div>
+</div>
+<div id ="myAnimation"></div>
+</div>
+
+</body>
+
+</html>
