@@ -6,26 +6,50 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
 <link rel="stylesheet"
  href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
  <!-- or -->
  <link rel="stylesheet"
  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 .w3-bar  {
     padding: 16px;
 }
+#myAnimation {
+  width: 100px;
+  height: 5px;
+  position: absolute;
+  background-color: black;
+}
 </style>
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+<script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Styles -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
+
+<!-- Chart code -->
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+
+
+<!-- telks talk about body -->
 <body class="w3-light-grey">
 	<!-- Navbar (sit on top) -->
 	<div class="w3-top">
 	  <div class="w3-bar w3-white w3-card" id="myNavbar">
+
 	    <a href="#home" class="w3-bar-item w3-button w3-wide">YAJANA</a>
 	    <!-- Right-sided navbar links -->
 	    <div class="w3-right w3-hide-small">
 	      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-	      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
+	      <a href="#me" class="w3-bar-item w3-button"><i class="fa fa-user"></i> ME</a>
 	      <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> PROJECTS</a>
 	      <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>
 	      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
@@ -42,134 +66,81 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+  <a href="#me" onclick="w3_close()" class="w3-bar-item w3-button">ME</a>
   <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">PROJECTS</a>
   <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
 <!-- Header -->
-<header class="bgimg-1 w3-display-container w3-red w3-center" style="padding:228px 16px">
+<header class="bgimg-1 w3-display-container w3-red w3-center" style="padding:350px 16px">
   <h1 class="w3-margin w3-jumbo">START PAGE</h1>
 	<h1 class="w3-margin w3-jumbo animated infinite bounce delay-2s">EXAMPLE</h1>
-  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="myMove()">Get Started</button>
 </header>
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+  <div id ="myAnimation"></div>
 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
 
-    <!-- Left Column -->
-    <div class="w3-third">
+  <script>
+  function myMove() {
+    var elem = document.getElementById("myAnimation");
+    var pos = 0;
+    var id = setInterval(frame, 10);
+    console.log(pos);
+    function frame() {
+      if (pos == window.innerWidth) {
+        console.log("done doing");
+        // clearInterval(id);
+        pos = 0;
+      } else {
+        pos++;
+        // console.log(pos);
+        //elem.style.top = pos + 'px';
+        elem.style.left = pos + 'px';
+      }
+    }
+  }
+  myMove();
+  </script>
 
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
-          <img src="{{ url_for('static', filename='yajana.jpg') }}" style="width:100%;height:325px" alt="Avatar">
-          <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2>Yajana N Rao</h2>
-          </div>
-        </div>
-        <div class="w3-container">
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Software Developer</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Karnataka, India</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>yajannrao@gmail.com</p>
-          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>123456789</p>
-          <hr>
 
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-          <p>Python</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
-          </div>
-          <p>Java</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
-              <div class="w3-center w3-text-white">80%</div>
-            </div>
-          </div>
-          <p>Javascript</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
-          </div>
-          <p>C/C++</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
-          </div>
-          <br>
 
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-          <p>English</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
-          </div>
-          <p>Hindi</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
-          </div>
-          <p>Kannada</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
-          </div>
-          <br>
-        </div>
-      </div><br>
 
-    <!-- End Left Column -->
+<!-- Services -->
+<div class="w3-container" id="me" style="margin-top:75px">
+  <h1 class="w3-xxxlarge w3-text-red"><b>Here I'm.</b></h1>
+  <hr style="width:50px;border:5px solid red" class="w3-round">
+  <p>We are a interior design service that focus on what's best for your home and what's best for you!</p>
+  <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
+  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </p>
+  <!-- HTML -->
+  <div id="chartdiv"></div>
+</div>
+<br></br>
+<!-- About Container -->
+<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="about">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">About</h1>
+    <p>The Pizza Restaurant was founded in blabla by Mr. Italiano in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <!-- <p><strong>The Chef?</strong> Mr. Italiano himself<img src="/w3images/chef.jpg" style="width:150px" class="w3-circle w3-right" alt="Chef"></p> -->
+    <p>We are proud of our interiors.</p>
+    <!-- <img src="/w3images/onepage_restaurant.jpg" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurant"> -->
+    <h1><b>MY PROJECTS</b></h1>
+
+    <div class="w3-row">
+      <div class="w3-col s6">
+        <p><img src="{{ url_for('static', filename='image/PNG/GitHub-Mark-32px.png') }}"> Perftool</p>
+        <p>A Perfromance Monitoring tool</p>
+        <!-- <p>Thursday 10:00 - 24:00</p> -->
+      </div>
+      <div class="w3-col s6">
+        <p><img src="{{ url_for('static', filename='image/PNG/GitHub-Mark-32px.png') }}"> LDAP GRAFANA LOGIN</p>
+        <p>A php front end for grafana</p>
+      </div>
     </div>
 
-    <!-- Right Column -->
-    <div class="w3-twothird">
-
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Projects</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Perftool</b></h5>
-
-					<h6 class="w3-text-teal"><img rel="shortcut icon" src="{{ url_for('static', filename='GitHub-Mark/PNG/GitHub-Mark-32px.png') }}"></img><a href=https://github.com/YajanaRao/Perftool> Perftool </a></h6>
-          <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Web Developer / something.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
-          <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Graphic Designer / designsomething.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
-        </div>
-      </div>
-
-      <div class="w3-container w3-card w3-white">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>W3Schools.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Forever</h6>
-          <p>Web Development! All I need to know in one place</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>London Business School</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2015</h6>
-          <p>Master Degree</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>School of Coding</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2010 - 2013</h6>
-          <p>Bachelor Degree</p><br>
-        </div>
-      </div>
-
-    <!-- End Right Column -->
-    </div>
-
-  <!-- End Grid -->
   </div>
-
-  <!-- End Page Container -->
 </div>
 
 <!-- Footer -->
