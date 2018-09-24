@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+$(document).ready(function(){
+    $("button.start").click(function(){
+        $("div.animate").animate({
+            // top: '10px',
+            height: 'auto',
+            width: '50%',
+            position: 'relative',
+            //left: '250px',
+            padding: '10px',
+            //opacity: '0.5',
+            //width: '750px'
+        });
+        //$("div.text").show();
+        $("div.text").fadeIn("slow");
+    });
+    $("button.stop").click(function(){
+        $("div.animate").animate({
+            margin:'auto',
+            // top: '10px',
+            height: 'auto',
+            width: 'auto',
+            position: 'relative',
+            //left: '250px',
+            //opacity: '0.5',
+            //width: '750px'
+        });
+        //$("div.text").show();
+        $("div.text").fadeOut("slow");
+    });
+});
+
+
+$(document).ready(function(){
+    $("button.enter").click(function(){
+      var str = $('#msg').val();
+      console.log(str);
+      showHint(str);
+      $('#msg').val('');
+    })
+});
+function showHint(str) {
+  console.log(str);
+    if (str.length == 0) {
+        // document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+      $("div.chatbox").append('<div class="row"><div class="col-sm-8 w3-card-4" style="background-color:#5cb85c;color:white;"><p>'+str+'</p></div><div class="col-sm-4"></div></div></div>');
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              console.log(this.responseText);
+              // response = JSON.parse(this.responseText);
+              response = this.responseText;
+
+              if (!!response){
+                    if (response == "none"){
+                      response = "I don't know what to replay, Can you teach me?"
+                      $("div.chatbox").append('<div class="row"><div class="col-sm-4"></div><div class="col-sm-8 w3-card-4" style="background-color:#e0e0e0;"><p>'+response+'</p></div></div>');
+                    }
+                    else{
+                      $("div.chatbox").append('<div class="row"><div class="col-sm-4"></div><div class="col-sm-8 w3-card-4" style="background-color:#e0e0e0;"><p>'+response+'</p></div></div>');
+                    }
+                    var objDiv = document.getElementById("chatbody");
+                    console.log(objDiv.scrollHeight);
+                    objDiv.scrollTop = objDiv.scrollHeight;
+                    // objDiv.scrollTop = 198;
+                    console.log(objDiv.scrollTop);
+                    // window.scrollBy(0, 100);
+                    // window.scrollTo(0,document.chatbody.scrollHeight);
+
+              }
+              else {
+                console.log("Something went wrong");
+                // document.getElementById("").innerHTML = "No Suggestions";
+              }
+
+
+            }
+        }
+        xmlhttp.open("GET", "gethint.php?q="+str, true);
+        xmlhttp.send();
+    }
+}
+</script>
+<style>
+#Container {
+  width: auto;
+  height: 400px;
+  position: relative;
+  background: red;
+}
+
+body{
+  border: 2px solid;
+}
+/* div.container{
+  float: right;
+  width: 30%;
+} */
+
+
+div.row{
+  padding: 10px;
+}
+
+#myContainer {
+  /* height: 200px; */
+  /* width: 100%;*/
+  position: absolute;
+  background: #adca5e;
+}
+
+
+#hit{
+
+}
+
+</style>
+</head>
+<body>
+<!-- <div class="container"> -->
+<div class="w3-card-4 chatbody" style="width:100%;height:500px;overflow:auto" id="chatbody">
+  <div class="container-fluid chatbox" id="chatbox">
+  <div class="row">
+    <div class="col-sm-4">
+      <!-- <p>Lorem ipsum...</p> -->
+    </div>
+    <div class="col-sm-8 w3-card-4" style="background-color:#e0e0e0;padding:10px">
+      <p> Welcome to chatbot. Don't be harsh on me, I'm just a kid..</p>
+    </div>
+  </div>
+</div>
+</div>
+<div class="input-group" style="width:100%;">
+  <input id="msg" class="form-control" type="text" style="border:1px solid #ccc" placeholder="Enter the message">
+  <div class="input-group-btn">
+<button type="button" class="btn btn-default enter" id="hit" style="float:right"><i class="glyphicon fa fa-telegram"></i></button>
+</div>
+</div>
+
+<!-- <div id="myContainer">
+  <div class="img">
+    <img src="{{ url_for('static', filename='image/yajana.png') }}">
+</div>
+</div> -->
+<!-- </div> -->
+
+<script>
+var input = document.getElementById("msg");
+input.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("hit").click();
+    }
+});
+</script>
+</body>
+
+</html>
