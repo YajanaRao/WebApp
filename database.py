@@ -38,8 +38,8 @@ class sqllite():
         self.conn.close()
 
 # sql = sqllite()
-# # sql.create_table()
-# # # sql.insert_data("how are you doing?","good. Thanks")
+# # # sql.create_table()
+# sql.insert_data("What can you do?","I can chat, ask me something")
 # # sql.show_data()
 # print(sql.get_output("how?"))
 # sql.close()
