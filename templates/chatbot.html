@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>chatbot</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function(){
     $("button.start").click(function(){
@@ -55,7 +60,7 @@ function showHint(str) {
         // document.getElementById("txtHint").innerHTML = "";
         return;
     } else {
-      $("div.chatbox").append('<div class="row"><div class="col-sm-8 w3-card-4" style="background-color:#5cb85c;color:white;"><p>'+str+'</p></div><div class="col-sm-4"></div></div></div>');
+      $("div.chatbox").append('<div class="row"><div class="col-8 w3-card-4" style="background-color:#5cb85c;color:white;"><p>'+str+'</p></div><div class="col-4"></div></div></div>');
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -66,10 +71,10 @@ function showHint(str) {
               if (!!response){
                     if (response == "none"){
                       response = "I don't know what to replay, Can you teach me?"
-                      $("div.chatbox").append('<div class="row"><div class="col-sm-4"></div><div class="col-sm-8 w3-card-4" style="background-color:#e0e0e0;"><p>'+response+'</p></div></div>');
+                      $("div.chatbox").append('  <div class="row"><div class="col-3"></div><div class="col-8 w3-card-4" style="background-color:#e0e0e0;padding:10px"><p>'+response+'</p></div><div class="col-1">  <img src="{{ url_for('static', filename='image/avatar.png') }}" class="img-circle" alt="Cinque Terre" width="40" height="50"></div></div>');
                     }
                     else{
-                      $("div.chatbox").append('<div class="row"><div class="col-sm-4"></div><div class="col-sm-8 w3-card-4" style="background-color:#e0e0e0;"><p>'+response+'</p></div></div>');
+                      $("div.chatbox").append('<div class="row"><div class="col-4"></div><div class="col-8 w3-card-4" style="background-color:#e0e0e0;"><p>'+response+'</p></div></div>');
                     }
                     var objDiv = document.getElementById("chatbody");
                     console.log(objDiv.scrollHeight);
@@ -92,6 +97,8 @@ function showHint(str) {
         xmlhttp.send();
     }
 }
+
+
 </script>
 <style>
 #Container {
@@ -138,27 +145,28 @@ div.row{
 </head>
 <body>
 <!-- <div class="container"> -->
+<div class="w3-card-4 row" style="background-color:#5cb85c;padding: 10px;height: 70px;margin-bottom: 10px;">
+  <div class="col-5">
+<img src="{{ url_for('static', filename='image/avatar.png') }}" class="img-circle center" alt="Cinque Terre" width="40" height="50">
+</div>
+<div class="col-7" style="float:left;">
+<h3 style="color:white;"> Dumb Chatbot</h3>
+</div>
+</div>
 <div class="w3-card-4 chatbody" style="width:100%;height:500px;overflow-x:auto;overflow-x: hidden;" id="chatbody">
 
-  <div class="w3-card-4 row" style="background-color:#5cb85c;padding: 10px;height: 70px;margin-bottom: 10px;">
-    <div class="col-sm-5">
-  <img src="{{ url_for('static', filename='image/avatar.png') }}" class="img-circle center" alt="Cinque Terre" width="40" height="50">
-</div>
-<div class="col-sm-7" style="float:left;">
-  <h3 style="color:white;"> Dumb Chatbot</h3>
-</div>
-</div>
+
   <div class="container-fluid chatbox" id="chatbox">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-3">
       <!-- <p>Lorem ipsum...</p> -->
     </div>
 
-    <div class="col-sm-8 w3-card-4" style="background-color:#e0e0e0;padding:10px">
+    <div class="col-8 w3-card-4" style="background-color:#e0e0e0;padding:10px">
       <p> Welcome to chatbot. Don't be harsh on me, I'm just a kid..</p>
     </div>
     <!-- <div class="w3-card-4"> -->
-    <div class="col-sm-1">
+    <div class="col-1">
       <img src="{{ url_for('static', filename='image/avatar.png') }}" class="img-circle" alt="Cinque Terre" width="40" height="50">
     <!-- </div></div> -->
   </div>
