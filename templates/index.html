@@ -23,6 +23,7 @@ p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
   position: absolute;
   background-color: black;
 }
+.mySlides {display:none;}
 </style>
 <!-- Resources -->
 <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
@@ -48,11 +49,15 @@ p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 	    <a href="#home" class="w3-bar-item w3-button w3-wide">YAJANA</a>
 	    <!-- Right-sided navbar links -->
 	    <div class="w3-right w3-hide-small">
-	      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-	      <a href="#me" class="w3-bar-item w3-button"><i class="fa fa-user"></i> ME</a>
-	      <a href="#projects" class="w3-bar-item w3-button"><i class="fa fa-th"></i> PROJECTS</a>
-	      <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>
-	      <a href="{{ url_for('ChatbotPage') }}" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CHAT</a>
+  	      <a href="#me" class="w3-bar-item w3-button"><i class="fa fa-user"></i> ME</a>
+  	      <a href="#projects" class="w3-bar-item w3-button"><i class="fa fa-th"></i> PROJECTS</a>
+  	      <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>
+  	      <a href="{{ url_for('project.ChatbotPage') }}" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CHAT</a>
+          {% if g.user %}
+  	        <a href="{{ url_for('project.logout') }}" class="w3-bar-item w3-button">LOGOUT</a>
+          {% else %}
+            <a href="{{ url_for('project.login') }}" class="w3-bar-item w3-button">LOGIN</a>
+          {% endif %}
 	    </div>
 	    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -65,37 +70,25 @@ p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 	<!-- Sidebar on small screens when clicking the menu icon -->
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
   <a href="#me" onclick="w3_close()" class="w3-bar-item w3-button">ME</a>
   <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">PROJECTS</a>
   <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
-  <a href="{{ url_for('ChatbotPage') }}" onclick="w3_close()" class="w3-bar-item w3-button">CHAT</a>
+  <a href="{{ url_for('project.ChatbotPage') }}" onclick="w3_close()" class="w3-bar-item w3-button">CHAT</a>
+  {% if g.user %}
+    <a href="{{ url_for('project.logout') }}" class="w3-bar-item w3-button">LOGOUT</a>
+  {% else %}
+    <a href="{{ url_for('project.login') }}" class="w3-bar-item w3-button">LOGIN</a>
+  {% endif %}
 </nav>
 <!-- Header -->
-<header class="bgimg-1 w3-display-container w3-red w3-center" style="padding:350px 16px">
+<header class="bgimg-1 w3-display-container w3-red w3-center" style="padding:350px 16px" id="home">
   <h1 class="w3-margin w3-jumbo">START PAGE</h1>
 	<h1 class="w3-margin w3-jumbo animated infinite bounce delay-2s">EXAMPLE</h1>
-  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" href="{{ url_for('project.login') }}">Get Started</button>
 </header>
   <div id ="myAnimation"></div>
 
-<script>
-// Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
 
-function w3_open() {
-    if (mySidebar.style.display === 'block') {
-        mySidebar.style.display = 'none';
-    } else {
-        mySidebar.style.display = 'block';
-    }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-}
-</script>
   <!-- <script>
 
   function myMove() {
@@ -160,6 +153,19 @@ function w3_close() {
   </div>
 </div>
 
+<div class="w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">SLIDE SHOW</h1>
+    <p>Find us at some address at some place or call us at 05050515-122330</p>
+    <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
+    <div class="w3-content w3-section" style="max-width:100%">
+      <img class="mySlides" src="https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg" height="700px" width="100%">
+      <!-- <img class="mySlides" src="https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_960_720.jpg" height="700px" width="1000px"> -->
+      <img class="mySlides" src="https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262__340.jpg" height="700px" width="100%">
+    </div>
+
+  </div>
+</div>
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64">
@@ -175,6 +181,38 @@ function w3_close() {
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
 
+<script>
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+    } else {
+        mySidebar.style.display = 'block';
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
 
 </body>
 </html>
