@@ -51,7 +51,7 @@ p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 	    <div class="w3-right w3-hide-small">
   	      <a href="#me" class="w3-bar-item w3-button"><i class="fa fa-user"></i> ME</a>
   	      <a href="#projects" class="w3-bar-item w3-button"><i class="fa fa-th"></i> PROJECTS</a>
-  	      <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>
+  	      <a href="#slides" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> SLIDE SHOW</a>
   	      <a href="{{ url_for('project.ChatbotPage') }}" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CHAT</a>
           {% if g.user %}
   	        <a href="{{ url_for('project.logout') }}" class="w3-bar-item w3-button">LOGOUT</a>
@@ -72,7 +72,7 @@ p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
   <a href="#me" onclick="w3_close()" class="w3-bar-item w3-button">ME</a>
   <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">PROJECTS</a>
-  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
+  <a href="#slides" onclick="w3_close()" class="w3-bar-item w3-button">SLIDE SHOW</a>
   <a href="{{ url_for('project.ChatbotPage') }}" onclick="w3_close()" class="w3-bar-item w3-button">CHAT</a>
   {% if g.user %}
     <a href="{{ url_for('project.logout') }}" class="w3-bar-item w3-button">LOGOUT</a>
@@ -153,7 +153,7 @@ p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
   </div>
 </div>
 
-<div class="w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge">
+<div class="w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge" id="slides">
   <div class="w3-content">
     <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">SLIDE SHOW</h1>
     <p>Find us at some address at some place or call us at 05050515-122330</p>
