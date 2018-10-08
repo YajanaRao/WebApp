@@ -59,7 +59,6 @@ def register():
 
 @bp.route("/login",methods=['GET','POST'])
 def login():
-
     if request.method == 'POST':
         error = None
         # form = LoginForm(request.form)
@@ -78,7 +77,6 @@ def login():
             return redirect(url_for('project.index'))
 
         flash(error)
-
     return render_template('login.html')
 
 @bp.route("/index")
