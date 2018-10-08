@@ -18,7 +18,7 @@
   {% for message in get_flashed_messages() %}
     <div class="flash alert" align="center">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-      {{ message }}</div>
+      <strong> ERROR!  </strong> {{ message }}</div>
   {% endfor %}
   {% block content %}{% endblock %}
 </section>
@@ -43,7 +43,7 @@
 
 								<div class="form-group">
 									<label for="password">Password
-										<a href="forgot.html" class="float-right">
+										<a href="{{ url_for('project.forgot') }}" class="float-right">
 											Forgot Password?
 										</a>
 									</label>

@@ -5,22 +5,31 @@
 	<meta name="author" content="Kodinger">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>My Login Page &mdash; Bootstrap 4 Login Page Snippet</title>
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/my-login.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my-login.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom.css') }}">
 </head>
 <body class="my-login-page">
+	<section class="content">
+	  {% for message in get_flashed_messages() %}
+	    <div class="flash alert" align="center">
+	      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+	     <strong> ERROR!  </strong> {{ message }}</div>
+	  {% endfor %}
+	  {% block content %}{% endblock %}
+	</section>
 	<section class="h-100">
 		<div class="container h-100">
 			<div class="row justify-content-md-center align-items-center h-100">
 				<div class="card-wrapper">
 					<div class="brand">
-						<img src="img/logo.jpg">
+						<img src="{{ url_for('static', filename='image/avatar.png') }}">
 					</div>
 					<div class="card fat">
 						<div class="card-body">
 							<h4 class="card-title">Forgot Password</h4>
-							<form method="POST">
-							 
+							<form method="POST" action="{{ url_for('project.forgot') }}">
+
 								<div class="form-group">
 									<label for="email">E-Mail Address</label>
 									<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
@@ -38,7 +47,7 @@
 						</div>
 					</div>
 					<div class="footer">
-						Copyright &copy; 2017 &mdash; Your Company 
+						Copyright &copy; 2017 &mdash; Yajana N Rao
 					</div>
 				</div>
 			</div>

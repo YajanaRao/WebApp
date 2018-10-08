@@ -57,6 +57,14 @@ def register():
         flash(error)
     return render_template('register.html')
 
+@bp.route("forgot",methods=['GET','POST'])
+def forgot():
+    if request.method == 'POST':
+        error = None
+        error = "Not implimented"
+        flash(error)
+    return render_template('forgot.html')
+
 @bp.route("/login",methods=['GET','POST'])
 def login():
     if request.method == 'POST':
