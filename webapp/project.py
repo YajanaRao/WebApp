@@ -76,12 +76,12 @@ def login():
         if user is None:
             error = 'Incorrect username.'
 
-        elif not check_password_hash(user[3], password):
+        elif not check_password_hash(user['password'], password):
             error = 'Incorrect password.'
 
         if error is None:
             session.clear()
-            session['user_id'] = user[0]
+            session['user_id'] = user['id']
             return redirect(url_for('project.index'))
 
         flash(error)
@@ -109,9 +109,9 @@ def login_required(view):
 
 
 
-@bp.route("/chatbot")
-def ChatbotPage():
-    return render_template('chatbot.html')
+@bp.route("/support")
+def support():
+    return render_template('support.html')
 
 
 
@@ -119,7 +119,7 @@ def ChatbotPage():
 def getHint():
     if request.method == 'GET':
         msg = request.args.get('q')
-        response = db.get_output(msg)
+        response = db.get_output(msg.lower())
         if response:
             return response
         else:

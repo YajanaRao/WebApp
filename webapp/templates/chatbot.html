@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>chatbot</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div class="chatbot">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<meta charset="utf-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -60,7 +55,7 @@ function showHint(str) {
         // document.getElementById("txtHint").innerHTML = "";
         return;
     } else {
-      $("div.chatbox").append('<div class="row"><div class="col-8 w3-card-4" style="background-color:#5cb85c;color:white;"><p>'+str+'</p></div><div class="col-4"></div></div></div>');
+      $("div.chatbox").append('<div class="row"><div class="col-8 w3-card-4 question"><p>'+str+'</p></div><div class="col-4"></div></div></div>');
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -71,10 +66,10 @@ function showHint(str) {
               if (!!response){
                     if (response == "none"){
                       response = "I don't know what to replay, Can you teach me?"
-                      $("div.chatbox").append('  <div class="row"><div class="col-3"></div><div class="col-8 w3-card-4" style="background-color:#e0e0e0;padding:10px"><p>'+response+'</p></div><div class="col-1">  <img src="{{ url_for('static', filename='image/avatar.png') }}" class="img-circle" alt="Cinque Terre" width="40" height="50"></div></div>');
+                      $("div.chatbox").append('<div class="row"><div class="col-1"></div><div class="col-8 w3-card-4 response"><p></b>'+response+'</b></p></div><div class="col-1">  <img src="{{ url_for('static', filename='image/avatar.png') }}" class="img-circle" alt="Cinque Terre" width="40" height="50"></div></div>');
                     }
                     else{
-                      $("div.chatbox").append('<div class="row"><div class="col-4"></div><div class="col-8 w3-card-4" style="background-color:#e0e0e0;"><p>'+response+'</p></div></div>');
+                      $("div.chatbox").append('<div class="row"><div class="col-1"></div><div class="col-8 w3-card-4 response" ><p><b>'+response+'</b></p></div><div class="col-1">  <img src="{{ url_for('static', filename='image/avatar.png') }}" class="img-circle" alt="Cinque Terre" width="40" height="50"></div></div>');
                     }
                     var objDiv = document.getElementById("chatbody");
                     console.log(objDiv.scrollHeight);
@@ -101,34 +96,35 @@ function showHint(str) {
 
 </script>
 <style>
-#Container {
-  width: auto;
-  height: 100%;
-  position: relative;
-  background: red;
+
+
+.chatframe{
+  /* height: 100vh; */
+  border: 2px solid;
+  position:relative;
+  bottom:0px;
+  width:100%;
+  background-color: white;
 }
 
-body{
-  border: 2px solid;
-  height: 100vh;
+.response{
+  background-color:#e0e0e0;
+}
+
+.question{
+  background-color:#5cb85c;
+  color:white;
 }
 /* div.container{
   float: right;
   width: 30%;
 } */
 
-
 div.row{
   padding: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
-
-#myContainer {
-  /* height: 200px; */
-  /* width: 100%;*/
-  position: absolute;
-  background: #adca5e;
-}
-
 
 #hit{
 
@@ -142,29 +138,42 @@ div.row{
     /* width: 50%; */
 }
 
+.chatbot{
+  /* display:none; */
+  height:500px;
+  width:400px;
+  right: 0px;
+  bottom:160px;
+  position:fixed;
+  padding: 20px;
+}
+
 </style>
 </head>
-<body>
+<div class="chatframe" id="chatframe">
 <!-- <div class="container"> -->
-<div class="w3-card-4 row" style="background-color:#5cb85c;padding: 10px;">
+<div class="w3-card-4 row" style="background-color:#5cb85c;">
   <div class="col-5">
-<img src="{{ url_for('static', filename='image/avatar.png') }}" class="img-circle center" alt="Cinque Terre" width="40" height="50">
+    <img src="{{ url_for('static', filename='image/avatar.png') }}" class="img-circle center" alt="Cinque Terre" width="40" height="50">
+  </div>
+  <div class="col-7" style="float:left;">
+    <h3 style="color:white;"> Dumb Chatbot</h3>
+  </div>
 </div>
-<div class="col-7" style="float:left;">
-<h3 style="color:white;"> Dumb Chatbot</h3>
-</div>
-</div>
-<div class="w3-card-4 chatbody" style="width:100%;height:88%;overflow-x:auto;overflow-x: hidden;" id="chatbody">
-
-
+<div class="w3-card-4 chatbody" style="overflow-x:auto;overflow-x: hidden;height:500px;" id="chatbody">
   <div class="container-fluid chatbox" id="chatbox">
   <div class="row" style="margin-top:10px ;">
     <div class="col-1">
       <!-- <p>Lorem ipsum...</p> -->
     </div>
 
-    <div class="col-8 w3-card-4" style="background-color:#e0e0e0;padding:10px">
-      <p> Welcome to chatbot. Don't be harsh on me, I'm just a kid..</p>
+    <div class="col-8 w3-card-4 response">
+      {% if g.user %}
+          <p><b> Welcome  {{g.user.username}}. Don't be harsh on me, I'm just a kid..</b></p>
+      {% else %}
+          <p><b> Welcome to chatbot. Don't be harsh on me, I'm just a kid..</b></p>
+      {% endif %}
+
     </div>
     <!-- <div class="w3-card-4"> -->
     <div class="col-1">
@@ -175,10 +184,10 @@ div.row{
 </div>
 </div>
 <div class="input-group" style="width:100%;">
-  <input id="msg" class="form-control" type="text" style="border:1px solid #ccc" placeholder="Enter the message">
+  <input id="msg" class="form-control" type="text" style="border:2px solid #ccc;" placeholder="Enter the message">
   <div class="input-group-btn">
-<button type="button" class="btn btn-default enter" id="hit" style="float:right"><i class="glyphicon fa fa-telegram"></i></button>
-</div>
+    <button type="button" class="btn btn-default enter" id="hit" style="float:right"><i class="glyphicon fa fa-telegram"></i></button>
+  </div>
 </div>
 
 <!-- <div id="myContainer">
@@ -189,6 +198,7 @@ div.row{
 <!-- </div> -->
 
 <script>
+// to submit on enter
 var input = document.getElementById("msg");
 input.addEventListener("keyup", function(event) {
     event.preventDefault();
@@ -196,7 +206,9 @@ input.addEventListener("keyup", function(event) {
         document.getElementById("hit").click();
     }
 });
-</script>
-</body>
 
-</html>
+
+
+</script>
+</div>
+</div>
