@@ -20,7 +20,8 @@ import functools
 bp = Blueprint('project',__name__,url_prefix='/project')
 db = sqllite()
 auth = Authentication()
-
+db.create_table()
+auth.create_table()
 # app.config.update(dict(
 #     SECRET_KEY="powerful secretkey",
 #
@@ -46,7 +47,6 @@ def register():
         form = request.form
 
         # return str(form)
-        auth.create_table()
         if auth.get_id(form['name']) is not None:
              error = 'User {} is already registered.'.format(form['name'])
         else:
