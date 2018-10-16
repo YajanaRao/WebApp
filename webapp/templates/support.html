@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Support</title>
-<meta charset="utf-8">
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}Support{% endblock %}</h1>
+{% endblock %}
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-</head>
-<body>
-  {% include "header.html" %}
+{% block content %}
+  <h1 class="title"> Happy to help </h1>
   {% include "chatbot.html" %}
-<div>
-  <h1> need some help</p>
-  </div>
-</body>
-</html>
+{% endblock %}

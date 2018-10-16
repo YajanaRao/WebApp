@@ -1,9 +1,9 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
-<html>
-<title>Perftool Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+{% block header %}
+  <h1>{% block title %}HOME{% endblock %}</h1>
+{% endblock %}
+{% block content %}
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
@@ -12,16 +12,7 @@
  <!-- or -->
  <link rel="stylesheet"
  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-<style>
-p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
-.mySlides {display:none;}
-.center {
-    margin: auto;
-    width: 70%;
-    border: 3px solid white;
-    padding: 10px;
-}
-</style>
+
 <!-- Resources -->
 <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
 <script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
@@ -36,17 +27,14 @@ p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <!-- Chart code -->
 <script src="{{ url_for('static', filename='js/map.js') }}"></script>
 
-
 <!-- telks talk about body -->
-<body class="w3-light-grey">
 {% include "header.html" %}
 <!-- Header -->
 <header class="bgimg-1 w3-display-container w3-red w3-center" style="padding:350px 16px" id="home">
-  <h1 class="w3-margin w3-jumbo">START PAGE</h1>
-	<h1 class="w3-margin w3-jumbo animated infinite bounce delay-2s">EXAMPLE</h1>
+  <h1 class="w3-margin w3-jumbo title" style="color:white;">START PAGE</h1>
+	<h1 class="w3-margin w3-jumbo animated infinite bounce delay-2s title" style="color:white;">EXAMPLE</h1>
   <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" href="{{ url_for('project.login') }}">Get Started</button>
 </header>
-  <div id ="myAnimation"></div>
 
   <!-- <script>
 
@@ -76,7 +64,7 @@ p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 
 <!-- Services -->
 <div class="w3-container" id="me" style="margin-top:75px">
-  <h1 class="w3-xxxlarge w3-text-red"><b>Here I'm.</b></h1>
+  <h1 class="w3-xxxlarge w3-text-red title"><b>Here I'm.</b></h1>
   <hr style="width:50px;border:5px solid red" class="w3-round">
   <p>We are a interior design service that focus on what's best for your home and what's best for you!</p>
   <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
@@ -90,12 +78,12 @@ p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <!-- About Container -->
 <div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="projects">
   <div class="w3-content">
-    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Projects</h1>
+    <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">Projects</h1>
     <p>I love creating and contributing to the open source project, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     <!-- <p><strong>The Chef?</strong> Mr. Italiano himself<img src="/w3images/chef.jpg" style="width:150px" class="w3-circle w3-right" alt="Chef"></p> -->
     <p>We are proud of our interiors.</p>
     <!-- <img src="/w3images/onepage_restaurant.jpg" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurant"> -->
-    <h1><b>MY PROJECTS</b></h1>
+    <h1 class="title"><b>MY PROJECTS</b></h1>
 
     <div class="w3-row">
       <div class="w3-col s6">
@@ -114,7 +102,7 @@ p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 
 <div class="w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge" id="slides">
   <div class="w3-content">
-    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">SLIDE SHOW</h1>
+    <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">SLIDE SHOW</h1>
     <p>Find us at some address at some place or call us at 05050515-122330</p>
     <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
     <div class="w3-content w3-section center" style="max-width:100%">
@@ -126,19 +114,7 @@ p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
   </div>
 </div>
 
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </div>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-</footer>
+
 
 <script>
 // Toggle between showing and hiding the sidebar when clicking the menu icon
@@ -160,5 +136,4 @@ function carousel() {
 }
 </script>
 
-</body>
-</html>
+{% endblock %}

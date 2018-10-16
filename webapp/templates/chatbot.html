@@ -9,99 +9,106 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <!-- react js imports -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+
     <script>
-    var clientHeight = $('#header').height();
-    console.log("header hieght "+clientHeight);
-    var windowHieght = window.innerHeight;
-    console.log(windowHieght);
-    var percentage = clientHeight / windowHieght * 100;
-    console.log(percentage);
-    console.log(100-percentage+"vh");
-    // $("#chatbot").css("height",100-clientHeight+"vh")
-      $(document).ready(function(){
-          $("button.start").click(function(){
-              $("div.animate").animate({
-                  // top: '10px',
-                  height: 'auto',
-                  width: '50%',
-                  position: 'relative',
-                  //left: '250px',
-                  padding: '10px',
-                  //opacity: '0.5',
-                  //width: '750px'
-              });
-              //$("div.text").show();
-              $("div.text").fadeIn("slow");
-          });
-          $("button.stop").click(function(){
-              $("div.animate").animate({
-                  margin:'auto',
-                  // top: '10px',
-                  height: 'auto',
-                  width: 'auto',
-                  position: 'relative',
-                  //left: '250px',
-                  //opacity: '0.5',
-                  //width: '750px'
-              });
-              //$("div.text").show();
-              $("div.text").fadeOut("slow");
-          });
-      });
-
-
-      $(document).ready(function(){
-          $("button.enter").click(function(){
-            var str = $('#msg').val();
-            console.log(str);
-            showHint(str);
-            $('#msg').val('');
-          })
-      });
-      function showHint(str) {
-        console.log(str);
-          if (str.length == 0) {
-              // document.getElementById("txtHint").innerHTML = "";
-              return;
-          } else {
-            $("div.chatbox").append('<div class="row"><div class="col-8 w3-card-4 question"><p>'+str+'</p></div><div class="col-4"></div></div></div>');
-              var xmlhttp = new XMLHttpRequest();
-              xmlhttp.onreadystatechange = function() {
-                  if (this.readyState == 4 && this.status == 200) {
-                    console.log(this.responseText);
-                    // response = JSON.parse(this.responseText);
-                    response = this.responseText;
-
-                    if (!!response){
-                          if (response == "none"){
-                            response = "I don't know what to replay, Can you teach me?"
-                            $("div.chatbox").append('<div class="row"><div class="col-1"></div><div class="col-8 w3-card-4 response"><p></b>'+response+'</b></p></div><div class="col-1">  <img src="{{ url_for('static', filename='image/avatar.png') }}" class="img-circle" alt="Cinque Terre" width="40" height="50"></div></div>');
-                          }
-                          else{
-                            $("div.chatbox").append('<div class="row"><div class="col-1"></div><div class="col-8 w3-card-4 response" ><p><b>'+response+'</b></p></div><div class="col-1">  <img src="{{ url_for('static', filename='image/avatar.png') }}" class="img-circle" alt="Cinque Terre" width="40" height="50"></div></div>');
-                          }
-                          var objDiv = document.getElementById("chatbody");
-                          console.log(objDiv.scrollHeight);
-                          objDiv.scrollTop = objDiv.scrollHeight;
-                          // objDiv.scrollTop = 198;
-                          console.log(objDiv.scrollTop);
-                          // window.scrollBy(0, 100);
-                          // window.scrollTo(0,document.chatbody.scrollHeight);
-
-                    }
-                    else {
-                      console.log("Something went wrong");
-                      // document.getElementById("").innerHTML = "No Suggestions";
-                    }
-
-
-                  }
-              }
-              xmlhttp.open("GET", "gethint.php?q="+str, true);
-              xmlhttp.send();
-          }
-      }
-
+    // var clientHeight = $('#header').height();
+    // console.log("header hieght "+clientHeight);
+    // var windowHieght = window.innerHeight;
+    // console.log(windowHieght);
+    // var percentage = clientHeight / windowHieght * 100;
+    // console.log(percentage);
+    // console.log(100-percentage+"vh");
+    //   $(document).ready(function(){
+    //       $("button.start").click(function(){
+    //           $("div.animate").animate({
+    //               // top: '10px',
+    //               height: 'auto',
+    //               width: '50%',
+    //               position: 'relative',
+    //               //left: '250px',
+    //               padding: '10px',
+    //               //opacity: '0.5',
+    //               //width: '750px'
+    //           });
+    //           //$("div.text").show();
+    //           $("div.text").fadeIn("slow");
+    //       });
+    //       $("button.stop").click(function(){
+    //           $("div.animate").animate({
+    //               margin:'auto',
+    //               // top: '10px',
+    //               height: 'auto',
+    //               width: 'auto',
+    //               position: 'relative',
+    //               //left: '250px',
+    //               //opacity: '0.5',
+    //               //width: '750px'
+    //           });
+    //           //$("div.text").show();
+    //           $("div.text").fadeOut("slow");
+    //       });
+    //   });
+    //
+    //
+    //   $(document).ready(function(){
+    //       $("button.enter").click(function(){
+    //         var str = $('#msg').val();
+    //         console.log(str);
+    //         showHint(str);
+    //         $('#msg').val('');
+    //       })
+    //   });
+    //   function showHint(str) {
+    //     console.log(str);
+    //       if (str.length == 0) {
+    //           // document.getElementById("txtHint").innerHTML = "";
+    //           return;
+    //       } else {
+    //         $("div.chatbox").append('<div class="row"><div class="col-8 w3-card-4 question"><p>'+str+'</p></div><div class="col-4"></div></div></div>');
+    //           var xmlhttp = new XMLHttpRequest();
+    //           xmlhttp.onreadystatechange = function() {
+    //               if (this.readyState == 4 && this.status == 200) {
+    //                 console.log(this.responseText);
+    //                 // response = JSON.parse(this.responseText);
+    //                 response = this.responseText;
+    //
+    //                 if (!!response){
+    //                       if (response == "none"){
+    //                         response = "I don't know what to replay, Can you teach me?"
+    //                         $("div.chatbox").append('<div class="row"><div class="col-1"></div><div class="col-8 w3-card-4 response"><p></b>'+response+'</b></p></div><div class="col-1">  <img src="{{ url_for('static', filename='image/avatar.png') }}" class="img-circle" alt="Cinque Terre" width="40" height="50"></div></div>');
+    //                       }
+    //                       else{
+    //                         $("div.chatbox").append('<div class="row"><div class="col-1"></div><div class="col-8 w3-card-4 response" ><p><b>'+response+'</b></p></div><div class="col-1">  <img src="{{ url_for('static', filename='image/avatar.png') }}" class="img-circle" alt="Cinque Terre" width="40" height="50"></div></div>');
+    //                       }
+    //                       var objDiv = document.getElementById("chatbody");
+    //                       console.log(objDiv.scrollHeight);
+    //                       objDiv.scrollTop = objDiv.scrollHeight;
+    //                       // objDiv.scrollTop = 198;
+    //                       console.log(objDiv.scrollTop);
+    //                       // window.scrollBy(0, 100);
+    //                       // window.scrollTo(0,document.chatbody.scrollHeight);
+    //
+    //                 }
+    //                 else {
+    //                   console.log("Something went wrong");
+    //                   // document.getElementById("").innerHTML = "No Suggestions";
+    //                 }
+    //
+    //
+    //               }
+    //           }
+    //           xmlhttp.open("GET", "gethint.php?q="+str, true);
+    //           xmlhttp.send();
+    //       }
+    //   }
+    function chatbot(){
+      console.log("clicked");
+    }
 
     </script>
     <style>
@@ -141,13 +148,7 @@
 
       }
 
-      .center {
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          float: right;
-          /* width: 50%; */
-      }
+
 
       .chatbot{
         /* display:none; */
@@ -193,7 +194,7 @@
       <div class="input-group" style="width:100%;">
         <input id="msg" class="form-control" type="text" style="border:2px solid #ccc;" placeholder="Enter the message">
         <div class="input-group-btn">
-          <button type="button" class="btn btn-default enter" id="hit" style="float:right"><i class="glyphicon fa fa-telegram"></i></button>
+          <button type="button" class="btn btn-default enter" id="hit" style="float:right" onClick="{chatbot}"><i class="glyphicon fa fa-telegram"></i></button>
         </div>
       </div>
 

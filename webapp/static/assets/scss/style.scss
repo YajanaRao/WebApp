@@ -1,0 +1,22 @@
+$header-family: "Amatic SC";
+$header-color: white;
+.title {
+  font-family: $header-family;
+}
+
+body{
+  background-color: green;
+}
+
+p{
+  font-family: cursive;
+}
+.mySlides {display:none;}
+
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: right;
+}
