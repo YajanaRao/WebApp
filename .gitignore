@@ -4,6 +4,7 @@
 "*.db"
 "/database.db"
 "/static/.webassets-cache/"
+"/static/.webassets-cache"
 "/venv"
 "/__pycache__"
 "*.db"
