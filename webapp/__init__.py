@@ -8,7 +8,7 @@ def create_app():
     # existing code omitted
     assets = Environment(app)
     assets.url = app.static_url_path
-    scss = Bundle('assets\scss\style.scss', filters='pyscss', output='css\style.css')
+    scss = Bundle('assets/scss/style.scss', filters='pyscss', output='css/style.css')
     assets.register('scss_all', scss)
 
     app.config.from_mapping(
