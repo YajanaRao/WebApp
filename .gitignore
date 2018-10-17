@@ -1,6 +1,9 @@
 "*.pyc"
-"venv/"git
+"venv/"
 "__pycache__/"
 "*.db"
 "/database.db"
 "/static/.webassets-cache/"
+"/venv"
+"/__pycache__"
+"*.db"
