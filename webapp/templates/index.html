@@ -27,37 +27,13 @@
 <!-- Chart code -->
 <script src="{{ url_for('static', filename='js/map.js') }}"></script>
 
-<!-- telks talk about body -->
-{% include "header.html" %}
 <!-- Header -->
-<header class="bgimg-1 w3-display-container w3-red w3-center" style="padding:350px 16px" id="home">
-  <h1 class="w3-margin w3-jumbo title" style="color:white;">START PAGE</h1>
-	<h1 class="w3-margin w3-jumbo animated infinite bounce delay-2s title" style="color:white;">EXAMPLE</h1>
+<div class="bgimg-1 w3-display-container w3-red w3-center " style="padding:350px 16px" id="home">
+  <img src="{{ url_for('static', filename='image/planeimg.png') }}" id="plane">
+	<h1 class="w3-margin w3-jumbo animated infinite bounce delay-2s title" style="color:white;">START PAGE</h1>
   <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" href="{{ url_for('project.login') }}">Get Started</button>
-</header>
+</div>
 
-  <!-- <script>
-
-  function myMove() {
-    var elem = document.getElementById("myAnimation");
-    var pos = 0;
-    var id = setInterval(frame, 10);
-    console.log(pos);
-    function frame() {
-      if (pos == window.innerWidth) {
-        console.log("done doing");
-        // clearInterval(id);
-        pos = 0;
-      } else {
-        pos++;
-        // console.log(pos);
-        //elem.style.top = pos + 'px';
-        elem.style.left = pos + 'px';
-      }
-    }
-  }
-  //myMove();
-  </script> -->
 
 
 
@@ -105,10 +81,10 @@
     <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">SLIDE SHOW</h1>
     <p>Find us at some address at some place or call us at 05050515-122330</p>
     <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
-    <div class="w3-content w3-section center" style="max-width:100%">
-      <img class="mySlides" src="https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg" height="700px" width="100%">
+    <div class="w3-content w3-section slide-center" style="max-width:100%">
+      <img class="mySlides" src="https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg" height="100%" width="100%">
       <!-- <img class="mySlides" src="https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_960_720.jpg" height="700px" width="1000px"> -->
-      <img class="mySlides" src="https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262__340.jpg" height="700px" width="100%">
+      <img class="mySlides" src="https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a_400x400.jpeg" height="100%" width="100%">
     </div>
 
   </div>
@@ -135,5 +111,4 @@ function carousel() {
     setTimeout(carousel, 2000); // Change image every 2 seconds
 }
 </script>
-
 {% endblock %}

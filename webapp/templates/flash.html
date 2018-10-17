@@ -1,0 +1,11 @@
+<section class="content" style="padding-top:100px">
+  {% for message in get_flashed_messages() %}
+    <div class="flash alert" align="center">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      {{ message }}</div>
+  {% endfor %}
+</section>
+
+<div class="alert alert-warning" id="alert" style="display:none;">
+ <strong>Warning!</strong><p id="message"></p>
+</div>

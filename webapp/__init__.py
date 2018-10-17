@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from flask import render_template
+from flask import redirect,url_for
 from flask_assets import Environment, Bundle
 
 def create_app():
@@ -22,6 +22,6 @@ def create_app():
 
     @app.route("/")
     def hello():
-        return render_template('index.html')
+        return redirect(url_for('project.index'))
 
     return app
