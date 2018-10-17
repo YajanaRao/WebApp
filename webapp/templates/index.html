@@ -7,6 +7,7 @@
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <link rel="stylesheet"
  href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
  <!-- or -->
@@ -28,7 +29,7 @@
 <script src="{{ url_for('static', filename='js/map.js') }}"></script>
 
 <!-- Header -->
-<div class="bgimg-1 w3-display-container w3-red w3-center " style="padding:350px 16px" id="home">
+<div class="bgimg-1 w3-display-container w3-red w3-center " style="padding:350px 16px" id="home" data-aos="fade-up" data-aos-duration="1000">
   <img src="{{ url_for('static', filename='image/planeimg.png') }}" id="plane">
 	<h1 class="w3-margin w3-jumbo animated infinite bounce delay-2s title" style="color:white;">START PAGE</h1>
   <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" href="{{ url_for('project.login') }}">Get Started</button>
@@ -39,10 +40,10 @@
 
 
 <!-- Services -->
-<div class="w3-container" id="me" style="margin-top:75px">
+<div class="w3-container" id="me" style="margin-top:75px" data-aos="fade-in"  data-aos-duration="3000">
   <h1 class="w3-xxxlarge w3-text-red title"><b>Here I'm.</b></h1>
   <hr style="width:50px;border:5px solid red" class="w3-round">
-  <p>We are a interior design service that focus on what's best for your home and what's best for you!</p>
+  <p >We are a interior design service that focus on what's best for your home and what's best for you!</p>
   <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
   dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
   incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -53,7 +54,7 @@
 <br></br>
 <!-- About Container -->
 <div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="projects">
-  <div class="w3-content">
+  <div class="w3-content" data-aos="fade-in" data-aos-duration="3000">
     <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">Projects</h1>
     <p>I love creating and contributing to the open source project, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     <!-- <p><strong>The Chef?</strong> Mr. Italiano himself<img src="/w3images/chef.jpg" style="width:150px" class="w3-circle w3-right" alt="Chef"></p> -->
@@ -61,7 +62,7 @@
     <!-- <img src="/w3images/onepage_restaurant.jpg" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurant"> -->
     <h1 class="title"><b>MY PROJECTS</b></h1>
 
-    <div class="w3-row">
+    <div class="w3-row" >
       <div class="w3-col s6">
         <p><img src="{{ url_for('static', filename='image/PNG/GitHub-Mark-32px.png') }}"> Perftool</p>
         <p>A Perfromance Monitoring tool</p>
@@ -77,11 +78,11 @@
 </div>
 
 <div class="w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge" id="slides">
-  <div class="w3-content">
+  <div class="w3-content" data-aos="fade-in" data-aos-duration="3000">
     <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">SLIDE SHOW</h1>
     <p>Find us at some address at some place or call us at 05050515-122330</p>
     <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
-    <div class="w3-content w3-section slide-center" style="max-width:100%">
+    <div class="w3-content w3-section slide-center" style="max-width:100%" data-aos="zoom-in" data-aos-duration="1000">
       <img class="mySlides" src="https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg" height="100%" width="100%">
       <!-- <img class="mySlides" src="https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_960_720.jpg" height="700px" width="1000px"> -->
       <img class="mySlides" src="https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a_400x400.jpeg" height="100%" width="100%">
@@ -111,4 +112,8 @@ function carousel() {
     setTimeout(carousel, 2000); // Change image every 2 seconds
 }
 </script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 {% endblock %}
