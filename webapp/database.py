@@ -1,8 +1,16 @@
 import sqlite3
 from werkzeug.security import generate_password_hash
+
+def dict_factory(cursor, row):
+    d = {}
+    for idx, col in enumerate(cursor.description):
+        d[col[0]] = row[idx]
+    return d
+
 class sqllite():
     def __init__(self):
         self.conn = sqlite3.connect('database.db',check_same_thread=False)
+        self.conn.row_factory = dict_factory
         print("Opened database successfully")
 
     def create_table(self):
@@ -20,14 +28,15 @@ class sqllite():
 
     def show_data(self):
         output = self.conn.execute('SELECT * FROM conversation')
-        print(output.fetchall())
+        # print(output.fetchall())
 
     def get_output(self,input):
         query = self.conn.execute('''SELECT output FROM conversation WHERE input=(?)''',(input,))
         output = query.fetchall()
         if output:
-            print(output[0][0])
-            return str(output[0][0])
+            print(output)
+            # print(output[0][0])
+            return str(output[0]['output'])
 
         else:
             return "none"
@@ -39,6 +48,7 @@ class sqllite():
 class Authentication():
     def __init__(self):
         self.conn = sqlite3.connect('database.db',check_same_thread=False)
+        self.conn.row_factory = dict_factory
         print("Opened database successfully")
 
     def create_table(self):
@@ -62,14 +72,14 @@ class Authentication():
     def get_id(self,username):
         output = self.conn.execute('SELECT id FROM authentication WHERE username = ?', (username,))
         output = output.fetchone()
-        print(output)
+        print("id {}".format(output))
         return output
 
     def get_user_from_name(self,username):
         try:
             output = self.conn.execute('SELECT * FROM authentication WHERE username = ?', (username,))
             output = output.fetchone()
-            print(output)
+            print("all the values {}".format(output))
             return output
         except Exception as e:
             print(e)
@@ -78,7 +88,7 @@ class Authentication():
         try:
             output = self.conn.execute('SELECT * FROM authentication WHERE email = ?', (email,))
             output = output.fetchone()
-            print(output)
+            print("info from email {}".format(output))
             return output
         except Exception as e:
             print(e)
@@ -87,7 +97,7 @@ class Authentication():
         try:
             output = self.conn.execute('SELECT * FROM authentication WHERE id = ?', (id,))
             output = output.fetchone()
-            print(output)
+            print("output from id {}".format(output))
             return output
         except Exception as e:
             print(e)

@@ -1,0 +1,65 @@
+<!-- Navbar (sit on top) -->
+<div id="header">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!-- <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+   <style>
+   /* p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif} */
+   /* h1 {font-family: "Amatic SC", sans-serif} */
+   .w3-bar  {
+       padding: 16px;
+   }
+   </style>
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-card" id="myNavbar">
+
+      <a href="{{ url_for('project.index')}}" class="w3-bar-item w3-button w3-wide"><b>YAJANA</b></a>
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small">
+          <a href="{{ url_for('project.index')}}#projects" class="w3-bar-item w3-button"><i class="fa fa-th"></i> PROJECTS</a>
+          <a href="{{ url_for('project.index')}}#slides" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> SLIDE SHOW</a>
+          <a href="{{ url_for('project.support') }}" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> SUPPORT</a>
+          {% if g.user %}
+            <a href="{{ url_for('project.logout') }}" class="w3-bar-item w3-button">LOGOUT</a>
+          {% else %}
+            <a href="{{ url_for('project.login') }}" class="w3-bar-item w3-button"><i class="fa fa-user"></i> LOGIN</a>
+          {% endif %}
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+    <a href="{{ url_for('project.index')}}#work" onclick="w3_close()" class="w3-bar-item w3-button">PROJECTS</a>
+    <a href="{{ url_for('project.index')}}#slides" onclick="w3_close()" class="w3-bar-item w3-button">SLIDE SHOW</a>
+    <a href="{{ url_for('project.support') }}" onclick="w3_close()" class="w3-bar-item w3-button">SUPPORT</a>
+    {% if g.user %}
+      <a href="{{ url_for('project.logout') }}" class="w3-bar-item w3-button">LOGOUT</a>
+    {% else %}
+      <a href="{{ url_for('project.login') }}" class="w3-bar-item w3-button">LOGIN</a>
+    {% endif %}
+  </nav>
+  <script>
+    var mySidebar = document.getElementById("mySidebar");
+
+    function w3_open() {
+        if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+        } else {
+            mySidebar.style.display = 'block';
+        }
+    }
+
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+  </script>
+</div>

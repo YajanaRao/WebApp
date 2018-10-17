@@ -1,0 +1,211 @@
+$header-family: "Amatic SC";
+$paragraph-family: "Amatic SC";
+$header-color: white;
+$vertical-padding: 50px;
+.title {
+  font-family: $header-family;
+}
+
+p{
+  font-family: $paragraph-family;
+}
+
+
+.images {
+    display: block;
+    width: 50%;
+    margin: auto;
+
+    .loginIcon {
+          padding-bottom: 30px;
+    }
+}
+
+.mySlides {display:none;}
+
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: right;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.loginCard {
+  // padding-top: $vertical-padding;
+  padding-bottom: $vertical-padding;
+}
+
+.brand {
+	width: 90px;
+	height: 90px;
+	overflow: hidden;
+	border-radius: 50%;
+	margin: 0 auto;
+	margin: 40px auto;
+	box-shadow: 0 0 40px rgba(0,0,0,.05);
+}
+
+
+.closebtn:hover {
+    color: black;
+}
+
+.brand {
+	width: 90px;
+	height: 90px;
+	overflow: hidden;
+	border-radius: 50%;
+	margin: 0 auto;
+	margin: 40px auto;
+	box-shadow: 0 0 40px rgba(0,0,0,.05);
+	padding-bottom: 10px;
+}
+
+ .brand img {
+	width: 100%;
+}
+
+ .card-wrapper {
+	width: 400px;
+}
+
+ .card {
+	border-color: transparent;
+	box-shadow: 0 0 40px rgba(0,0,0,.05);
+}
+
+ .card.fat {
+	padding: 10px;
+}
+
+ .card .card-title {
+	margin-bottom: 30px;
+}
+
+ .form-control {
+	border-width: 2.3px;
+}
+
+.form-group label {
+	width: 100%;
+}
+
+ .btn.btn-block {
+	padding: 12px 10px;
+}
+
+ .margin-top20 {
+	margin-top: 20px;
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.slide-center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid white;
+    overflow: hidden;
+    height: 500px;
+}
+
+
+
+.chatframe{
+  /* height: 100vh; */
+  border: 4px solid;
+  position:relative;
+  bottom:0px;
+  width:100%;
+  background-color: white;
+  border-radius: 10px;
+  overflow:hidden;
+}
+
+.response{
+  background-color:#e0e0e0;
+}
+
+.question{
+  background-color:#5cb85c;
+  color:white;
+}
+/* div.container{
+  float: right;
+  width: 30%;
+} */
+
+div.row{
+  padding: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+
+.chatbot{
+  /* display:none; */
+  /* height:500px; */
+  /* width:400px; */
+  right: 0px;
+  bottom:0px;
+  position:fixed;
+  padding: 10px;
+}
+
+@media screen and (max-width: 425px) {
+   .card-wrapper {
+		width: 90%;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	 .card.fat {
+		padding: 0;
+	}
+
+	 .card.fat .card-body {
+		padding: 15px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+    #plane {
+        width: 100%;
+    }
+
+    .images{
+      width: 100%;
+    }
+
+    .slide-center {
+      width: 100%;
+    }
+
+    .chatbot{
+      position: relative;
+      
+    }
+}
