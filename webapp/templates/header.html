@@ -21,7 +21,7 @@
           <a href="{{ url_for('project.index')}}#slides" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> SLIDE SHOW</a>
           <a href="{{ url_for('project.support') }}" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> SUPPORT</a>
           {% if g.user %}
-            <a href="{{ url_for('project.logout') }}" class="w3-bar-item w3-button">LOGOUT</a>
+            <a href="{{ url_for('project.logout') }}" class="w3-bar-item w3-button"><i class="fa fa-user"></i> LOGOUT</a>
           {% else %}
             <a href="{{ url_for('project.login') }}" class="w3-bar-item w3-button"><i class="fa fa-user"></i> LOGIN</a>
           {% endif %}
