@@ -136,9 +136,9 @@ p {
 }
 
 @media screen and (max-width: 320px) {
-  .card.fat {
+  .w3-card.fat {
     padding: 0;   }
-    .card.fat .card-body {
+    .w3-card.fat .card-body {
       padding: 15px;   }
 }
 
