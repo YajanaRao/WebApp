@@ -1,17 +1,25 @@
 <section class="content" style="padding-top:100px">
-  {% for message in get_flashed_messages() %}
-   {% if error %}
-    <div class="flash alert" align="center">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, message in messages %}
+   {% if category == "error" %}
+    <div class="flash alert-danger alert" align="center">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
       {{ message }}</div>
-      {% else %}
+
+      {% elif category == "success" %}
       <div class="flash alert-success alert" align="center">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         {{ message }}</div>
+
+      {% else %}
+      <div class="flash alert-info alert" align="center">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{ message }}</div>
+
+        <div class="alert" id="alert" style="display:none;">
+         <strong>{{category}} !</strong><p id="message"></p>
+        </div>
    {% endif %}
   {% endfor %}
+  {% endwith %}
 </section>
-
-<div class="alert alert-warning" id="alert" style="display:none;">
- <strong>Warning!</strong><p id="message"></p>
-</div>

@@ -32,11 +32,11 @@ def register():
         else:
             user = User(username=form['name'],email=form['email'],password=form['password'])
             User.create(user)
-            flash('Account created successfully')
+            flash('Account created successfully','success')
             return redirect(url_for('project.login'))
 
 
-        flash(error)
+        flash(error,'error')
     return render_template('register.html')
 
 @bp.route("forgot",methods=['GET','POST'])
@@ -44,7 +44,7 @@ def forgot():
     if request.method == 'POST':
         error = None
         error = "Not implimented"
-        flash(error)
+        flash(error,'error')
     return render_template('forgot.html')
 
 @bp.route("/login",methods=['GET','POST'])
@@ -66,7 +66,7 @@ def login():
             session['user_id'] = user.id
             return redirect(url_for('project.index'))
 
-        flash(error)
+        flash(error,'error')
     return render_template('login.html')
 
 @bp.route("/index")
