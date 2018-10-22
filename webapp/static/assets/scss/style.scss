@@ -2,14 +2,18 @@ $header-family: "Amatic SC";
 $paragraph-family: "Amatic SC";
 $header-color: white;
 $vertical-padding: 50px;
-.title {
-  font-family: $header-family;
-}
 
 p{
   font-family: $paragraph-family;
   font-size: 20px;
 }
+
+
+.title {
+  font-family: $header-family;
+}
+
+
 
 
 .images {

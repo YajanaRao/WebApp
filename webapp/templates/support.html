@@ -3,7 +3,7 @@
   <h1>{% block title %}Support{% endblock %}</h1>
 {% endblock %}
 {% block content %}
-<div style="padding-top:100px;"
+<div style="padding-top:100px;">
   <h1 class="w3-center w3-jumbo title"> Happy to help </h1>
   <p>We are a interior design service that focus on what's best for your home and what's best for you!</p>
   <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
@@ -11,5 +11,28 @@
   incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
   </p>
 </div>
+<div class="container">
+		{% if session['user_id'] %}
+			<form name="topaypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_xclick-subscriptions">
+				<input type="hidden" name="custom" value="{{session['username']}}"/>
+				<input type="hidden" name="business" value="harrison-facilitator@pythonprogramming.net">
+				<input type="hidden" name="item_name" value="subscription button">
+				<input type="hidden" name="item_number" value="500">
+				<input type="hidden" name="no_shipping" value="1">
+				<input type="hidden" name="a3" value="10.00">
+				<input type="hidden" name="p3" value="1">
+				<input type="hidden" name="t3" value="M">
+				<input type="hidden" name="src" value="1">
+				<input type="hidden" name="sra" value="1">
+				<input type="hidden" name="return" value="http://104.236.221.91/success/">
+				<input type="hidden" name="cancel_return" value="http://104.236.221.91/">
+				<input type="hidden" name="notify_url" value="http://104.236.221.91/ipn/">
+				<input type="submit" value="Subscribe" name="submit" title="PayPal - The safer, easier way to pay online!" class="btn btn-primary">
+			</form>
+		{% else %}
+			<p>You need to be <a href="/project/login/" target="blank"><strong>logged in</strong></a> to subscribe.</p>
+		{% endif %}
+	</div>
   {% include "chatbot.html" %}
 {% endblock %}
