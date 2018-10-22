@@ -22,7 +22,6 @@ app.config.from_mapping(
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
-db.create_all()
 from webapp import project
 
     # @app.route("/")

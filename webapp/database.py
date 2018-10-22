@@ -1,8 +1,6 @@
 from werkzeug.security import generate_password_hash
 from webapp import db
 
-
-
 class Conversation(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     input = db.Column(db.String(300),unique=True,nullable=False)
@@ -33,3 +31,6 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+def setup():
+    db.create_all()
