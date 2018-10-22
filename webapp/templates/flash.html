@@ -1,8 +1,14 @@
 <section class="content" style="padding-top:100px">
   {% for message in get_flashed_messages() %}
+   {% if error %}
     <div class="flash alert" align="center">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
       {{ message }}</div>
+      {% else %}
+      <div class="flash alert-success alert" align="center">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{ message }}</div>
+   {% endif %}
   {% endfor %}
 </section>
 
