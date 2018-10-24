@@ -101,9 +101,11 @@ def support():
 def getHint():
     if request.method == 'GET':
         msg = request.args.get('q')
+        print(msg)
         response = Conversation.query.filter_by(input=msg.lower()).first()
         if response:
-            return jsonify(response)
+            print(response.output)
+            return jsonify(response.output)
         else:
             # return ' '.join(matching)
             return jsonify("I dont know what you are talking about")
