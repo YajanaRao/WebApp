@@ -101,14 +101,23 @@ def support():
 def getHint():
     if request.method == 'GET':
         msg = request.args.get('q')
-        print(msg)
-        response = Conversation.query.filter_by(input=msg.lower()).first()
-        if response:
-            print(response.output)
-            return jsonify(response.output)
+        if msg:
+
+            if "delay" in  msg.lower():
+                import time
+                time.sleep(5)
+                return jsonify("thanks for waiting")
+            print(msg)
+            response = Conversation.query.filter_by(input=msg.lower()).first()
+            if response:
+                print(response.output)
+                return jsonify(response.output)
+            else:
+                # return ' '.join(matching)
+                return jsonify("I dont know what you are talking about")
+
         else:
-            # return ' '.join(matching)
-            return jsonify("I dont know what you are talking about")
+            return jsonify("I didn't hear you")
 
     elif request.method == 'POST':
         return "me again"
