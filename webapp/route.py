@@ -37,7 +37,7 @@ def register():
 
 
         flash(error,'error')
-    return render_template('register.html')
+    return render_template('auth/register.html')
 
 @bp.route("forgot",methods=['GET','POST'])
 def forgot():
@@ -45,7 +45,7 @@ def forgot():
         error = None
         error = "Not implimented"
         flash(error,'error')
-    return render_template('forgot.html')
+    return render_template('auth/forgot.html')
 
 @bp.route("/login",methods=['GET','POST'])
 def login():
@@ -67,7 +67,7 @@ def login():
             return redirect(url_for('project.index'))
 
         flash(error,'error')
-    return render_template('login.html')
+    return render_template('auth/login.html')
 
 @bp.route("/index")
 def index():

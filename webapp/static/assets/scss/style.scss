@@ -180,6 +180,44 @@ div.row{
   padding: 10px;
 }
 
+.amPm {
+  font-size: 30px;
+  padding: 10px;
+}
+
+.time {
+  font-size: 170px;
+}
+
+div.ani {
+ animation: lifetime 60s infinite;
+ font-family: cursive;
+ text-overflow: hide;
+ width: 20px;
+ padding: 10px;
+ border-radius : 5px;
+ padding: 10px;
+}
+
+
+/* Standard syntax */
+@keyframes lifetime {
+  0%{
+    background-color:white;
+    width: 100%;
+    color: black;
+    opacity: 100;
+    font-weight: bold;
+  }
+  100%{
+    background-color: rgb(244, 67, 54);
+    width: 0%;
+    color: rgb(244, 67, 54) ;
+    display: none;
+    opacity: 0;
+  }
+}
+
 @media screen and (max-width: 425px) {
    .card-wrapper {
 		width: 90%;
@@ -194,7 +232,8 @@ div.row{
 
 	 .w3-card.fat .card-body {
 		padding: 15px;
-	}
+  }
+  
 }
 
 @media only screen and (max-width: 500px) {
@@ -213,5 +252,8 @@ div.row{
     .chatbot{
       position: relative;
 
+    }
+    .time{
+      font-size: 100px;
     }
 }

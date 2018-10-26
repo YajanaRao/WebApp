@@ -11,10 +11,10 @@ TodoApp
 	- ChatForm
 */
 var todoItems = [];
-// todoItems.push({ index: 1, output: 'hello', input: "hi", done: false });
-// todoItems.push({ index: 2, output: 'hello', input: "hello", done: true });
+todoItems.push({ index: 1, output: 'hello', input: "hi", done: false });
+todoItems.push({ index: 2, output: 'hello', input: "hello", done: true });
 
-class ChatList extends React.Component {
+class TodoList extends React.Component {
   render() {
     var items = this.props.items.map((item, index) => {
       return (
@@ -78,90 +78,67 @@ class ChatListItem extends React.Component {
     const { error, isLoaded, items } = this.state;
     if (error) {
       return (
-        <div>
-          <div className="row">
-            <div className="col-1">
-              <img src="http://localhost:5000/static/image/user.png" style={floatRight} className="img-circle" alt="Cinque Terre" width="40" height="50" />
+        <ul className="list-group">
+          <li className="list-group-item ">
+            <div className={todoClass}>
+              <span className="glyphicon glyphicon-ok icon" aria-hidden="true" onClick={this.onClickDone}></span>
+              {this.props.item.input}
+              <button type="button" className="close" onClick={this.onClickClose}>&times;</button>
             </div>
-            <div className="col-10 w3-card-4 question">
-              <p>{this.props.item.input}</p>
+          </li>
+          <li className="list-group-item ">
+            <div className={todoClass}>
+              {error}
+              <button type="button" className="close" onClick={this.onClickClose}>&times;</button>
+              <span className="glyphicon glyphicon-ok icon" aria-hidden="true" onClick={this.onClickDone}></span>
             </div>
-            <div className="col-1"></div>
-          </div>
-          <div className="row">
-            <div className="col-1"></div>
-            <div className="col-10 w3-card-4 response" >
-              <p><b>{error}</b></p>
-            </div>
-            <div className="col-1">
-              <img src="http://localhost:5000/static/image/avatar.png"  className="img-circle" alt="Cinque Terre" width="40" height="50" />
-            </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       );
     } else if (!isLoaded) {
       console.log("loading");
       return (
-        <div>
-          <div className="row">
-            <div className="col-1">
-              <img src="http://localhost:5000/static/image/user.png" style={floatRight}  className="img-circle" alt="Cinque Terre" width="40" height="50" />
+        <ul className="list-group">
+          <li className="list-group-item ">
+            <div className={todoClass}>
+              <span className="glyphicon glyphicon-ok icon" aria-hidden="true" onClick={this.onClickDone}></span>
+              {this.props.item.input}
+              <button type="button" className="close" onClick={this.onClickClose}>&times;</button>
             </div>
-            <div className="col-10 w3-card-4 question">
-              <p>{this.props.item.input}</p>
+          </li>
+          <li className="list-group-item ">
+            <div className={todoClass}>
+              <span className="glyphicon glyphicon-ok icon" aria-hidden="true" onClick={this.onClickDone}></span>
+              loading...
+              <button type="button" className="close" onClick={this.onClickClose}>&times;</button>
             </div>
-            <div className="col-1"></div>
-          </div>
-          <div className="row">
-            <div className="col-1"></div>
-            <div className="col-10 w3-card-4 response" >
-              <p><b>Loading...</b></p>
-            </div>
-            <div className="col-1">
-              <img src="http://localhost:5000/static/image/avatar.png" className="img-circle" alt="Cinque Terre" width="40" height="50" />
-            </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       );
     } else {
       console.log(items);
       return (
-        <div>
-          <div className="row">
-            <div className="col-2">
-              <img src="http://localhost:5000/static/image/user.png" style={floatRight} className="img-circle" alt="Cinque Terre" width="40" height="50" />
+        <ul className="list-group">
+          <li className="list-group-item ">
+            <div className={todoClass}>
+              {this.props.item.input}
+              <button type="button" className="close" onClick={this.onClickClose}>&times;</button>
             </div>
-            <div className="col-9 w3-card-4 question">
-              <p>{this.props.item.input}</p>
+          </li>
+          <li className="list-group-item ">
+            <div className={todoClass}>
+              {items}
+              <button type="button" className="close" onClick={this.onClickClose}>&times;</button>
+              <span className="glyphicon glyphicon-ok icon" aria-hidden="true" onClick={this.onClickDone}></span>
             </div>
-            <div className="col-1"></div>
-          </div>
-          <div className="row">
-            <div className="col-1"></div>
-            <div className="col-9 w3-card-4 response" >
-              <p><b>{items}</b></p>
-            </div>
-            <div className="col-2">
-              <img src="http://localhost:5000/static/image/avatar.png"  className="img-circle" alt="Cinque Terre" width="40" height="50" />
-            </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       );
     }
   }
 }
 
-const floatRight = {
-  float:'right'
-}
-
-const styleWidth = {
-  width:'100%'
-}
-
-class ChatForm extends React.Component {
-
-
+class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
@@ -182,13 +159,9 @@ class ChatForm extends React.Component {
   }
   render() {
     return (
-      <form ref="form"  onSubmit={this.onSubmit} >
-        <div className="input-group" style={styleWidth}>
-          <input type="text" ref="itemName" className="form-control" placeholder="Send a message..." />
-        <div className="input-group-btn">
-          <button type="submit" className="btn btn-success enter" style={floatRight} >Send</button>
-        </div>
-        </div>
+      <form ref="form" onSubmit={this.onSubmit} className="form-inline">
+        <input type="text" ref="itemName" className="form-control" placeholder="Send a message..." />
+        <button type="submit" className="btn btn-default">Add</button>
       </form>
     );
   }
@@ -197,11 +170,11 @@ class ChatForm extends React.Component {
 class ChatHeader extends React.Component {
   render() {
     return (
-      <div className="w3-card-4 row w3-display-topmiddle">
-        <div className="col-5">
-          <img src="http://localhost:5000/static/image/avatar.png" className="img-circle center" alt="Cinque Terre" width="40" height="50" />
+      <div class="w3-card-4 row">
+        <div class="col-5">
+          <img src="http://localhost:5000/static/image/avatar.png" class="img-circle center" alt="Cinque Terre" width="40" height="50" />
         </div>
-        <div className="col-7">
+        <div class="col-7">
           <h3> Dumb Chatbot</h3>
         </div>
       </div>
@@ -242,15 +215,13 @@ class ChatBot extends React.Component {
   render() {
     return (
       <div id="main">
-        {/* <ChatHeader /> */}
-        <ChatList items={this.props.initItems} removeItem={this.removeItem} markTodoDone={this.markTodoDone} />
-        <ChatForm addItem={this.addItem} />
+        <ChatHeader />
+        <TodoList items={this.props.initItems} removeItem={this.removeItem} markTodoDone={this.markTodoDone} />
+        <TodoForm addItem={this.addItem} />
       </div>
     );
   }
 }
-
-
 
 
 ReactDOM.render(<ChatBot initItems={todoItems} />, document.getElementById('app'));

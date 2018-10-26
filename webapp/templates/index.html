@@ -8,11 +8,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<link rel="stylesheet"
- href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
- <!-- or -->
- <link rel="stylesheet"
- href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
 <!-- Resources -->
 <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
@@ -28,12 +23,22 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
 
 <!-- Chart code -->
-<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+{% assets "map_js" %}
+<script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
 
 <!-- Header -->
 <div class="bgimg-1 w3-display-container w3-red w3-center " style="padding:350px 16px" id="home" data-aos="fade-up" data-aos-duration="1000">
-  <img src="{{ url_for('static', filename='image/planeimg.png') }}" id="plane">
-	<h1 class="w3-margin w3-jumbo animated infinite bounce delay-2s title" style="color:white;">START PAGE</h1>
+  <!-- <img src="{{ url_for('static', filename='image/planeimg.png') }}" id="plane"> -->
+  <div class="w3-margin w3-jumbo title">
+    {% include "components/react/clock.html" %}
+  </div>
+        <!-- <div class="ani">1 minute of your life</div> -->
+  {% if g.user %}
+  <h1 class="w3-margin w3-jumbo title" style="color:white;">HI {{g.user.username}}</h1>
+  {% else %}
+  <h1 class="w3-margin w3-jumbo title" style="color:white;">WANNA LOG IN</h1>
+  {% endif %}
   <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" href="{{ url_for('project.login') }}" data-toggle="tooltip" title="Hooray!">Get Started</button>
 </div>
 
@@ -97,7 +102,7 @@
     <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">SLIDE SHOW</h1>
     <p>Find us at some address at some place or call us at 05050515-122330</p>
     <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
-    {% include "slideshow.html" %}
+    {% include "components/slideshow.html" %}
 
   </div>
 </div>
@@ -105,7 +110,7 @@
 
 
 <div >
-  {% include "gallery.html" %}
+  {% include "components/gallery.html" %}
 </div>
 
 

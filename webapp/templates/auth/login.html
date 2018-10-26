@@ -54,5 +54,8 @@
 	</section>
 
 	<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
-	<script src="{{ url_for('static',filename='js/my-login.js') }}"></script>
+<!-- Login code -->
+{% assets "login_js" %}
+<script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
 {% endblock %}
