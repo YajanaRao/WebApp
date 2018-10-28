@@ -102,62 +102,81 @@ p {
                                       overflow: hidden;
                                       height: 500px; }
 
-                                      .chatframe {
-                                        border: 4px solid;
-                                        position: relative;
-                                        bottom: 0px;
-                                        width: 100%;
-                                        background-color: white;
-                                        border-radius: 10px;
-                                        overflow: hidden; }
+                                      .chat {
+                                        bottom: 10px;
+                                        right: 10px;
+                                        position: fixed;
+                                        border-radius: 40px !important;
+                                        width: 80px;
+                                        height: 80px; }
 
-                                        .response {
-                                          background-color: #e0e0e0; }
+                                        .chat:hover {
+                                          width: 90px;
+                                          height: 90px; }
 
-                                          .question {
-                                            background-color: #5cb85c;
-                                            color: white; }
+                                          .response {
+                                            background-color: #e0e0e0; }
 
-                                            div.row {
-                                              padding: 10px;
-                                              margin-left: 0px;
-                                              margin-right: 0px; }
+                                            .question {
+                                              background-color: #5cb85c;
+                                              color: white; }
 
-                                              .chatbot {
-                                                right: 0px;
-                                                bottom: 0px;
-                                                position: fixed;
-                                                padding: 10px; }
+                                              .messageframe {
+                                                position: relative;
+                                                height: 500px;
+                                                width: 100%;
+                                                padding: 20px; }
 
-                                                .amPm {
-                                                  font-size: 30px;
-                                                  padding: 10px; }
+                                                div.row {
+                                                  padding: 10px;
+                                                  margin-left: 0px;
+                                                  margin-right: 0px; }
 
-                                                  .time {
-                                                    font-size: 170px; }
+                                                  .chatbot {
+                                                    right: 10px;
+                                                    bottom: 10px;
+                                                    position: fixed;
+                                                    width: 500px;
+                                                    background-color: #e0e0e0;
+                                                    border-radius: 10px;
+                                                    overflow: hidden;
+                                                    border: solid 2px green; }
 
-                                                    div.ani {
-                                                      animation: lifetime 60s infinite;
-                                                      font-family: cursive;
-                                                      text-overflow: hide;
-                                                      width: 20px;
-                                                      padding: 10px;
-                                                      border-radius: 5px;
-                                                      padding: 10px; }
+                                                    .head {
+                                                      background-color: white; }
 
-                                                      @keyframes lifetime {
-                                                        0% {
-                                                          background-color: white;
-                                                          width: 100%;
-                                                          color: black;
-                                                          opacity: 100;
-                                                          font-weight: bold;   }
-                                                          100% {
-                                                            background-color: #f44336;
-                                                            width: 0%;
-                                                            color: #f44336;
-                                                            display: none;
-                                                            opacity: 0;   }
+                                                      .amPm {
+                                                        font-size: 30px;
+                                                        padding: 10px; }
+
+                                                        .time {
+                                                          font-size: 170px; }
+
+                                                          div.ani {
+                                                            animation: lifetime 60s infinite;
+                                                            font-family: cursive;
+                                                            text-overflow: hide;
+                                                            width: 20px;
+                                                            padding: 10px;
+                                                            border-radius: 5px;
+                                                            padding: 10px; }
+
+                                                            .icon {
+                                                              padding: 10px; }
+
+                                                              @keyframes lifetime {
+                                                                0% {
+                                                                  background-color: white;
+                                                                  width: 100%;
+                                                                  color: black;
+                                                                  opacity: 100;
+                                                                  font-weight: bold;   }
+                                                                  100% {
+                                                                    background-color: #f44336;
+                                                                    width: 0%;
+                                                                    color: #f44336;
+                                                                    display: none;
+                                                                    opacity: 0;   }
 }
 
 @media screen and (max-width: 425px) {
@@ -181,7 +200,10 @@ p {
       .slide-center {
         width: 100%;   }
         .chatbot {
-          position: relative;   }
+          position: relative;
+          width: 100%;
+          right: 0;
+          left: 0;   }
           .time {
             font-size: 100px;   }
 }

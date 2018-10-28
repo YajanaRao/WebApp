@@ -3,7 +3,8 @@ const App = React.createClass({
   getInitialState() {
     return {
       time: "00:00:00",
-      amPm: "am"
+      amPm: "am",
+      date: "Thursday 1 January 1970"
     }
   },
 
@@ -17,6 +18,8 @@ const App = React.createClass({
     const
       takeTwelve = n => n > 12 ? n - 12 : n,
       addZero = n => n < 10 ? "0" + n : n;
+    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
     setInterval(() => {
       let d, h, m, s, t, amPm;
@@ -28,10 +31,16 @@ const App = React.createClass({
       t = `${h}:${m}:${s}`;
 
       amPm = d.getHours() >= 12 ? "pm" : "am";
+      week = weekday[d.getDay()]
+      day = d.getDate();
+      month = months[d.getMonth()];
+      year = d.getFullYear();
+      date = `${week}, ${day} ${month} ${year}`;
 
       this.setState({
         time: t,
-        amPm: amPm
+        amPm: amPm,
+        date: date
       });
 
     }, 1000);
@@ -39,7 +48,7 @@ const App = React.createClass({
 
   render() {
     return (
-      <div>
+      <div className="container">
         <span className={
           this.state.time === "00:00:00"
             ? "time blink"
@@ -48,6 +57,9 @@ const App = React.createClass({
         </span>
         <span className="amPm">
           {this.state.amPm}
+        </span><br />
+        <span className="date">
+          {this.state.date}
         </span>
       </div>
     );
