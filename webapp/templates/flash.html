@@ -1,25 +1,26 @@
 <section class="content" style="padding-top:100px">
   {% with messages = get_flashed_messages(with_categories=true) %}
   {% for category, message in messages %}
+    <div class="container">
    {% if category == "error" %}
-    <div class="flash alert-danger alert" align="center">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-      {{ message }}</div>
+  <div class="notification is-danger">
+      <button onclick="this.parentElement.style.display='none'" class="delete"></button>
+      <p><strong>{{ category }} ! </strong> {{ message }}</p>
+  </div>
 
-      {% elif category == "success" %}
-      <div class="flash alert-success alert" align="center">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        {{ message }}</div>
+    {% elif category == "success" %}
+    <div class="notification is-success">
+      <button onclick="this.parentElement.style.display='none'" class="delete"></button>
+      <p><strong>{{ category }} ! </strong> {{ message }}</p>
+    </div>
 
-      {% else %}
-      <div class="flash alert-info alert" align="center">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        {{ message }}</div>
-
-        <div class="alert" id="alert" style="display:none;">
-         <strong>{{category}} !</strong><p id="message"></p>
-        </div>
+    {% else %}
+    <div class="notification is-info">
+      <button onclick="this.parentElement.style.display='none'" class="delete"></button>
+      <p><strong>{{ category }} ! </strong> {{ message }}</p>
+    </div>
    {% endif %}
+  </div>
   {% endfor %}
   {% endwith %}
 </section>

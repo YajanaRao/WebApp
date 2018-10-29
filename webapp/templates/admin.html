@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="{{ url_for('project.index')}}">
+            <h1 class="title">YAJANA</h1>
+        </a>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="{{ url_for('project.index')}}">
+                Home
+            </a>
+
+            <a class="navbar-item" href="{{ url_for('project.support')}}">
+                Support
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+
+                {% if g.user %}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        More
+                    </a>
+                
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="{{ url_for('project.admin')}}">
+                            Admin Panel
+                        </a>
+                        <a class="navbar-item">
+                            Profile
+                        </a>
+                        <a class="navbar-item" href="{{ url_for('project.logout')}}">
+                            Logout
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                            Report an issue
+                        </a>
+                    </div>
+                </div>
+                {% else %}
+                <div class="buttons">
+                    <a class="button is-primary">
+                        <strong>Log in</strong>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
+<div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Reiciendis necessitatibus dignissimos maxime vel, cumque labore perferendis laborum animi nobis voluptatem. Blanditiis, 
+             aliquam voluptates reprehenderit optio ab soluta in eligendi ipsam!</p>
+             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+             Iusto aperiam iure, natus laboriosam quidem illum eligendi sunt in accusantium quas vel eum eaque incidunt quos magni earum corporis aspernatur soluta.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quae quibusdam illo ad consequuntur amet, possimus quis incidunt. Perspiciatis numquam suscipit blanditiis temporibus earum, dignissimos neque qui dolor iure odit.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quae quibusdam illo ad consequuntur amet,
+            possimus quis incidunt. Perspiciatis numquam suscipit blanditiis temporibus earum, dignissimos neque qui dolor iure
+            odit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quae quibusdam illo ad consequuntur amet,
+        possimus quis incidunt. Perspiciatis numquam suscipit blanditiis temporibus earum, dignissimos neque qui dolor iure
+        odit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quae quibusdam illo ad consequuntur amet,
+        possimus quis incidunt. Perspiciatis numquam suscipit blanditiis temporibus earum, dignissimos neque qui dolor iure
+        odit.</p>
+
+        
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Reiciendis necessitatibus dignissimos maxime vel, cumque labore perferendis laborum animi nobis voluptatem.
+                Blanditiis,
+                aliquam voluptates reprehenderit optio ab soluta in eligendi ipsam!</p>
+            
+        </div>
+        <div class="card">
+            <div class="columns is-mobile">
+                <div class="column is-four-fifths" style="background-color:gold">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Iusto aperiam iure, natus laboriosam quidem illum eligendi sunt in accusantium quas vel eum eaque incidunt
+                        quos
+                        magni earum corporis aspernatur soluta.</p>
+                </div>
+                <div class="column">Auto</div>
+            </div>
+        </div>
+
+        <section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Hero title
+      </h1>
+      <h2 class="subtitle">
+        Hero subtitle
+      </h2>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

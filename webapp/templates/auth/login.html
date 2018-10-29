@@ -4,56 +4,52 @@
 {% endblock %}
   {% block content %}
   {% include "flash.html" %}
-	<section class="h-100 loginCard">
-		<div class="container h-100">
-			<div class="row justify-content-md-center h-100">
-				<div class="card-wrapper">
-					<div class="brand">
-						<img src="{{ url_for('static', filename='image/avatar.png') }}" width="100px" height="100px">
-					</div>
-					<div class="card fat">
-						<div class="card-body">
-							<h4 class="card-title">Login</h4>
-							<form method="POST" action="{{ url_for('project.login') }}">
-
-								<div class="form-group">
-									<label for="Email">Email</label>
-
-									<input id="email" name="email" type="text" class="form-control"  value="" required autofocus>
-								</div>
-
-								<div class="form-group">
-									<label for="password">Password
-										<a href="{{ url_for('project.forgot') }}" class="float-right">
-											Forgot Password?
-										</a>
-									</label>
-									<input id="password" name="password" type="password" class="form-control"  required data-eye>
-								</div>
-
-								<div class="form-group">
-									<label>
-										<input type="checkbox" name="remember"> Remember Me
-									</label>
-								</div>
-
-								<div class="form-group no-margin">
-									<button type="submit" class="btn btn-primary btn-block">
-										Login
-									</button>
-								</div>
-								<div class="margin-top20 text-center">
-									Don't have an account? <a href="{{ url_for('project.register') }}">Create One</a>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<div class="container">
+<div class="brand">
+	<img src="{{ url_for('static',filename='image/avatar.png') }}">
+</div>
+<div class="box">
+	<form method="POST" action="{{ url_for('project.login') }}">
+		<div class="field">
+			<label class="label">Email</label>
+			<div class="control has-icons-left has-icons-right">
+				<input id="email" name="email" class="input" type="email" placeholder="user@email.com">
+				<span class="icon is-small is-left">
+					<i class="fas fa-envelope"></i>
+				</span>
 			</div>
 		</div>
+
+		<div class="field">
+			<label class="label">Password</label>
+			<div class="control has-icons-left has-icons-right">
+				<input id="password" name="password" class="input" type="password" placeholder="xxxxxxx" required data-eye>
+				<span class="icon is-small is-left">
+					<i class="fas fa-lock"></i>
+				</span>
+			</div>
+		</div>
+
+		<div class="field">
+			<label>Don't have an account? <a href="{{ url_for('project.register') }}">Create One</a></label>
+		</div>
+		<div class="field is-grouped">
+			<div class="control">
+				<button class="button is-link">Submit</button>
+			</div>
+			<div class="control">
+				<button class="button is-text">Cancel</button>
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+
+
 	</section>
 
-	<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
 <!-- Login code -->
 {% assets "login_js" %}
 <script type="text/javascript" src="{{ ASSET_URL }}"></script>

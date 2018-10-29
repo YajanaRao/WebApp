@@ -6,4 +6,5 @@ VERSION 1.1v
 5. Date and time in welcome screen done
 6. 404 error handling
 7. Favicon
-8. Admin to add chats
+8. Admin to add chats, View Users and delete user
+9. Transition from bootstrap, w3.css to bulma

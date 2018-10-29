@@ -1,34 +1,71 @@
+<style>
+  .mySlides {
+    display: none;
+  }
+</style>
+<div class="w3-content w3-display-container">
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-aos="zoom-in-up">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="https://www.w3schools.com/bootstrap/chicago.jpg" alt="Los Angeles">
-    </div>
-
-    <div class="item">
-      <img src="https://www.w3schools.com/bootstrap/la.jpg" alt="Chicago">
-    </div>
-
-    <div class="item">
-      <img src="https://www.w3schools.com/bootstrap/ny.jpg" alt="New York">
+  <div class="w3-display-container mySlides">
+    <img src="https://www.w3schools.com/w3css/img_snowtops.jpg" style="width:100%">
+    <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black">
+      French Alps
+      <p> Love spending time in nature </p>
     </div>
   </div>
 
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  <div class="w3-display-container mySlides">
+    <img src="https://www.w3schools.com/w3css/img_lights.jpg" style="width:100%">
+    <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+      Northern Lights
+      <p> Love spending time in nature </p>
+    </div>
+  </div>
+
+  <div class="w3-display-container mySlides">
+    <img src="https://www.w3schools.com/w3css/img_mountains.jpg" style="width:100%">
+    <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+      Beautiful Mountains
+      <p> Love spending time in nature </p>
+    </div>
+  </div>
+
+  <div class="w3-display-container mySlides">
+    <img src="https://www.w3schools.com/w3css/img_forest.jpg" style="width:100%">
+    <div class="w3-display-topright w3-large w3-container w3-padding-16 w3-black">
+      The Rain Forest
+      <p> Love spending time in nature </p>
+    </div>
+  </div>
+
+  <div class="w3-display-container mySlides">
+    <img src="https://www.w3schools.com/w3css/img_mountains.jpg" style="width:100%">
+    <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">
+      Mountains!
+      <p> Love spending time in nature </p>
+    </div>
+  </div>
+
+  <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+
 </div>
+
+<script>
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    if (n > x.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = x.length }
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    x[slideIndex - 1].style.display = "block";
+  }
+</script>

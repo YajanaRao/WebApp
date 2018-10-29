@@ -89,12 +89,13 @@ def login_required(view):
     return wrapped_view
 
 
-
-
 @bp.route("/support")
 def support():
     return render_template('support.html')
 
+@bp.route("/admin")
+def admin():
+    return render_template('admin.html')
 
 
 @bp.route("/gethint.php",methods=['GET', 'POST'])
