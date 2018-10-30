@@ -1,22 +1,22 @@
-<section class="content" style="padding-top:100px">
+<section class="content is-flex" style="padding-top:100px">
   {% with messages = get_flashed_messages(with_categories=true) %}
   {% for category, message in messages %}
     <div class="container">
    {% if category == "error" %}
   <div class="notification is-danger">
-      <button onclick="this.parentElement.style.display='none'" class="delete"></button>
+      <button onClick="this.parentElement.style.display='none'" class="delete"></button>
       <p><strong>{{ category }} ! </strong> {{ message }}</p>
   </div>
 
     {% elif category == "success" %}
     <div class="notification is-success">
-      <button onclick="this.parentElement.style.display='none'" class="delete"></button>
+      <button onClick="this.parentElement.style.display='none'" class="delete"></button>
       <p><strong>{{ category }} ! </strong> {{ message }}</p>
     </div>
 
     {% else %}
     <div class="notification is-info">
-      <button onclick="this.parentElement.style.display='none'" class="delete"></button>
+      <button onClick="this.parentElement.style.display='none'" class="delete"></button>
       <p><strong>{{ category }} ! </strong> {{ message }}</p>
     </div>
    {% endif %}

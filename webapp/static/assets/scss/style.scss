@@ -2,6 +2,7 @@ $header-family: "Amatic SC";
 $paragraph-family: "Amatic SC";
 $header-color: white;
 $vertical-padding: 50px;
+$mobile-padding: 20px;
 
 p{
   font-family: $paragraph-family;
@@ -21,10 +22,6 @@ p{
     display: block;
     width: 50%;
     margin: auto;
-
-    .loginIcon {
-          padding-bottom: 30px;
-    }
 }
 
 .mySlides {display:none;}
@@ -37,29 +34,11 @@ p{
     float: right;
 }
 
-.alert {
-    padding: 20px;
-    background-color: #f44336;
-    color: white;
-    width: 50%;
-    margin: auto;
-    margin-top: 10px;
-}
-
-.closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.loginCard {
+.customSidePadding {
   // padding-top: $vertical-padding;
   padding-bottom: $vertical-padding;
+  padding-left: $mobile-padding;
+  padding-right: $mobile-padding;
 }
 
 .brand {
@@ -70,11 +49,6 @@ p{
 	margin: 0 auto;
 	margin: 40px auto;
 	box-shadow: 0 0 40px rgba(0,0,0,.05);
-}
-
-
-.closebtn:hover {
-    color: black;
 }
 
 .brand {
@@ -92,42 +66,6 @@ p{
 	width: 100%;
 }
 
- .card-wrapper {
-	width: 400px;
-}
-
- .card {
-	border-color: transparent;
-	box-shadow: 0 0 40px rgba(0,0,0,.05);
-}
-
- .card.fat {
-	padding: 10px;
-}
-
- .card .card-title {
-	margin-bottom: 30px;
-}
-
- .form-control {
-	border-width: 2.3px;
-}
-
-.form-group label {
-	width: 100%;
-}
-
- .btn.btn-block {
-	padding: 12px 10px;
-}
-
- .margin-top20 {
-	margin-top: 20px;
-}
-
-.no-margin {
-	margin: 0;
-}
 
 .slide-center {
     margin: auto;
@@ -151,27 +89,18 @@ p{
   width: 90px;
   height: 90px;
 }
-.response{
-  background-color:#e0e0e0;
-}
 
-.question{
-  background-color:#5cb85c;
-  color:white;
-} 
+
 
 .messageframe{
     position:relative;
     height: 500px;
     width: 100%;
     padding: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-div.row{
-  padding: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
-}
 
 
 .chatbot{
@@ -239,23 +168,6 @@ div.ani {
   }
 }
 
-@media screen and (max-width: 425px) {
-   .card-wrapper {
-		width: 90%;
-		margin: 0 auto;
-	}
-}
-
-@media screen and (max-width: 320px) {
-	 .w3-card.fat {
-		padding: 0;
-	}
-
-	 .w3-card.fat .card-body {
-		padding: 15px;
-  }
-  
-}
 
 @media only screen and (max-width: 500px) {
     #plane {

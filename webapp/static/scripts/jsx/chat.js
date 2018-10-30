@@ -14,35 +14,63 @@ var todoItems = [];
 // todoItems.push({ index: 1, output: 'hello', input: "hi", done: false });
 // todoItems.push({ index: 2, output: 'hello', input: "hello", done: true });
 
-class InputBox extends React.Component {
+
+class LikeButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      liked: false
+     };
+  }
+
   render() {
+    if (this.state.liked) {
+      return (
+        <div className="level-item" onClick={() => this.setState({ liked: false })}>
+          <span className="icon is-small has-text-danger"><i className="fas fa-heart"></i></span>
+        </div>
+      );
+    }
+
     return (
-      <div className="row">
-        <div className="col-1">
-          <img src="http://localhost:5000/static/image/user.png" style={floatRight} className="img-circle" alt="Cinque Terre" width="40" height="50" />
-        </div>
-        <div className="col-8 w3-card-4 question">
-          <p>{this.props.text}</p>
-        </div>
-        <div className="col-1"></div>
+      <div className="level-item" onClick={() => this.setState({ liked: true })}>
+        <span className="icon is-small"><i className="fas fa-heart"></i></span>
       </div>
     );
   }
 }
 
-class OutputBox extends React.Component {
+class Chat extends React.Component {
   render() {
     return (
-      <div className="row">
-        <div className="col-1"></div>
-        <div className="col-8 w3-card-4 response" >
-          <p><b>{this.props.text}</b></p>
-        </div>
-        <div className="col-1">
-          <img src="http://localhost:5000/static/image/avatar.png" className="img-circle" alt="Cinque Terre" width="40" height="50" />
-        </div>
+      <div className="box">
+        <article className="media">
+          <figure className="media-left">
+            <img src={this.props.image} className="img-circle" alt="Cinque Terre" width="40" height="50" />
+          </figure>
+          <div className="media-content">
+            <div className="content">
+              <p>{this.props.text}</p>
+            </div>
+            <nav className="level is-mobile">
+              <div className="level-left">
+                <a className="level-item">
+                  <LikeButton/>
+                  </a>
+                <a className="level-item" >
+                  <span className={"icon is-small "+this.props.status} onClick={this.props.onClickDone}>
+                  <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </div>
+            </nav>
+          </div>
+          <div className="media-right">
+            <button className="delete" onClick={this.props.onClickClose}></button>
+          </div>
+        </article>
       </div>
-    )
+    );
   }
 }
 
@@ -55,7 +83,7 @@ class ChatList extends React.Component {
       );
     });
     return (
-      <div className="messageframe"> {items} </div>
+      <div className="message-body messageframe"> {items} </div>
     );
   }
 }
@@ -98,53 +126,46 @@ class ChatListItem extends React.Component {
 
 
   onClickClose() {
+    console.log("closing pop up");
     var index = parseInt(this.props.index);
     this.props.removeItem(index);
   }
   onClickDone() {
+    console.log("done");
     var index = parseInt(this.props.index);
     this.props.markTodoDone(index);
   }
   render() {
     var todoClass = this.props.item.done ?
-      "done" : "undone";
+      "has-text-success" : "has-text-dark";
     const { error, isLoaded, items } = this.state;
     if (error) {
       return (
-        <div >
-          <InputBox text={this.props.item.input} />
-          <OutputBox text={error} />
+        <div className="content">
+          <Chat text={this.props.item.input} image="http://localhost:5000/static/image/avatar.png" />
+          <Chat text={error} image="http://localhost:5000/static/image/user.png"/>
         </div>
       );
     } else if (!isLoaded) {
       console.log("loading");
       return (
-        <div>
-          <InputBox text={this.props.item.input} />
-          <OutputBox text="Loading.." />
+        <div className="content">
+          <Chat text={this.props.item.input} image="http://localhost:5000/static/image/avatar.png"/>
+          <Chat text="Loading.." image="http://localhost:5000/static/image/user.png" />
         </div>
       );
     } else {
       console.log(items);
       return (
-        <div>
-          <div>
-            <InputBox text={this.props.item.input} />
-            <OutputBox text={items} />
+          <div className="content">
+          <Chat text={this.props.item.input} image="http://localhost:5000/static/image/avatar.png" onClickClose={this.onClickClose} onClickDone={this.onClickDone} status={todoClass} />
+          <Chat text={items} image="http://localhost:5000/static/image/user.png" onClickClose={this.onClickClose} status={todoClass}/>
           </div>
-        </div>
       );
     }
   }
 }
 
-const floatRight = {
-  float: 'right'
-}
-
-const styleWidth = {
-  width: '100%'
-}
 
 class ChatForm extends React.Component {
 
@@ -170,10 +191,15 @@ class ChatForm extends React.Component {
   render() {
     return (
       <form ref="form" onSubmit={this.onSubmit} >
-        <div className="input-group" style={styleWidth}>
-          <input type="text" ref="itemName" className="form-control" placeholder="Send a message..." />
-          <div className="input-group-btn">
-            <button type="submit" className="btn btn-success enter" style={floatRight} >Send</button>
+        <div className="message-body">
+          <div className="field is-grouped">
+          <p className="control is-expanded">
+          <input type="text" ref="itemName" className="input" placeholder="Send a message..." />
+            </p>
+          <p className="control">
+              <button type="submit" className="button is-dark" >Send</button>
+          </p>
+            
           </div>
         </div>
       </form>
@@ -183,16 +209,11 @@ class ChatForm extends React.Component {
 
 class ChatHeader extends React.Component {
 
-
   render() {
     return (
-      <div className="w3-card-4 row head">
-        <div className="col-5">
-          <img src="http://localhost:5000/static/image/avatar.png" className="img-circle center" alt="Cinque Terre" width="40" height="50" />
-        </div>
-        <div className="col-6">
-          <h3> Dumb Chatbot</h3>
-        </div>
+      <div className="message-header">
+          <p> Dumb Chatbot</p>
+        <button className="delete" onClick={this.props.closePopup} aria-label="delete"></button>
       </div>
     );
   }
@@ -210,7 +231,7 @@ class ChatBot extends React.Component {
   addItem(todoItem) {
     todoItems.push({
       index: todoItems.length + 1,
-      output: 'loading..',
+      // output: 'loading..',
       input: todoItem.newItemValue,
       done: false
     });
@@ -230,12 +251,11 @@ class ChatBot extends React.Component {
 
   render() {
     return (
-      <div id="chatbot" className="chatbot">
-        <ChatHeader onClick={this.props.closePopup} />
-        <div className="w3-display-topright icon"><img src="http://localhost:5000/static/image/minimize.png" onClick={this.props.closePopup} alt="Cinque Terre" width="30" height="30" /></div>
+      <article id="chatbot" className="message chatbot">
+        <ChatHeader closePopup={this.props.closePopup} text="hello" />
         <ChatList items={this.props.initItems} removeItem={this.removeItem} markTodoDone={this.markTodoDone} />
         <ChatForm addItem={this.addItem} />
-      </div>
+      </article>
     );
   }
 }
@@ -254,14 +274,14 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="chatframe">
+      <div className="container">
         {this.state.showPopup ?
           <ChatBot
             initItems={todoItems}
             closePopup={this.togglePopup.bind(this)}
           />
           : <button
-            className="btn btn-success chat"
+            className="is-light chat"
             onClick={this.togglePopup.bind(this)}>
             <img src="http://localhost:5000/static/image/love.png" alt="Cinque Terre" width="40" height="40" />
           </button>

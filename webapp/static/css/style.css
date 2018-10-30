@@ -9,50 +9,29 @@ p {
       display: block;
       width: 50%;
       margin: auto; }
-      .images .loginIcon {
-        padding-bottom: 30px; }
 
-.mySlides {
-  display: none; }
+      .mySlides {
+        display: none; }
 
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    float: right; }
+        .center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          float: right; }
 
-    .alert {
-      padding: 20px;
-      background-color: #f44336;
-      color: white;
-      width: 50%;
-      margin: auto;
-      margin-top: 10px; }
+          .customSidePadding {
+            padding-bottom: 50px;
+            padding-left: 20px;
+            padding-right: 20px; }
 
-      .closebtn {
-        margin-left: 15px;
-        color: white;
-        font-weight: bold;
-        float: right;
-        font-size: 22px;
-        line-height: 20px;
-        cursor: pointer;
-        transition: 0.3s; }
-
-        .loginCard {
-          padding-bottom: 50px; }
-
-          .brand {
-            width: 90px;
-            height: 90px;
-            overflow: hidden;
-            border-radius: 50%;
-            margin: 0 auto;
-            margin: 40px auto;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.05); }
-
-            .closebtn:hover {
-              color: black; }
+            .brand {
+              width: 90px;
+              height: 90px;
+              overflow: hidden;
+              border-radius: 50%;
+              margin: 0 auto;
+              margin: 40px auto;
+              box-shadow: 0 0 40px rgba(0, 0, 0, 0.05); }
 
               .brand {
                 width: 90px;
@@ -67,129 +46,78 @@ p {
                 .brand img {
                   width: 100%; }
 
-                  .card-wrapper {
-                    width: 400px; }
+                  .slide-center {
+                    margin: auto;
+                    width: 50%;
+                    border: 3px solid white;
+                    overflow: hidden;
+                    height: 500px; }
 
-                    .card {
-                      border-color: transparent;
-                      box-shadow: 0 0 40px rgba(0, 0, 0, 0.05); }
+                    .chat {
+                      bottom: 10px;
+                      right: 10px;
+                      position: fixed;
+                      border-radius: 40px !important;
+                      width: 80px;
+                      height: 80px; }
 
-                      .card.fat {
-                        padding: 10px; }
+                      .chat:hover {
+                        width: 90px;
+                        height: 90px; }
 
-                        .card .card-title {
-                          margin-bottom: 30px; }
+                        .messageframe {
+                          position: relative;
+                          height: 500px;
+                          width: 100%;
+                          padding: 20px;
+                          overflow-y: scroll;
+                          overflow-x: hidden; }
 
-                          .form-control {
-                            border-width: 2.3px; }
+                          .chatbot {
+                            right: 10px;
+                            bottom: 10px;
+                            position: fixed;
+                            width: 500px;
+                            background-color: #e0e0e0;
+                            border-radius: 10px;
+                            overflow: hidden;
+                            border: solid 2px green; }
 
-                            .form-group label {
-                              width: 100%; }
+                            .head {
+                              background-color: white; }
 
-                              .btn.btn-block {
-                                padding: 12px 10px; }
+                              .amPm {
+                                font-size: 30px;
+                                padding: 10px; }
 
-                                .margin-top20 {
-                                  margin-top: 20px; }
+                                .time {
+                                  font-size: 170px; }
 
-                                  .no-margin {
-                                    margin: 0; }
+                                  div.ani {
+                                    animation: lifetime 60s infinite;
+                                    font-family: cursive;
+                                    text-overflow: hide;
+                                    width: 20px;
+                                    padding: 10px;
+                                    border-radius: 5px;
+                                    padding: 10px; }
 
-                                    .slide-center {
-                                      margin: auto;
-                                      width: 50%;
-                                      border: 3px solid white;
-                                      overflow: hidden;
-                                      height: 500px; }
+                                    .icon {
+                                      padding: 10px; }
 
-                                      .chat {
-                                        bottom: 10px;
-                                        right: 10px;
-                                        position: fixed;
-                                        border-radius: 40px !important;
-                                        width: 80px;
-                                        height: 80px; }
-
-                                        .chat:hover {
-                                          width: 90px;
-                                          height: 90px; }
-
-                                          .response {
-                                            background-color: #e0e0e0; }
-
-                                            .question {
-                                              background-color: #5cb85c;
-                                              color: white; }
-
-                                              .messageframe {
-                                                position: relative;
-                                                height: 500px;
-                                                width: 100%;
-                                                padding: 20px; }
-
-                                                div.row {
-                                                  padding: 10px;
-                                                  margin-left: 0px;
-                                                  margin-right: 0px; }
-
-                                                  .chatbot {
-                                                    right: 10px;
-                                                    bottom: 10px;
-                                                    position: fixed;
-                                                    width: 500px;
-                                                    background-color: #e0e0e0;
-                                                    border-radius: 10px;
-                                                    overflow: hidden;
-                                                    border: solid 2px green; }
-
-                                                    .head {
-                                                      background-color: white; }
-
-                                                      .amPm {
-                                                        font-size: 30px;
-                                                        padding: 10px; }
-
-                                                        .time {
-                                                          font-size: 170px; }
-
-                                                          div.ani {
-                                                            animation: lifetime 60s infinite;
-                                                            font-family: cursive;
-                                                            text-overflow: hide;
-                                                            width: 20px;
-                                                            padding: 10px;
-                                                            border-radius: 5px;
-                                                            padding: 10px; }
-
-                                                            .icon {
-                                                              padding: 10px; }
-
-                                                              @keyframes lifetime {
-                                                                0% {
-                                                                  background-color: white;
-                                                                  width: 100%;
-                                                                  color: black;
-                                                                  opacity: 100;
-                                                                  font-weight: bold;   }
-                                                                  100% {
-                                                                    background-color: #f44336;
-                                                                    width: 0%;
-                                                                    color: #f44336;
-                                                                    display: none;
-                                                                    opacity: 0;   }
-}
-
-@media screen and (max-width: 425px) {
-  .card-wrapper {
-    width: 90%;
-    margin: 0 auto;   }
-}
-
-@media screen and (max-width: 320px) {
-  .w3-card.fat {
-    padding: 0;   }
-    .w3-card.fat .card-body {
-      padding: 15px;   }
+                                      @keyframes lifetime {
+                                        0% {
+                                          background-color: white;
+                                          width: 100%;
+                                          color: black;
+                                          opacity: 100;
+                                          font-weight: bold;   }
+                                          100% {
+                                            background-color: #f44336;
+                                            width: 0%;
+                                            color: #f44336;
+                                            display: none;
+                                            opacity: 0;   }
 }
 
 @media only screen and (max-width: 500px) {
