@@ -460,7 +460,11 @@ var App = function (_React$Component8) {
             className: "is-light chat",
             onClick: this.togglePopup.bind(this)
           },
-          React.createElement("img", { src: "http://localhost:5000/static/image/love.png", alt: "Cinque Terre", width: "40", height: "40" })
+          React.createElement(
+            "span",
+            { className: "icon is-large" },
+            React.createElement("i", { className: "fa fa-comment", "aria-hidden": "true" })
+          )
         )
       );
     }

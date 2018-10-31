@@ -283,7 +283,9 @@ class App extends React.Component {
           : <button
             className="is-light chat"
             onClick={this.togglePopup.bind(this)}>
-            <img src="http://localhost:5000/static/image/love.png" alt="Cinque Terre" width="40" height="40" />
+            <span className="icon is-large">
+              <i className="fa fa-comment" aria-hidden="true"></i>
+            </span>
           </button>
         }
       </div>

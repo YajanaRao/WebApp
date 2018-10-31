@@ -3,10 +3,13 @@ from flask import Flask
 from flask import render_template
 from flask_assets import Environment, Bundle
 from flask_sqlalchemy import SQLAlchemy
-
+from flask_cors import CORS
 
 # def create_app():
 app = Flask(__name__)
+
+CORS(app)
+
 # existing code omitted
 assets = Environment(app)
 assets.url = app.static_url_path
