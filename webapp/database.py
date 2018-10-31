@@ -21,24 +21,23 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
-    image_file = db.Column(db.String(20),nullable=False,default='default.png')
+    country = db.Column(db.String(20),nullable=False)
     actype = db.Column(db.String(40), nullable=False,default="user")
 
-    def __init__(self,username,email,password,actype=None,image_file=None):
+    def __init__(self, username, email, password, country, actype=None):
         self.username = username
         self.password = generate_password_hash(password)
         self.email = email
+        self.country = country
         if actype != None:
             self.actype = actype
-        if image_file != None:
-            self.image_file = image_file
 
     def create(user):
         db.session.add(user)
         db.session.commit()
 
     def __repr__(self):
-        return "User('{self.username}', '{self.email}', '{self.image_file}', '{self.actype}')"
+        return "User('{self.username}', '{self.email}', '{self.country}', '{self.actype}')"
 
 def setup():
     db.create_all()

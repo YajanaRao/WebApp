@@ -15,8 +15,6 @@ scss = Bundle('assets/scss/style.scss', filters='pyscss', output='css/style.css'
 # javascript bundling
 map = Bundle('assets/js/map.js', filters='jsmin', output='js/map.js')
 login = Bundle('assets/js/my-login.js', filters='jsmin', output='js/my-login.js')
-payment = Bundle('assets/js/payment.js',
-               filters='jsmin', output='js/payment.js')
 
 
 assets.register('scss_all', scss)
@@ -24,7 +22,7 @@ assets.register('scss_all', scss)
 # javascript
 assets.register('map_js', map)
 assets.register('login_js', login)
-assets.register('payment_js', payment)
+
 
 app.config.from_mapping(
     SECRET_KEY='dev',

@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block header %}
+<h1>{% block title %}Profile{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+
+<div class="container" style="padding-top:100px;"></div>
+<div class="container">
+    <div class="columns">
+        <div class="column">
+            <div class="card">
+                <h1 class="title has-text-centered">Profile</h1>
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="http://localhost:5000/static/image/user.png" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="http://localhost:5000/static/image/user.png" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">{{g.user.username}}</p>
+                            <p class="subtitle is-6">{{g.user.email}}</p>
+                        </div>
+                    </div>
+    
+                    <div class="content">
+                        <strong>{{g.user.country}}</strong>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, harum placeat quis pariatur aliquam
+                        accusamus assumenda suscipit nulla quisquam porro recusandae itaque ipsa, veritatis dolorum qui id
+                        cum dolor veniam!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h1 class="title has-text-centered">Profile</h1>
+            <div class="field">
+                <label class="label">Username</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input is-success" type="text" placeholder="Text input" value="bulma">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </div>
+                <p class="help is-success">This username is available</p>
+            </div>
+    
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">This email is same as the previous email id</p>
+            </div>
+    
+            <div class="field">
+                <label class="label">Subject</label>
+                <div class="control">
+                    <div class="select">
+                        <select>
+                            <option>Select dropdown</option>
+                            <option>With options</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+    
+    
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-link">Submit</button>
+                </div>
+                <div class="control">
+                    <button class="button is-text">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

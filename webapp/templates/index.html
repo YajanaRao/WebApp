@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 <!DOCTYPE html>
 {% block header %}
-  <h1>{% block title %}HOME{% endblock %}</h1>
+  <h1>{% block title %}HOME{% endblock %}</h1>  
 {% endblock %}
 {% block content %}
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
 
 <!-- Resources -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -21,22 +21,29 @@
 <!-- Styles -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
 
+
+<style>
+body, h1,h2,h3, p,div{
+    font-family: 'Amatic SC';font-size: 22px;
+}
+</style>
+
 <!-- Chart code -->
 {% assets "map_js" %}
 <script type="text/javascript" src="{{ ASSET_URL }}"></script>
 {% endassets %}
 
 <!-- Header -->
-<div class="bgimg-1 w3-display-container w3-red w3-center " style="padding:350px 16px" id="home" data-aos="fade-up" data-aos-duration="1000">
+<div class="bgimg-1 w3-display-container has-background-danger w3-center " style="padding:350px 16px" id="home" data-aos="fade-up" data-aos-duration="1000">
   <!-- <img src="{{ url_for('static', filename='image/planeimg.png') }}" id="plane"> -->
-  <div class="w3-margin w3-jumbo title">
+  <div class="w3-margin w3-jumbo amatic title">
     {% include "components/react/clock.html" %}
   </div>
         <!-- <div class="ani">1 minute of your life</div> -->
   {% if g.user %}
-  <h1 class="w3-margin w3-jumbo title" style="color:white;">HI {{g.user.username}}</h1>
+  <h1 class="w3-margin w3-jumbo title amatic" style="color:white;">HI {{g.user.username}}</h1>
   {% else %}
-  <h1 class="w3-margin w3-jumbo title" style="color:white;">WANNA LOG IN</h1>
+  <h1 class="w3-margin w3-jumbo title amatic" style="color:white;">WANNA LOG IN</h1>
   {% endif %}
   <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" href="{{ url_for('project.login') }}" data-toggle="tooltip" title="Hooray!">Get Started</button>
 </div>
@@ -119,9 +126,4 @@
   <script>
     AOS.init();
   </script>
-  <script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-});
-</script>
 {% endblock %}

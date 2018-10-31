@@ -4,14 +4,14 @@ $header-color: white;
 $vertical-padding: 50px;
 $mobile-padding: 20px;
 
-p{
+.para{
   font-family: $paragraph-family;
   font-size: 20px;
 }
 
 
 
-.title {
+.amatic {
   font-family: $header-family;
 }
 
@@ -191,6 +191,10 @@ div.ani {
 
     .time{
       font-size: 100px;
+    }
+
+    .date{
+      font-size: 40px;
     }
 }
 

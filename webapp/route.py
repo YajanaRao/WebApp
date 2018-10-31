@@ -30,7 +30,7 @@ def register():
             print(output)
             error = 'User {} is already registered.'.format(form['name'])
         else:
-            user = User(username=form['name'],email=form['email'],password=form['password'])
+            user = User(username=form['name'],email=form['email'],password=form['password'],country=form['country'])
             User.create(user)
             flash('Account created successfully','success')
             return redirect(url_for('project.login'))
@@ -39,7 +39,7 @@ def register():
         flash(error,'error')
     return render_template('auth/register.html')
 
-@bp.route("forgot",methods=['GET','POST'])
+@bp.route("/forgot",methods=['GET','POST'])
 def forgot():
     if request.method == 'POST':
         error = None
@@ -97,6 +97,9 @@ def support():
 def admin():
     return render_template('admin.html')
 
+@bp.route('/profile')
+def profile():
+    return render_template('profile.html')
 
 @bp.route("/gethint.php",methods=['GET', 'POST'])
 def getHint():
