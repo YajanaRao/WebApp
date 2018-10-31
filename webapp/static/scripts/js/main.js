@@ -1,5 +1,7 @@
 "use strict";
-
+var months = [];
+var week = [];
+var date,week,month,year,day;
 var App = React.createClass({
     displayName: "App",
     getInitialState: function getInitialState() {
@@ -20,9 +22,9 @@ var App = React.createClass({
         },
             addZero = function addZero(n) {
                 return n < 10 ? "0" + n : n;
-            };
-        months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+            },
+            months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
         setInterval(function () {
             var d = void 0,

@@ -95,10 +95,55 @@ def support():
 
 @bp.route("/admin")
 def admin():
-    return render_template('admin.html')
+    users = []
+    output = {}
+    items = User.query.all()
+    for item in items:
+        user = {}
+        user['id'] = item.id
+        user['username'] = item.username
+        user['email'] = item.email
+        user['country'] = item.country
+        user['type'] = item.actype
+        users.append(user)
+    output['result'] = users
+    return render_template('admin.html', users=output)
 
-@bp.route('/profile')
+
+@bp.route('/profile', methods=['POST','GET'])
 def profile():
+    if request.method == 'POST':
+        print("form submited")
+        error = None
+        form = request.form
+        user = User.query.filter_by(id=session.get('user_id')).first()
+
+        if user is None:
+            error = 'Username or Email Id not found.'
+
+        if user.username != form['username'] and user.email != form['email']:
+            user.username = form['username']
+            user.email = form['email']
+            message = "Username and Email Updated Sucessfully"
+
+        elif user.username != form['username']:
+            user.username = form['username']
+            message = 'Username updated'
+
+        elif user.email != form['email']:
+            user.email = form['email']
+            message = 'Email updated'
+
+        else:
+            error = "Nothing is changed to update"
+
+
+        if error is None:
+            User.update()
+            flash(message,'success')
+            return redirect(url_for('project.profile'))
+        
+        flash(error, 'error')
     return render_template('profile.html')
 
 @bp.route("/gethint.php",methods=['GET', 'POST'])

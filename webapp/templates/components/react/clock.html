@@ -1,6 +1,12 @@
 <script src="https://fb.me/react-15.0.1.js"></script>
 <script src="https://fb.me/react-dom-15.0.1.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+
+<!-- Development Environment -->
+<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script> -->
 <div id="clock"></div>
 
-<script type="text/jsx" src="{{ url_for('static', filename='scripts/jsx/main.js') }}"></script>
+<!-- Development Environment -->
+<!-- <script type="text/jsx" src="{{ url_for('static', filename='scripts/jsx/main.js') }}"></script> -->
+
+<!-- Production Environment -->
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/js/main.js') }}"></script>

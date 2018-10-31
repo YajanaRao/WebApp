@@ -29,9 +29,11 @@
           More
         </a>
         <div class="navbar-dropdown">
+          {% if g.user.actype == "admin" %}
           <a class="navbar-item" href="{{ url_for('project.admin')}}">
             Admin Panel
           </a>
+          {% endif %}
           <a class="navbar-item" href="{{ url_for('project.profile') }}">
             Profile
           </a>

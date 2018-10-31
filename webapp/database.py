@@ -36,8 +36,11 @@ class User(db.Model):
         db.session.add(user)
         db.session.commit()
 
+    def update():
+        db.session.commit()
+
     def __repr__(self):
-        return "User('{self.username}', '{self.email}', '{self.country}', '{self.actype}')"
+        return "{username: '{self.username}', email: '{self.email}', country: '{self.country}', account:'{self.actype}'}"
 
 def setup():
     db.create_all()

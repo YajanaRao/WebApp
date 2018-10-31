@@ -17,9 +17,9 @@ const App = React.createClass({
   getTime() {
     const
       takeTwelve = n => n > 12 ? n - 12 : n,
-      addZero = n => n < 10 ? "0" + n : n;
-    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+      addZero = n => n < 10 ? "0" + n : n,
+      months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
     setInterval(() => {
       let d, h, m, s, t, amPm;

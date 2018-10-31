@@ -24,82 +24,130 @@ var todoItems = [];
 // todoItems.push({ index: 1, output: 'hello', input: "hi", done: false });
 // todoItems.push({ index: 2, output: 'hello', input: "hello", done: true });
 
-var InputBox = function (_React$Component) {
-  _inherits(InputBox, _React$Component);
 
-  function InputBox() {
-    _classCallCheck(this, InputBox);
+var LikeButton = function (_React$Component) {
+  _inherits(LikeButton, _React$Component);
 
-    return _possibleConstructorReturn(this, (InputBox.__proto__ || Object.getPrototypeOf(InputBox)).apply(this, arguments));
+  function LikeButton(props) {
+    _classCallCheck(this, LikeButton);
+
+    var _this = _possibleConstructorReturn(this, (LikeButton.__proto__ || Object.getPrototypeOf(LikeButton)).call(this, props));
+
+    _this.state = {
+      liked: false
+    };
+    return _this;
   }
 
-  _createClass(InputBox, [{
+  _createClass(LikeButton, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
+      if (this.state.liked) {
+        return React.createElement(
+          "div",
+          {
+            className: "level-item", onClick: function onClick() {
+              return _this2.setState({ liked: false });
+            }
+          },
+          React.createElement(
+            "span",
+            { className: "icon is-small has-text-danger" },
+            React.createElement("i", { className: "fas fa-heart" })
+          )
+        );
+      }
+
       return React.createElement(
         "div",
-        { className: "row" },
+        {
+          className: "level-item", onClick: function onClick() {
+            return _this2.setState({ liked: true });
+          }
+        },
         React.createElement(
-          "div",
-          { className: "col-1" },
-          React.createElement("img", { src: "http://localhost:5000/static/image/user.png", style: floatRight, className: "img-circle", alt: "Cinque Terre", width: "40", height: "50" })
-        ),
-        React.createElement(
-          "div",
-          { className: "col-8 w3-card-4 question" },
-          React.createElement(
-            "p",
-            null,
-            this.props.text
-          )
-        ),
-        React.createElement("div", { className: "col-1" })
-      );
-    }
-  }]);
-
-  return InputBox;
-}(React.Component);
-
-var OutputBox = function (_React$Component2) {
-  _inherits(OutputBox, _React$Component2);
-
-  function OutputBox() {
-    _classCallCheck(this, OutputBox);
-
-    return _possibleConstructorReturn(this, (OutputBox.__proto__ || Object.getPrototypeOf(OutputBox)).apply(this, arguments));
-  }
-
-  _createClass(OutputBox, [{
-    key: "render",
-    value: function render() {
-      return React.createElement(
-        "div",
-        { className: "row" },
-        React.createElement("div", { className: "col-1" }),
-        React.createElement(
-          "div",
-          { className: "col-8 w3-card-4 response" },
-          React.createElement(
-            "p",
-            null,
-            React.createElement(
-              "b",
-              null,
-              this.props.text
-            )
-          )
-        ),
-        React.createElement(
-          "div",
-          { className: "col-1" },
-          React.createElement("img", { src: "http://localhost:5000/static/image/avatar.png", className: "img-circle", alt: "Cinque Terre", width: "40", height: "50" })
+          "span",
+          { className: "icon is-small" },
+          React.createElement("i", { className: "fas fa-heart" })
         )
       );
     }
   }]);
 
-  return OutputBox;
+  return LikeButton;
+}(React.Component);
+
+var Chat = function (_React$Component2) {
+  _inherits(Chat, _React$Component2);
+
+  function Chat() {
+    _classCallCheck(this, Chat);
+
+    return _possibleConstructorReturn(this, (Chat.__proto__ || Object.getPrototypeOf(Chat)).apply(this, arguments));
+  }
+
+  _createClass(Chat, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        { className: "box" },
+        React.createElement(
+          "article",
+          { className: "media" },
+          React.createElement(
+            "figure",
+            { className: "media-left" },
+            React.createElement("img", { src: this.props.image, className: "img-circle", alt: "Cinque Terre", width: "40", height: "50" })
+          ),
+          React.createElement(
+            "div",
+            { className: "media-content" },
+            React.createElement(
+              "div",
+              { className: "content" },
+              React.createElement(
+                "p",
+                null,
+                this.props.text
+              )
+            ),
+            React.createElement(
+              "nav",
+              { className: "level is-mobile" },
+              React.createElement(
+                "div",
+                { className: "level-left" },
+                React.createElement(
+                  "a",
+                  { className: "level-item" },
+                  React.createElement(LikeButton, null)
+                ),
+                React.createElement(
+                  "a",
+                  { className: "level-item" },
+                  React.createElement(
+                    "span",
+                    { className: "icon is-small " + this.props.status, onClick: this.props.onClickDone },
+                    React.createElement("i", { className: "fa fa-thumbs-up", "aria-hidden": "true" })
+                  )
+                )
+              )
+            )
+          ),
+          React.createElement(
+            "div",
+            { className: "media-right" },
+            React.createElement("button", { className: "delete", onClick: this.props.onClickClose })
+          )
+        )
+      );
+    }
+  }]);
+
+  return Chat;
 }(React.Component);
 
 var ChatList = function (_React$Component3) {
@@ -114,14 +162,14 @@ var ChatList = function (_React$Component3) {
   _createClass(ChatList, [{
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this5 = this;
 
       var items = this.props.items.map(function (item, index) {
-        return React.createElement(ChatListItem, { key: index, item: item, index: index, removeItem: _this4.props.removeItem, markTodoDone: _this4.props.markTodoDone });
+        return React.createElement(ChatListItem, { key: index, item: item, index: index, removeItem: _this5.props.removeItem, markTodoDone: _this5.props.markTodoDone });
       });
       return React.createElement(
         "div",
-        { className: "messageframe" },
+        { className: "message-body messageframe" },
         " ",
         items,
         " "
@@ -138,28 +186,28 @@ var ChatListItem = function (_React$Component4) {
   function ChatListItem(props) {
     _classCallCheck(this, ChatListItem);
 
-    var _this5 = _possibleConstructorReturn(this, (ChatListItem.__proto__ || Object.getPrototypeOf(ChatListItem)).call(this, props));
+    var _this6 = _possibleConstructorReturn(this, (ChatListItem.__proto__ || Object.getPrototypeOf(ChatListItem)).call(this, props));
 
-    _this5.onClickClose = _this5.onClickClose.bind(_this5);
-    _this5.onClickDone = _this5.onClickDone.bind(_this5);
-    _this5.state = {
+    _this6.onClickClose = _this6.onClickClose.bind(_this6);
+    _this6.onClickDone = _this6.onClickDone.bind(_this6);
+    _this6.state = {
       error: null,
       isLoaded: false,
       items: []
     };
-    return _this5;
+    return _this6;
   }
 
   _createClass(ChatListItem, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this6 = this;
+      var _this7 = this;
 
       console.log(this.props.item.input);
       fetch("http://localhost:5000/project/gethint.php?q=" + this.props.item.input).then(function (res) {
         return res.json();
       }).then(function (result) {
-        _this6.setState({
+        _this7.setState({
           isLoaded: true,
           items: result,
           output: result
@@ -169,7 +217,7 @@ var ChatListItem = function (_React$Component4) {
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.
         function (error) {
-          _this6.setState({
+          _this7.setState({
             isLoaded: true,
             error: error
           });
@@ -178,19 +226,21 @@ var ChatListItem = function (_React$Component4) {
   }, {
     key: "onClickClose",
     value: function onClickClose() {
+      console.log("closing pop up");
       var index = parseInt(this.props.index);
       this.props.removeItem(index);
     }
   }, {
     key: "onClickDone",
     value: function onClickDone() {
+      console.log("done");
       var index = parseInt(this.props.index);
       this.props.markTodoDone(index);
     }
   }, {
     key: "render",
     value: function render() {
-      var todoClass = this.props.item.done ? "done" : "undone";
+      var todoClass = this.props.item.done ? "has-text-success" : "has-text-dark";
       var _state = this.state,
         error = _state.error,
         isLoaded = _state.isLoaded,
@@ -199,29 +249,25 @@ var ChatListItem = function (_React$Component4) {
       if (error) {
         return React.createElement(
           "div",
-          null,
-          React.createElement(InputBox, { text: this.props.item.input }),
-          React.createElement(OutputBox, { text: error })
+          { className: "content" },
+          React.createElement(Chat, { text: this.props.item.input, image: "http://localhost:5000/static/image/avatar.png" }),
+          React.createElement(Chat, { text: error, image: "http://localhost:5000/static/image/user.png" })
         );
       } else if (!isLoaded) {
         console.log("loading");
         return React.createElement(
           "div",
-          null,
-          React.createElement(InputBox, { text: this.props.item.input }),
-          React.createElement(OutputBox, { text: "Loading.." })
+          { className: "content" },
+          React.createElement(Chat, { text: this.props.item.input, image: "http://localhost:5000/static/image/avatar.png" }),
+          React.createElement(Chat, { text: "Loading..", image: "http://localhost:5000/static/image/user.png" })
         );
       } else {
         console.log(items);
         return React.createElement(
           "div",
-          null,
-          React.createElement(
-            "div",
-            null,
-            React.createElement(InputBox, { text: this.props.item.input }),
-            React.createElement(OutputBox, { text: items })
-          )
+          { className: "content" },
+          React.createElement(Chat, { text: this.props.item.input, image: "http://localhost:5000/static/image/avatar.png", onClickClose: this.onClickClose, onClickDone: this.onClickDone, status: todoClass }),
+          React.createElement(Chat, { text: items, image: "http://localhost:5000/static/image/user.png", onClickClose: this.onClickClose, status: todoClass })
         );
       }
     }
@@ -230,24 +276,16 @@ var ChatListItem = function (_React$Component4) {
   return ChatListItem;
 }(React.Component);
 
-var floatRight = {
-  float: 'right'
-};
-
-var styleWidth = {
-  width: '100%'
-};
-
 var ChatForm = function (_React$Component5) {
   _inherits(ChatForm, _React$Component5);
 
   function ChatForm(props) {
     _classCallCheck(this, ChatForm);
 
-    var _this7 = _possibleConstructorReturn(this, (ChatForm.__proto__ || Object.getPrototypeOf(ChatForm)).call(this, props));
+    var _this8 = _possibleConstructorReturn(this, (ChatForm.__proto__ || Object.getPrototypeOf(ChatForm)).call(this, props));
 
-    _this7.onSubmit = _this7.onSubmit.bind(_this7);
-    return _this7;
+    _this8.onSubmit = _this8.onSubmit.bind(_this8);
+    return _this8;
   }
 
   _createClass(ChatForm, [{
@@ -274,15 +312,23 @@ var ChatForm = function (_React$Component5) {
         { ref: "form", onSubmit: this.onSubmit },
         React.createElement(
           "div",
-          { className: "input-group", style: styleWidth },
-          React.createElement("input", { type: "text", ref: "itemName", className: "form-control", placeholder: "Send a message..." }),
+          { className: "message-body" },
           React.createElement(
             "div",
-            { className: "input-group-btn" },
+            { className: "field is-grouped" },
             React.createElement(
-              "button",
-              { type: "submit", className: "btn btn-success enter", style: floatRight },
-              "Send"
+              "p",
+              { className: "control is-expanded" },
+              React.createElement("input", { type: "text", ref: "itemName", className: "input", placeholder: "Send a message..." })
+            ),
+            React.createElement(
+              "p",
+              { className: "control" },
+              React.createElement(
+                "button",
+                { type: "submit", className: "button is-dark" },
+                "Send"
+              )
             )
           )
         )
@@ -307,21 +353,13 @@ var ChatHeader = function (_React$Component6) {
     value: function render() {
       return React.createElement(
         "div",
-        { className: "w3-card-4 row head" },
+        { className: "message-header" },
         React.createElement(
-          "div",
-          { className: "col-5" },
-          React.createElement("img", { src: "http://localhost:5000/static/image/avatar.png", className: "img-circle center", alt: "Cinque Terre", width: "40", height: "50" })
+          "p",
+          null,
+          " Dumb Chatbot"
         ),
-        React.createElement(
-          "div",
-          { className: "col-6" },
-          React.createElement(
-            "h3",
-            null,
-            " Dumb Chatbot"
-          )
-        )
+        React.createElement("button", { className: "delete", onClick: this.props.closePopup, "aria-label": "delete" })
       );
     }
   }]);
@@ -335,13 +373,13 @@ var ChatBot = function (_React$Component7) {
   function ChatBot(props) {
     _classCallCheck(this, ChatBot);
 
-    var _this9 = _possibleConstructorReturn(this, (ChatBot.__proto__ || Object.getPrototypeOf(ChatBot)).call(this, props));
+    var _this10 = _possibleConstructorReturn(this, (ChatBot.__proto__ || Object.getPrototypeOf(ChatBot)).call(this, props));
 
-    _this9.addItem = _this9.addItem.bind(_this9);
-    _this9.removeItem = _this9.removeItem.bind(_this9);
-    _this9.markTodoDone = _this9.markTodoDone.bind(_this9);
-    _this9.state = { todoItems: todoItems };
-    return _this9;
+    _this10.addItem = _this10.addItem.bind(_this10);
+    _this10.removeItem = _this10.removeItem.bind(_this10);
+    _this10.markTodoDone = _this10.markTodoDone.bind(_this10);
+    _this10.state = { todoItems: todoItems };
+    return _this10;
   }
 
   _createClass(ChatBot, [{
@@ -349,7 +387,7 @@ var ChatBot = function (_React$Component7) {
     value: function addItem(todoItem) {
       todoItems.push({
         index: todoItems.length + 1,
-        output: 'loading..',
+        // output: 'loading..',
         input: todoItem.newItemValue,
         done: false
       });
@@ -374,14 +412,9 @@ var ChatBot = function (_React$Component7) {
     key: "render",
     value: function render() {
       return React.createElement(
-        "div",
-        { id: "chatbot", className: "chatbot" },
-        React.createElement(ChatHeader, { onClick: this.props.closePopup }),
-        React.createElement(
-          "div",
-          { className: "w3-display-topright icon" },
-          React.createElement("img", { src: "http://localhost:5000/static/image/minimize.png", onClick: this.props.closePopup, alt: "Cinque Terre", width: "30", height: "30" })
-        ),
+        "article",
+        { id: "chatbot", className: "message chatbot" },
+        React.createElement(ChatHeader, { closePopup: this.props.closePopup, text: "hello" }),
         React.createElement(ChatList, { items: this.props.initItems, removeItem: this.removeItem, markTodoDone: this.markTodoDone }),
         React.createElement(ChatForm, { addItem: this.addItem })
       );
@@ -397,12 +430,12 @@ var App = function (_React$Component8) {
   function App() {
     _classCallCheck(this, App);
 
-    var _this10 = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+    var _this11 = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
-    _this10.state = {
+    _this11.state = {
       showPopup: false
     };
-    return _this10;
+    return _this11;
   }
 
   _createClass(App, [{
@@ -417,14 +450,14 @@ var App = function (_React$Component8) {
     value: function render() {
       return React.createElement(
         "div",
-        { className: "chatframe" },
+        { className: "container" },
         this.state.showPopup ? React.createElement(ChatBot, {
           initItems: todoItems,
           closePopup: this.togglePopup.bind(this)
         }) : React.createElement(
           "button",
           {
-            className: "btn btn-success chat",
+            className: "is-light chat",
             onClick: this.togglePopup.bind(this)
           },
           React.createElement("img", { src: "http://localhost:5000/static/image/love.png", alt: "Cinque Terre", width: "40", height: "40" })
