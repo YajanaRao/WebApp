@@ -12,3 +12,7 @@ Logic has been implemented with flask python.
 <img src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg" width=500 height=200/>
 
 Styling is done via scss 
+
+## 2. BULMA
+
+<img src="https://bulma.io/images/bulma-logo.png" width=500 height=200/>
