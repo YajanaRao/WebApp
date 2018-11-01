@@ -102,7 +102,7 @@ class ChatListItem extends React.Component {
 
   componentDidMount() {
     console.log(this.props.item.input);
-    fetch("http://localhost:5000/project/gethint.php?q=" + this.props.item.input)
+    fetch("gethint.php?q=" + this.props.item.input)
       .then(res => res.json())
       .then(
         (result) => {
@@ -142,24 +142,24 @@ class ChatListItem extends React.Component {
     if (error) {
       return (
         <div className="content">
-          <Chat text={this.props.item.input} image="http://localhost:5000/static/image/avatar.png" />
-          <Chat text={error} image="http://localhost:5000/static/image/user.png"/>
+          <Chat text={this.props.item.input} image="/static/image/avatar.png" />
+          <Chat text={error} image="/static/image/user.png"/>
         </div>
       );
     } else if (!isLoaded) {
       console.log("loading");
       return (
         <div className="content">
-          <Chat text={this.props.item.input} image="http://localhost:5000/static/image/avatar.png"/>
-          <Chat text="Loading.." image="http://localhost:5000/static/image/user.png" />
+          <Chat text={this.props.item.input} image="/static/image/avatar.png"/>
+          <Chat text="Loading.." image="/static/image/user.png" />
         </div>
       );
     } else {
       console.log(items);
       return (
           <div className="content">
-          <Chat text={this.props.item.input} image="http://localhost:5000/static/image/avatar.png" onClickClose={this.onClickClose} onClickDone={this.onClickDone} status={todoClass} />
-          <Chat text={items} image="http://localhost:5000/static/image/user.png" onClickClose={this.onClickClose} status={todoClass}/>
+          <Chat text={this.props.item.input} image="/static/image/avatar.png" onClickClose={this.onClickClose} onClickDone={this.onClickDone} status={todoClass} />
+          <Chat text={items} image="/static/image/user.png" onClickClose={this.onClickClose} status={todoClass}/>
           </div>
       );
     }
@@ -283,7 +283,7 @@ class App extends React.Component {
           : <button
             className="is-light chat"
             onClick={this.togglePopup.bind(this)}>
-            <span className="icon is-large">
+            <span className="icon is-large has-text-info">
               <i className="fa fa-comment" aria-hidden="true"></i>
             </span>
           </button>

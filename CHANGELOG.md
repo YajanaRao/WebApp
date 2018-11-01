@@ -8,3 +8,4 @@ VERSION 1.1v
 7. Favicon
 8. Admin to add chats, View Users and delete user
 9. Transition from bootstrap, w3.css to bulma
+10. Javascript development environment for React

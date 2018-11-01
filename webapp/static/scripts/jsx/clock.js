@@ -22,7 +22,7 @@ const App = React.createClass({
       weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
     setInterval(() => {
-      let d, h, m, s, t, amPm;
+      let d, h, m, s, t, amPm,week,day,month,year,date;
 
       d = new Date();
       h = addZero(takeTwelve(d.getHours()));
