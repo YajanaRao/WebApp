@@ -16,3 +16,8 @@ Styling is done via scss
 ## 2. BULMA
 
 <img src="https://bulma.io/images/bulma-logo.png" width=500 height=200/>
+
+## 3. REACTJS
+
+To Create development environment
+1. run `npm run build`
