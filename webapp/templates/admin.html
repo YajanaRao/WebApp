@@ -3,11 +3,13 @@
 <h1>{% block title %}Admin Panel{% endblock %}</h1>
 {% endblock %}
 {% block content %}
+{% include "flash.html" %}
 <div style="padding-top: 100px;"></div>
 
 
 <div class="container">
     <div class="card">
+        <form method="POST" action="{{ url_for('project.admin') }}">
         <table class="table">
             <thead>
                 <tr>
@@ -34,15 +36,17 @@
                     {% else %}
                 <tr>
                     {% endif %}
-                    <td>{{user.id}}</td>
+                    <td name="user_id">{{user.id}}</td>
                     <td>{{user.username}}</td>
                     <td>{{user.email}}</td>
                     <td>{{user.country}}</td>
                     <td>{{user.type}}</td>
+                    <th><button  class="button is-primary">Admin</button></th>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+        </form>
     </div>
 </div>
 {% endblock %}

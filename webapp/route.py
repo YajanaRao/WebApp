@@ -93,8 +93,14 @@ def login_required(view):
 def support():
     return render_template('support.html')
 
-@bp.route("/admin")
+@bp.route("/admin",methods=['POST','GET'])
 def admin():
+    if request.method == "POST":
+        user = User.query.filter_by(id=session.get('user_id')).first()
+        user.actype = "admin"
+        User.update()
+        message = "Permission updated successfully"
+        flash(message, 'success')
     users = []
     output = {}
     items = User.query.all()
