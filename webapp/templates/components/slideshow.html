@@ -3,52 +3,79 @@
     display: none;
   }
 </style>
-<div class="w3-content w3-display-container">
 
-  <div class="w3-display-container mySlides">
-    <img src="https://www.w3schools.com/w3css/img_snowtops.jpg" style="width:100%">
-    <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black">
-      French Alps
-      <p> Love spending time in nature </p>
-    </div>
+<nav class="level is-mobile">
+  <div class="level-left">
+    <span class="icon is-large">
+          <p onclick="plusDivs(-1)"><i class="fa fa-chevron-left" aria-hidden="true"></i></p>
+    </span>
+
   </div>
-
-  <div class="w3-display-container mySlides">
-    <img src="https://www.w3schools.com/w3css/img_lights.jpg" style="width:100%">
-    <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
-      Northern Lights
-      <p> Love spending time in nature </p>
+  <div class="container">
+  
+    <div class="card mySlides">
+      <div class="card-image">
+        <img src="https://www.w3schools.com/w3css/img_snowtops.jpg" style="width:100%">
+      </div>
+      <div class="card-content">
+        French Alps
+        <p> Love spending time in nature </p>
+      </div>
     </div>
-  </div>
-
-  <div class="w3-display-container mySlides">
-    <img src="https://www.w3schools.com/w3css/img_mountains.jpg" style="width:100%">
-    <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
-      Beautiful Mountains
-      <p> Love spending time in nature </p>
+  
+    <div class="card mySlides">
+      <div class="card-image">
+        <img src="https://www.w3schools.com/w3css/img_lights.jpg" style="width:100%">
+      </div>
+      
+      <div class="card-content">
+        Northern Lights
+        <p> Love spending time in nature </p>
+      </div>
     </div>
-  </div>
-
-  <div class="w3-display-container mySlides">
-    <img src="https://www.w3schools.com/w3css/img_forest.jpg" style="width:100%">
-    <div class="w3-display-topright w3-large w3-container w3-padding-16 w3-black">
-      The Rain Forest
-      <p> Love spending time in nature </p>
+  
+    <div class="card mySlides">
+      <div class="card-image">
+        <img src="https://www.w3schools.com/w3css/img_mountains.jpg" style="width:100%">
+      </div>
+     
+      <div class="card-content">
+        Beautiful Mountains
+        <p> Love spending time in nature </p>
+      </div>
     </div>
-  </div>
-
-  <div class="w3-display-container mySlides">
-    <img src="https://www.w3schools.com/w3css/img_mountains.jpg" style="width:100%">
-    <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">
-      Mountains!
-      <p> Love spending time in nature </p>
+  
+    <div class="card mySlides">
+      <div class="card-image">
+      <img src="https://www.w3schools.com/w3css/img_forest.jpg" style="width:100%">
+      </div>
+      <div class="card-content">
+        The Rain Forest
+        <p> Love spending time in nature </p>
+      </div>
     </div>
+  
+    <div class="card mySlides">
+      <div class="card-image">
+      <img src="https://www.w3schools.com/w3css/img_mountains.jpg" style="width:100%">
+      </div>
+      <div class="card-content">
+        Mountains!
+        <p> Love spending time in nature </p>
+      </div>
+    </div>
+  </div>  
+  <div class="level-right">
+    <span class="icon is-large">
+          <p onclick="plusDivs(1)"><i class="fa fa-chevron-right" aria-hidden="true"></i></p>
+    </span>
+
   </div>
+</nav>
+  
+  
 
-  <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
 
-</div>
 
 <script>
   var slideIndex = 1;

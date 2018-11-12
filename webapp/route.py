@@ -176,3 +176,8 @@ def getHint():
 
     elif request.method == 'POST':
         return "me again"
+
+
+@bp.route("/test")
+def test():
+    return render_template('components/react/password.html')

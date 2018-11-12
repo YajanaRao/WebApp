@@ -26,5 +26,10 @@
 
 
 </div>
-  {% include "components/react/chatbot.html" %}
+<!-- react component -->
+<div id="app"></div>
+
+
+<!-- Production Environment -->
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/js/chat.js') }}"></script>
 {% endblock %}

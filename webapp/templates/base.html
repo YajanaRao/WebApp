@@ -5,9 +5,12 @@
 <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='image/fevicon/fevicon.ico') }}"/>
 {% assets "scss_all" %}
 <link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
 {% endassets %}
 <link rel="stylesheet" href="{{ url_for('static',filename='css/bulma.min.css') }}">
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
 <body class="w3-light-grey">
 <section class="header">
     {% include "header.html" %}

@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
     entry: {
         chat: './webapp/static/scripts/jsx/chat.js',
-        clock: './webapp/static/scripts/jsx/clock.js'
+        clock: './webapp/static/scripts/jsx/clock.js',
+        password: './webapp/static/scripts/jsx/password.js'
     },
     output: {
         // path: path.resolve(__dirname, '/webapp/static/scripts/js'),

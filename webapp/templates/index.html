@@ -5,11 +5,10 @@
 {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
 <meta id="user" data-name="{{g}}" data-other="{{g.user}}">
 
 <!-- Resources -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
 <script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
 <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
@@ -20,11 +19,7 @@
 <!-- Styles -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
 
-<style>
-body, h1,h2,h3, p,div{
-    font-family: 'Amatic SC';font-size: 22px;
-}
-</style>
+
 
 <!-- Chart code -->
 {% assets "map_js" %}
@@ -32,39 +27,56 @@ body, h1,h2,h3, p,div{
 {% endassets %}
 
 <!-- Header -->
-<div class="bgimg-1 w3-display-container has-background-danger w3-center " style="padding:350px 16px" id="home" data-aos="fade-up" data-aos-duration="1000">
+<section class="has-background-danger has-text-centered hero is-fullheight" id="home" data-aos="fade-up" data-aos-duration="1000">
   <!-- <img src="{{ url_for('static', filename='image/planeimg.png') }}" id="plane"> -->
-  <div class="w3-margin w3-jumbo amatic title">
+  <div class="hero-body">
+    <div class="container">
+  <div class="amatic title">
     {% include "components/react/clock.html" %}
   </div>
         <!-- <div class="ani">1 minute of your life</div> -->
   {% if g.user %}
-  <h1 class="w3-margin w3-jumbo title amatic" style="color:white;">HI {{g.user.username}}</h1>
+  <h1 class="title amatic" style="color:white;">HI {{g.user.username}}</h1>
   {% else %}
-  <h1 class="w3-margin w3-jumbo title amatic" style="color:white;">WANNA LOG IN</h1>
+  <h1 class="title amatic" style="color:white;">WANNA LOG IN</h1>
   {% endif %}
-  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" href="{{ url_for('project.login') }}" data-toggle="tooltip" title="Hooray!">Get Started</button>
-</div>
+  <p class="button is-dark is-outlined has-text-weight-bold" href="{{ url_for('project.login') }}" data-toggle="tooltip" title="Hooray!">Get Started</p>
+  </div>
+  </div>
+</section>
 
 
 
 
 
 <!-- Services -->
-<div class="w3-container" id="me" style="margin-top:75px" data-aos="fade-in"  data-aos-duration="3000">
-  <h1 class="w3-xxxlarge w3-text-red title"><b>Here I'm.</b></h1>
-  <hr style="width:50px;border:5px solid red" class="w3-round">
-  <p >We are a interior design service that focus on what's best for your home and what's best for you!</p>
-  <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  </p>
-  <div id="chartdiv"></div>
-</div>
-<br></br>
+<section class="hero is-fullheight" id="me"  data-aos="fade-in"  data-aos-duration="3000">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        <h1 class="has-text-danger"><b>Here I'm.</b></h1>
+      </h1>
+      <p>We are a interior design service that focus on what's best for your home and what's best for you!</p>
+      <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit,
+        sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+        ut aliquip ex ea commodo consequat.
+      </p>
+        <div id="chartdiv" class="container"></div>
+    </div>
+  </div>
+  
+  
+</section>
+
 <!-- About Container -->
-<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="projects">
-  <div class="w3-content" data-aos="fade-in" data-aos-duration="3000">
+<section class="hero has-background-grey-dark has-text-white-bis is-fullheight" id="projects">
+  <div class="hero-body">
+  <div class="container" data-aos="fade-in" data-aos-duration="3000">
     <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">Projects</h1>
     <p>I love creating and contributing to the open source project, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     <!-- <p><strong>The Chef?</strong> Mr. Italiano himself<img src="/w3images/chef.jpg" style="width:150px" class="w3-circle w3-right" alt="Chef"></p> -->
@@ -72,51 +84,60 @@ body, h1,h2,h3, p,div{
     <!-- <img src="/w3images/onepage_restaurant.jpg" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurant"> -->
     <h1 class="title"><b>MY PROJECTS</b></h1>
 
-    <div class="w3-row" >
-      <div class="w3-col s6">
+    <div class="columns" >
+      <div class="column">
         <p><img src="{{ url_for('static', filename='image/PNG/GitHub-Mark-32px.png') }}"> Perftool</p>
         <p>A Perfromance Monitoring tool</p>
         <!-- <p>Thursday 10:00 - 24:00</p> -->
       </div>
-      <div class="w3-col s6">
+      <div class="column">
         <p><img src="{{ url_for('static', filename='image/PNG/GitHub-Mark-32px.png') }}"> LDAP GRAFANA LOGIN</p>
         <p>A php front end for grafana</p>
       </div>
     </div>
 
   </div>
-</div>
+  </div>
+</section>
 
 
-<div class="w3-container w3-padding-64 w3-green">
-<div class="w3-content" data-aos="fade-in" data-aos-duration="3000">
-  <h1 class="w3-center w3-jumbo"> ಕನ್ನಡ </h1>
-  <br>
-  <p> ಎಲ್ಲಾದರು ಇರು ಎಂತಾದರು ಇರು ಎಂದೆಂದಿಗೂ ನೀ ಕನ್ನಡವಾಗಿರು </p>
-  <p> ಕನ್ನಡವೇ ಸತ್ಯ ಕನ್ನಡವೇ ನಿತ್ಯ </p>
-  <br>
-  <p> ಕನ್ನಡ ಗೋವಿನ ಓ ಮುದ್ದಿನ ಕರು ಕನ್ನಡತನವೊಂದಿದ್ದರೆ ನೀನಮ್ಮಗೆ </p>
-  <p> ಕಲ್ಪತರು ಕನ್ನಡವೇ ಸತ್ಯ ಕನ್ನಡವೇ ನಿತ್ಯ ! </p>
-  <br>
-  <p> -  ಕುವೆಂಪು </p>
-</div>
-</div>
+<section class="hero has-background-success has-text-white-bis is-fullheight">
+  <div class="hero-body">
+  <div class="container" data-aos="fade-in" data-aos-duration="3000">
+    <h1 class="w3-center w3-jumbo"> ಕನ್ನಡ </h1>
+    <br>
+    <p> ಎಲ್ಲಾದರು ಇರು ಎಂತಾದರು ಇರು ಎಂದೆಂದಿಗೂ ನೀ ಕನ್ನಡವಾಗಿರು </p>
+    <p> ಕನ್ನಡವೇ ಸತ್ಯ ಕನ್ನಡವೇ ನಿತ್ಯ </p>
+    <br>
+    <p> ಕನ್ನಡ ಗೋವಿನ ಓ ಮುದ್ದಿನ ಕರು ಕನ್ನಡತನವೊಂದಿದ್ದರೆ ನೀನಮ್ಮಗೆ </p>
+    <p> ಕಲ್ಪತರು ಕನ್ನಡವೇ ಸತ್ಯ ಕನ್ನಡವೇ ನಿತ್ಯ ! </p>
+    <br>
+    <p> -  ಕುವೆಂಪು </p>
+  </div>
+  </div>
+</section>
 
-<div class="w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge" id="slides">
-  <div class="w3-content" data-aos="fade-in" data-aos-duration="3000">
+<section class="hero has-background-grey has-text-white-bis is-fullheight" id="slides">
+  <div class="hero-body" data-aos="fade-in" data-aos-duration="3000">
+    <div class="container">
     <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">SLIDE SHOW</h1>
     <p>Find us at some address at some place or call us at 05050515-122330</p>
     <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
     {% include "components/slideshow.html" %}
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero" >
+  <div class="hero-body">
+
+        {% include "components/gallery.html" %}
 
   </div>
-</div>
 
-
-
-<div >
-  {% include "components/gallery.html" %}
-</div>
+</section>
 
 
 

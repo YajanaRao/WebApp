@@ -1,18 +1,45 @@
-$header-family: "Amatic SC";
-$paragraph-family: "Amatic SC";
+@charset "utf-8";
+
+$font-family: "Amatic SC";
 $header-color: white;
 $vertical-padding: 50px;
 $mobile-padding: 20px;
 
+.is-128 {
+  width: 128px;
+  height: 128px;
+}
+
+body, h1,h2,h3,p,div{
+    font-family: 'Amatic SC';
+    font-size: 22px;
+}
+
+input {
+  font-family: $font-family !important;
+ 
+}
+
+select {
+  font-family: $font-family !important;
+}
+button {
+  font-family: $font-family !important;
+}
+
+span{
+    pointer-events: initial !important;
+}   
+
 .para{
-  font-family: $paragraph-family;
+  font-family: $font-family;
   font-size: 20px;
 }
 
 
 
 .amatic {
-  font-family: $header-family;
+  font-family: $font-family;
 }
 
 

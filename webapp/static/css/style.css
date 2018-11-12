@@ -1,139 +1,160 @@
-.para {
-  font-family: "Amatic SC";
-  font-size: 20px; }
+@charset "utf-8"; 
+  .is-128 {
+    width: 128px;
+    height: 128px; }
 
-  .amatic {
-    font-family: "Amatic SC"; }
+    body, h1, h2, h3, p, div {
+      font-family: 'Amatic SC';
+      font-size: 22px; }
 
-    .images {
-      display: block;
-      width: 50%;
-      margin: auto; }
+      input {
+        font-family: "Amatic SC" !important; }
 
-      .mySlides {
-        display: none; }
+        select {
+          font-family: "Amatic SC" !important; }
 
-        .center {
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          float: right; }
+          button {
+            font-family: "Amatic SC" !important; }
 
-          .customSidePadding {
-            padding-bottom: 50px;
-            padding-left: 20px;
-            padding-right: 20px; }
+            span {
+              pointer-events: initial !important; }
 
-            .brand {
-              width: 90px;
-              height: 90px;
-              overflow: hidden;
-              border-radius: 50%;
-              margin: 0 auto;
-              margin: 40px auto;
-              box-shadow: 0 0 40px rgba(0, 0, 0, 0.05); }
+              .para {
+                font-family: "Amatic SC";
+                font-size: 20px; }
 
-              .brand {
-                width: 90px;
-                height: 90px;
-                overflow: hidden;
-                border-radius: 50%;
-                margin: 0 auto;
-                margin: 40px auto;
-                box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
-                padding-bottom: 10px; }
+                .amatic {
+                  font-family: "Amatic SC"; }
 
-                .brand img {
-                  width: 100%; }
-
-                  .slide-center {
-                    margin: auto;
+                  .images {
+                    display: block;
                     width: 50%;
-                    border: 3px solid white;
-                    overflow: hidden;
-                    height: 500px; }
+                    margin: auto; }
 
-                    .chat {
-                      bottom: 10px;
-                      right: 10px;
-                      position: fixed;
-                      border-radius: 40px !important;
-                      width: 80px;
-                      height: 80px; }
+                    .mySlides {
+                      display: none; }
 
-                      .chat:hover {
-                        width: 90px;
-                        height: 90px; }
+                      .center {
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        float: right; }
 
-                        .messageframe {
-                          position: relative;
-                          height: 500px;
-                          width: 100%;
-                          padding: 20px;
-                          overflow-y: scroll;
-                          overflow-x: hidden; }
+                        .customSidePadding {
+                          padding-bottom: 50px;
+                          padding-left: 20px;
+                          padding-right: 20px; }
 
-                          .chatbot {
-                            right: 10px;
-                            bottom: 10px;
-                            position: fixed;
-                            width: 500px;
-                            background-color: #e0e0e0;
-                            border-radius: 10px;
+                          .brand {
+                            width: 90px;
+                            height: 90px;
                             overflow: hidden;
-                            border: solid 2px green; }
+                            border-radius: 50%;
+                            margin: 0 auto;
+                            margin: 40px auto;
+                            box-shadow: 0 0 40px rgba(0, 0, 0, 0.05); }
 
-                            .head {
-                              background-color: white; }
+                            .brand {
+                              width: 90px;
+                              height: 90px;
+                              overflow: hidden;
+                              border-radius: 50%;
+                              margin: 0 auto;
+                              margin: 40px auto;
+                              box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+                              padding-bottom: 10px; }
 
-                              .amPm {
-                                font-size: 30px;
-                                padding: 10px; }
+                              .brand img {
+                                width: 100%; }
 
-                                .time {
-                                  font-size: 170px; }
+                                .slide-center {
+                                  margin: auto;
+                                  width: 50%;
+                                  border: 3px solid white;
+                                  overflow: hidden;
+                                  height: 500px; }
 
-                                  div.ani {
-                                    animation: lifetime 60s infinite;
-                                    font-family: cursive;
-                                    text-overflow: hide;
-                                    width: 20px;
-                                    padding: 10px;
-                                    border-radius: 5px;
-                                    padding: 10px; }
+                                  .chat {
+                                    bottom: 10px;
+                                    right: 10px;
+                                    position: fixed;
+                                    border-radius: 40px !important;
+                                    width: 80px;
+                                    height: 80px; }
 
-                                    .icon {
-                                      padding: 10px; }
+                                    .chat:hover {
+                                      width: 90px;
+                                      height: 90px; }
 
-                                      @keyframes lifetime {
-                                        0% {
-                                          background-color: white;
-                                          width: 100%;
-                                          color: black;
-                                          opacity: 100;
-                                          font-weight: bold;   }
-                                          100% {
-                                            background-color: #f44336;
-                                            width: 0%;
-                                            color: #f44336;
-                                            display: none;
-                                            opacity: 0;   }
+                                      .messageframe {
+                                        position: relative;
+                                        height: 500px;
+                                        width: 100%;
+                                        padding: 20px;
+                                        overflow-y: scroll;
+                                        overflow-x: hidden; }
+
+                                        .chatbot {
+                                          right: 10px;
+                                          bottom: 10px;
+                                          position: fixed;
+                                          width: 500px;
+                                          background-color: #e0e0e0;
+                                          border-radius: 10px;
+                                          overflow: hidden;
+                                          border: solid 2px green; }
+
+                                          .head {
+                                            background-color: white; }
+
+                                            .amPm {
+                                              font-size: 30px;
+                                              padding: 10px; }
+
+                                              .time {
+                                                font-size: 170px; }
+
+                                                div.ani {
+                                                  animation: lifetime 60s infinite;
+                                                  font-family: cursive;
+                                                  text-overflow: hide;
+                                                  width: 20px;
+                                                  padding: 10px;
+                                                  border-radius: 5px;
+                                                  padding: 10px; }
+
+                                                  .icon {
+                                                    padding: 10px; }
+
+                                                    @keyframes lifetime {
+                                                      0% {
+                                                        background-color: white;
+                                                        width: 100%;
+                                                        color: black;
+                                                        opacity: 100;
+                                                        font-weight: bold;   }
+                                                        100% {
+                                                          background-color: #f44336;
+                                                          width: 0%;
+                                                          color: #f44336;
+                                                          display: none;
+                                                          opacity: 0;   }
 }
 
-@media only screen and (max-width: 500px) {
-  #plane {
-    width: 100%;   }
-    .images {
+  @media only screen and (max-width: 500px) {
+    #plane {
       width: 100%;   }
-      .slide-center {
+      .images {
         width: 100%;   }
-        .chatbot {
-          position: relative;
-          width: 100%;
-          right: 0;
-          left: 0;   }
-          .time {
-            font-size: 100px;   }
-            .date {
-              font-size: 40px;   }
+        .slide-center {
+          width: 100%;   }
+          .chatbot {
+            position: relative;
+            width: 100%;
+            right: 0;
+            left: 0;   }
+            .time {
+              font-size: 100px;   }
+              .date {
+                font-size: 40px;   }
 }
