@@ -1,18 +1,19 @@
-const App = React.createClass({
-
-  getInitialState() {
-    return {
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.getTime = this.getTime.bind(this);
+    this.state = {
       time: "00:00:00",
       amPm: "am",
       date: "Thursday 1 January 1970"
     }
-  },
+  }
 
   componentDidMount() {
     this.loadInterval = setInterval(
       this.getTime, 1000
     );
-  },
+  }
 
   getTime() {
     const
@@ -44,7 +45,7 @@ const App = React.createClass({
       });
 
     }, 1000);
-  },
+  }
 
   render() {
     return (
@@ -64,7 +65,7 @@ const App = React.createClass({
       </div>
     );
   }
-});
+};
 
 ReactDOM.render(
   <App />,
