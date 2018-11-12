@@ -17,14 +17,12 @@ scss = Bundle('assets/scss/style.scss', filters='pyscss', output='css/style.css'
 
 # javascript bundling
 map = Bundle('assets/js/map.js', filters='jsmin', output='js/map.js')
-login = Bundle('assets/js/my-login.js', filters='jsmin', output='js/my-login.js')
-
 
 assets.register('scss_all', scss)
 
 # javascript
 assets.register('map_js', map)
-assets.register('login_js', login)
+
 
 
 app.config.from_mapping(
