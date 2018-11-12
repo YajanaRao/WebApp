@@ -68,7 +68,7 @@ class Password extends React.Component {
             <div>
             <div className="field">
                 <div className="control has-icons-right has-icons-left">
-                        <input type={this.state.type} className="input is-large" onChange={this.passwordStrength} placeholder="Password" />
+                        <input type={this.state.type} className="input is-large" onChange={this.passwordStrength} placeholder="Password" name="password"  />
                         <span class="icon is-small is-left">
                             <i class="fas fa-lock"></i>
                         </span>
