@@ -3,8 +3,8 @@ function getGooglePaymentDataRequest(){const paymentDataRequest=Object.assign({}
 function getGooglePaymentsClient(){if(paymentsClient===null){paymentsClient=new google.payments.api.PaymentsClient({environment:'TEST'});}
 return paymentsClient;}
 function onGooglePayLoaded(){const paymentsClient=getGooglePaymentsClient();paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest()).then(function(response){if(response.result){addGooglePayButton();}}).catch(function(err){console.error(err);});}
-function addGooglePayButton(){const paymentsClient=getGooglePaymentsClient();const button=paymentsClient.createButton({onClick:onGooglePaymentButtonClicked,});document.getElementById('container').appendChild(button);}
+function addGooglePayButton(){const paymentsClient=getGooglePaymentsClient();const button=paymentsClient.createButton({onClick:onGooglePaymentButtonClicked,});document.getElementById('payment').appendChild(button);}
 function getGoogleTransactionInfo(){return{currencyCode:'INR',totalPriceStatus:'FINAL',totalPrice:'1.00'};}
 function prefetchGooglePaymentData(){const paymentDataRequest=getGooglePaymentDataRequest();paymentDataRequest.transactionInfo={totalPriceStatus:'NOT_CURRENTLY_KNOWN',currencyCode:'USD'};const paymentsClient=getGooglePaymentsClient();paymentsClient.prefetchPaymentData(paymentDataRequest);}
 function onGooglePaymentButtonClicked(){const paymentDataRequest=getGooglePaymentDataRequest();paymentDataRequest.transactionInfo=getGoogleTransactionInfo();const paymentsClient=getGooglePaymentsClient();paymentsClient.loadPaymentData(paymentDataRequest).then(function(paymentData){processPayment(paymentData);}).catch(function(err){console.error(err);});}
-function processPayment(paymentData){console.log(paymentData);var element=document.getElementById('container');var description=document.createTextNode(paymentData.paymentMethodData.description);element.appendChild(description);}
+function processPayment(paymentData){console.log(paymentData);var element=document.getElementById('payment');var description=document.createTextNode(paymentData.paymentMethodData.description);element.appendChild(description);}

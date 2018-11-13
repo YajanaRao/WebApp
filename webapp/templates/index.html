@@ -7,25 +7,6 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <meta id="user" data-name="{{g}}" data-other="{{g.user}}">
 
-<!-- Resources -->
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-<script src="https://www.amcharts.com/lib/3/ammap.js"></script>
-<script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
-<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-
-
-<!-- Styles -->
-<link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
-
-
-
-<!-- Chart code -->
-{% assets "map_js" %}
-<script type="text/javascript" src="{{ ASSET_URL }}"></script>
-{% endassets %}
-
 <!-- Header -->
 <section class="has-text-centered hero is-fullheight" id="home" data-aos="fade-up" data-aos-duration="1000">
   <!-- <img src="{{ url_for('static', filename='image/planeimg.png') }}" id="plane"> -->
@@ -43,7 +24,7 @@
   {% else %}
   <h1 class="title amatic" style="color:white;">WANNA LOG IN</h1>
   {% endif %}
-  <p class="button is-dark is-outlined has-text-weight-bold" href="{{ url_for('project.login') }}" data-toggle="tooltip" title="Hooray!">Get Started</p>
+  <p class="button is-warning is-outlined has-text-weight-bold" href="{{ url_for('project.login') }}" data-toggle="tooltip" title="Hooray!">Get Started</p>
   </div>
   </div>
 </section>
@@ -69,7 +50,18 @@
         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
         ut aliquip ex ea commodo consequat.
       </p>
-        <div id="chartdiv" class="container"></div>
+
+        <script type='text/javascript' src='http://d3js.org/d3.v3.min.js'></script>
+        <script type='text/javascript' src='http://d3js.org/topojson.v1.min.js'></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/planetaryjs.min.js') }}"></script>
+      
+      
+        <canvas id='rotatingGlobe' width='400' height='400' class="is-canvas"></canvas>
+      
+        <!-- Chart code -->
+        {% assets "map_js" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+        {% endassets %}
     </div>
   </div>
   
@@ -141,7 +133,6 @@
   </div>
 
 </section>
-
 
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

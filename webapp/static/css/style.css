@@ -95,52 +95,68 @@
 
                                         .amPm {
                                           font-size: 30px;
-                                          padding: 10px; }
+                                          padding: 10px;
+                                          color: aliceblue; }
 
-                                          .time {
-                                            font-size: 170px; }
+                                          .date {
+                                            color: aliceblue; }
 
-                                            div.ani {
-                                              animation: lifetime 60s infinite;
-                                              font-family: cursive;
-                                              text-overflow: hide;
-                                              width: 20px;
-                                              padding: 10px;
-                                              border-radius: 5px;
-                                              padding: 10px; }
+                                            .time {
+                                              font-size: 170px;
+                                              color: #ffdc48; }
 
-                                              .icon {
+                                              div.ani {
+                                                animation: lifetime 60s infinite;
+                                                font-family: cursive;
+                                                text-overflow: hide;
+                                                width: 20px;
+                                                padding: 10px;
+                                                border-radius: 5px;
                                                 padding: 10px; }
 
-                                                @keyframes lifetime {
-                                                  0% {
-                                                    background-color: white;
-                                                    width: 100%;
-                                                    color: black;
-                                                    opacity: 100;
-                                                    font-weight: bold;   }
-                                                    100% {
-                                                      background-color: #f44336;
-                                                      width: 0%;
-                                                      color: #f44336;
-                                                      display: none;
-                                                      opacity: 0;   }
+                                                .icon {
+                                                  padding: 10px; }
+
+                                                  .is-canvas {
+                                                    width: 50%;
+                                                    height: 50%;
+                                                    cursor: move;
+                                                    padding: 0;
+                                                    margin: auto;
+                                                    display: block; }
+
+                                                    @keyframes lifetime {
+                                                      0% {
+                                                        background-color: white;
+                                                        width: 100%;
+                                                        color: black;
+                                                        opacity: 100;
+                                                        font-weight: bold;   }
+                                                        100% {
+                                                          background-color: #f44336;
+                                                          width: 0%;
+                                                          color: #f44336;
+                                                          display: none;
+                                                          opacity: 0;   }
 }
 
   @media only screen and (max-width: 500px) {
     #plane {
       width: 100%;   }
-      .images {
-        width: 100%;   }
-        .slide-center {
+      #rotatingGlobe {
+        width: 100%;
+        height: 100%;   }
+        .images {
           width: 100%;   }
-          .chatbot {
-            position: relative;
-            width: 100%;
-            right: 0;
-            left: 0;   }
-            .time {
-              font-size: 100px;   }
-              .date {
-                font-size: 40px;   }
+          .slide-center {
+            width: 100%;   }
+            .chatbot {
+              position: relative;
+              width: 100%;
+              right: 0;
+              left: 0;   }
+              .time {
+                font-size: 100px;   }
+                .date {
+                  font-size: 40px;   }
 }

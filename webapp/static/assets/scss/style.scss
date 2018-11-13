@@ -136,12 +136,16 @@ span{
 .amPm {
   font-size: 30px;
   padding: 10px;
+  color: aliceblue;
 }
 
-
+.date{
+  color: aliceblue;
+}
 
 .time {
   font-size: 170px;
+  color: #ffdc48;
 }
 
 div.ani {
@@ -158,6 +162,14 @@ div.ani {
   padding:10px;
 }
 
+.is-canvas{
+  width: 50%; 
+  height: 50%; 
+  cursor: move;
+  padding: 0;
+  margin: auto;
+  display: block;
+}
 
 /* Standard syntax */
 @keyframes lifetime {
@@ -181,6 +193,11 @@ div.ani {
 @media only screen and (max-width: 500px) {
     #plane {
         width: 100%;
+    }
+
+    #rotatingGlobe{
+      width: 100%;
+      height: 100%;
     }
 
     .images{

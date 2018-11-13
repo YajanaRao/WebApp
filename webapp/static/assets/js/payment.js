@@ -83,7 +83,7 @@ function addGooglePayButton() {
     const button = paymentsClient.createButton({
         onClick: onGooglePaymentButtonClicked,
     });
-    document.getElementById('container').appendChild(button);
+    document.getElementById('payment').appendChild(button);
 }
 
 function getGoogleTransactionInfo() {
@@ -127,7 +127,7 @@ function processPayment(paymentData) {
     console.log(paymentData);
     // var obj = JSON.parse(paymentData.paymentMethodData);
     // console.log(obj);
-    var element = document.getElementById('container');
+    var element = document.getElementById('payment');
     var description = document.createTextNode(paymentData.paymentMethodData.description);
     element.appendChild(description);
 }
