@@ -15,14 +15,8 @@ assets = Environment(app)
 assets.url = app.static_url_path
 scss = Bundle('assets/scss/style.scss', filters='pyscss', output='css/style.css')
 
-# javascript bundling
-map = Bundle('assets/js/map.js', filters='jsmin', output='js/map.js')
 
 assets.register('scss_all', scss)
-
-# javascript
-assets.register('map_js', map)
-
 
 
 app.config.from_mapping(
