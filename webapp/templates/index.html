@@ -6,6 +6,15 @@
 {% block content %}
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <meta id="user" data-name="{{g}}" data-other="{{g.user}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bulma-extensions.min.css') }}">
+<!-- <script src="{{ url_for('static',filename='js/bulma-extensions.min.js') }}"></script> -->
+
+<section>
+  <div class="pageloader is-active" id="pageloader"><span class="title">Loading..</span></div>
+  <script type="text/javascript">
+    setTimeout(function () { document.getElementById("pageloader").classList.remove('is-active'); }, 3000);
+  </script>
+</section>
 
 <!-- Header -->
 <section class="has-text-centered hero is-fullheight" id="home" data-aos="fade-up" data-aos-duration="1000">
@@ -16,7 +25,7 @@
     <div id="clock"></div>
     
     <!-- Production Environment -->
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/js/clock.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/js/clock.js') }}" async ></script>
   </div>
         <!-- <div class="ani">1 minute of your life</div> -->
   {% if g.user %}
@@ -30,7 +39,7 @@
 </section>
 
 <!-- About -->
-<section class="section" id="about">
+<section class="section" id="about" data-aos="fade-up">
   <!-- Title -->
   <div class="section-heading has-text-centered" style="margin-bottom: 6em;">
     <h3 class="title is-2 ">About Me</h3>
@@ -45,130 +54,130 @@
     </div>
   </div>
   
-    <div class="columns has-same-height is-gapless">
-      <div class="column">
-        <!-- Profile -->
-        <div class="card" style="height: 100%;">
-          <div class="card-content">
-            <h3 class="title is-4">Profile</h3>
-  
-            <div class="content">
-              <table class="table-profile">
-                <tr>
-                  <th colspan="1"></th>
-                  <th colspan="2"></th>
-                </tr>
-                <tr>
-                  <td>Address:</td>
-                  <td>Guru's Lab</td>
-                </tr>
-                <tr>
-                  <td>Phone:</td>
-                  <td>0123-456789</td>
-                </tr>
-                <tr>
-                  <td>Email:</td>
-                  <td>minion@despicable.me</td>
-                </tr>
-              </table>
-            </div>
-            <br>
-            <div class="buttons has-addons is-centered">
-              <a href="#" class="button is-link">Github</a>
-              <a href="#" class="button is-link">LinkedIn</a>
-              <a href="#" class="button is-link">Twitter</a>
-              <a href="#" class="button is-link">CodeTrace</a>
-            </div>
+  <div class="columns has-same-height is-gapless">
+    <div class="column">
+      <!-- Profile -->
+      <div class="card" style="height: 100%;">
+        <div class="card-content">
+          <h3 class="title is-4">Profile</h3>
+
+          <div class="content">
+            <table class="table-profile">
+              <tr>
+                <th colspan="1"></th>
+                <th colspan="2"></th>
+              </tr>
+              <tr>
+                <td>Address:</td>
+                <td>Guru's Lab</td>
+              </tr>
+              <tr>
+                <td>Phone:</td>
+                <td>0123-456789</td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td>minion@despicable.me</td>
+              </tr>
+            </table>
           </div>
-        </div>
-      </div>
-      <div class="column">
-        <!-- Profile picture -->
-        <div class="card" style="height: 100%;">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
-            </figure>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <!-- Skills -->
-        <div class="card" style="height:100%;">
-          <div class="card-content skills-content">
-            <h3 class="title is-4">Skills</h3>
-            <div class="content">
-  
-              <article class="media">
-                <div class="media-content">
-                  <div class="content">
-                    <p>
-                      <strong>JavaScript:</strong>
-                      <br>
-                      <progress class="progress is-primary" value="90" max="100"></progress>
-                    </p>
-                  </div>
-                </div>
-              </article>
-  
-              <article class="media">
-                <div class="media-content">
-                  <div class="content">
-                    <p>
-                      <strong>Vue.js:</strong>
-                      <br>
-                      <progress class="progress is-primary" value="90" max="100"></progress>
-                    </p>
-                  </div>
-                </div>
-              </article>
-  
-              <article class="media">
-                <div class="media-content">
-                  <div class="content">
-                    <p>
-                      <strong>Node.js:</strong>
-                      <br>
-                      <progress class="progress is-primary" value="75" max="100"></progress>
-                    </p>
-                  </div>
-                </div>
-              </article>
-  
-              <article class="media">
-                <div class="media-content">
-                  <div class="content">
-                    <p>
-                      <strong>HTML5/CSS3</strong>
-                      <br>
-                      <progress class="progress is-primary" value="95" max="100"></progress>
-                    </p>
-                  </div>
-                </div>
-              </article>
-  
-              <article class="media">
-                <div class="media-content">
-                  <div class="content">
-                    <p>
-                      <strong>Databases</strong>
-                      <br>
-                      <progress class="progress is-primary" value="66" max="100"></progress>
-                    </p>
-                  </div>
-                </div>
-              </article>
-            </div>
+          <br>
+          <div class="buttons has-addons is-centered">
+            <a href="#" class="button is-link">Github</a>
+            <a href="#" class="button is-link">LinkedIn</a>
+            <a href="#" class="button is-link">Twitter</a>
+            <a href="#" class="button is-link">CodeTrace</a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+    <div class="column">
+      <!-- Profile picture -->
+      <div class="card" style="height: 100%;">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <!-- Skills -->
+      <div class="card" style="height:100%;">
+        <div class="card-content skills-content">
+          <h3 class="title is-4">Skills</h3>
+          <div class="content">
+
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>JavaScript:</strong>
+                    <br>
+                    <progress class="progress is-primary" value="90" max="100"></progress>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Vue.js:</strong>
+                    <br>
+                    <progress class="progress is-primary" value="90" max="100"></progress>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Node.js:</strong>
+                    <br>
+                    <progress class="progress is-primary" value="75" max="100"></progress>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>HTML5/CSS3</strong>
+                    <br>
+                    <progress class="progress is-primary" value="95" max="100"></progress>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Databases</strong>
+                    <br>
+                    <progress class="progress is-primary" value="66" max="100"></progress>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- About Container -->
 <section class="hero has-background-grey-dark has-text-white-bis is-fullheight" id="projects">
   <div class="hero-body">
-    <div class="container" data-aos="fade-in" data-aos-duration="3000">
+    <div class="container">
       <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">Projects</h1>
       <p>I love creating and contributing to the open source project, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -179,7 +188,7 @@
       <h1 class="title"><b>MY PROJECTS</b></h1>
 
       <div class="columns">
-        <div class="column">
+        <div class="column" data-aos="fade-right">
           <p>
             <span class="icon">
               <i class="fab fa-github"></i>
@@ -188,7 +197,7 @@
           <p>A Perfromance Monitoring tool</p>
           <!-- <p>Thursday 10:00 - 24:00</p> -->
         </div>
-        <div class="column">
+        <div class="column" data-aos="fade-left">
           <p><i class="fab fa-github"></i> LDAP GRAFANA LOGIN</p>
           <p>A php front end for grafana</p>
         </div>
@@ -239,9 +248,9 @@
 </section>
 
 <!-- Services -->
-<section class="hero is-fullheight has-text-white-bis" id="me" data-aos="fade-in" data-aos-duration="3000">
+<section class="hero is-fullheight has-text-white-bis" id="me">
   <div class="hero-body">
-    <div class="container">
+    <div class="container" data-aos="fade-up" data-aos-duration="1000">
       <h1 class="title">
         <h1 class="has-text-danger"><b>Here I'm.</b></h1>
       </h1>
