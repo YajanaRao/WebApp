@@ -9,7 +9,7 @@ import unittest
 class TestAuth(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
-        # chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--headless")
 
         self.driver = webdriver.Chrome(chrome_options=chrome_options)
         self.driver.set_window_size(1936, 1096)
