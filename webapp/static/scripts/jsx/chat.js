@@ -102,7 +102,7 @@ class ChatListItem extends React.Component {
 
   componentDidMount() {
     console.log(this.props.item.input);
-    fetch("https://perfui.herokuapp.com/project/gethint.php?q=" + this.props.item.input)
+    fetch("http://yajana.pythonanywhere.com/gethint.php?q=" + this.props.item.input)
       .then(res => res.json())
       .then(
         (result) => {
