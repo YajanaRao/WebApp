@@ -1,5 +1,9 @@
 language: python
 
+sudo: required
+addons:
+  chrome: stable
+
 before_install:
   - sudo wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
   - sudo unzip chromedriver_linux64.zip
