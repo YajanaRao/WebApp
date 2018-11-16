@@ -1,7 +1,7 @@
 # WebApp
 A Flask Web Application
 
-### Check Out [live demo]:
+### Check Out:
 http://perfui.herokuapp.com/project/index
 
 # Tools Used
