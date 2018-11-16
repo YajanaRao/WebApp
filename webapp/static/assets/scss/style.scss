@@ -1,30 +1,77 @@
-$header-family: "Amatic SC";
-$paragraph-family: "Amatic SC";
+@charset "utf-8";
+
+$font-family: "Amatic SC";
 $header-color: white;
 $vertical-padding: 50px;
+$mobile-padding: 20px;
 
-p{
-  font-family: $paragraph-family;
+.is-128 {
+  width: 128px;
+  height: 128px;
+}
+
+body, h1,h2,h3,p,div{
+    font-family: 'Amatic SC';
+    font-size: 22px;
+}
+
+input {
+  font-family: $font-family !important;
+ 
+}
+.button{
+  position: inherit !important;
+}
+
+select {
+  font-family: $font-family !important;
+}
+button {
+  font-family: $font-family !important;
+}
+
+span{
+    pointer-events: initial !important;
+}   
+
+.para{
+  font-family: $font-family;
   font-size: 20px;
 }
 
 
 
-.title {
-  font-family: $header-family;
+.amatic {
+  font-family: $font-family;
 }
 
 
+#home{
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url('https://unsplash.it/1200/900?random') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
+#me{
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url('/static/image/map.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 .images {
     display: block;
     width: 50%;
     margin: auto;
-
-    .loginIcon {
-          padding-bottom: 30px;
-    }
 }
 
 .mySlides {display:none;}
@@ -37,98 +84,12 @@ p{
     float: right;
 }
 
-.alert {
-    padding: 20px;
-    background-color: #f44336;
-    color: white;
-    width: 50%;
-    margin: auto;
-    margin-top: 10px;
-}
-
-.closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.loginCard {
+.customSidePadding {
   // padding-top: $vertical-padding;
   padding-bottom: $vertical-padding;
+  padding-left: $mobile-padding;
+  padding-right: $mobile-padding;
 }
-
-.brand {
-	width: 90px;
-	height: 90px;
-	overflow: hidden;
-	border-radius: 50%;
-	margin: 0 auto;
-	margin: 40px auto;
-	box-shadow: 0 0 40px rgba(0,0,0,.05);
-}
-
-
-.closebtn:hover {
-    color: black;
-}
-
-.brand {
-	width: 90px;
-	height: 90px;
-	overflow: hidden;
-	border-radius: 50%;
-	margin: 0 auto;
-	margin: 40px auto;
-	box-shadow: 0 0 40px rgba(0,0,0,.05);
-	padding-bottom: 10px;
-}
-
- .brand img {
-	width: 100%;
-}
-
- .card-wrapper {
-	width: 400px;
-}
-
- .card {
-	border-color: transparent;
-	box-shadow: 0 0 40px rgba(0,0,0,.05);
-}
-
- .card.fat {
-	padding: 10px;
-}
-
- .card .card-title {
-	margin-bottom: 30px;
-}
-
- .form-control {
-	border-width: 2.3px;
-}
-
-.form-group label {
-	width: 100%;
-}
-
- .btn.btn-block {
-	padding: 12px 10px;
-}
-
- .margin-top20 {
-	margin-top: 20px;
-}
-
-.no-margin {
-	margin: 0;
-}
-
 .slide-center {
     margin: auto;
     width: 50%;
@@ -137,69 +98,120 @@ p{
     height: 500px;
 }
 
-
-
-.chatframe{
-  /* height: 100vh; */
-  border: 4px solid;
-  position:relative;
-  bottom:0px;
-  width:100%;
-  background-color: white;
-  border-radius: 10px;
-  overflow:hidden;
+// chat bot styles
+.chat{
+  bottom: 10px;
+  right: 10px;
+  position: fixed;
+  border-radius: 40px !important;
+  width: 80px;
+  height: 80px;
 }
 
-.response{
-  background-color:#e0e0e0;
+.chat:hover{
+  width: 90px;
+  height: 90px;
 }
 
-.question{
-  background-color:#5cb85c;
-  color:white;
-}
-/* div.container{
-  float: right;
-  width: 30%;
-} */
 
-div.row{
-  padding: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
+
+.messageframe{
+    position:relative;
+    height: 500px;
+    width: 100%;
+    padding: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
+
 
 
 .chatbot{
   /* display:none; */
   /* height:500px; */
   /* width:400px; */
-  right: 0px;
-  bottom:0px;
+  right: 10px;
+  bottom: 10px;
   position:fixed;
+  width: 500px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: solid 2px green;
+}
+
+
+
+
+.head{
+  background-color: white;
+}
+
+.amPm {
+  font-size: 30px;
   padding: 10px;
+  color: aliceblue;
 }
 
-@media screen and (max-width: 425px) {
-   .card-wrapper {
-		width: 90%;
-		margin: 0 auto;
-	}
+.date{
+  color: aliceblue;
 }
 
-@media screen and (max-width: 320px) {
-	 .w3-card.fat {
-		padding: 0;
-	}
-
-	 .w3-card.fat .card-body {
-		padding: 15px;
-	}
+.time {
+  font-size: 170px;
+  color: #ffdc48;
 }
+
+div.ani {
+ animation: lifetime 60s infinite;
+ font-family: cursive;
+ text-overflow: hide;
+ width: 20px;
+ padding: 10px;
+ border-radius : 5px;
+ padding: 10px;
+}
+
+.icon {
+  padding:10px;
+}
+
+.is-canvas{
+  width: 50%; 
+  height: 50%; 
+  cursor: move;
+  padding: 0;
+  margin: auto;
+  display: block;
+}
+
+/* Standard syntax */
+@keyframes lifetime {
+  0%{
+    background-color:white;
+    width: 100%;
+    color: black;
+    opacity: 100;
+    font-weight: bold;
+  }
+  100%{
+    background-color: rgb(244, 67, 54);
+    width: 0%;
+    color: rgb(244, 67, 54) ;
+    display: none;
+    opacity: 0;
+  }
+}
+
 
 @media only screen and (max-width: 500px) {
     #plane {
         width: 100%;
+    }
+
+    #rotatingGlobe{
+      width: 100%;
+      height: 100%;
     }
 
     .images{
@@ -212,6 +224,18 @@ div.row{
 
     .chatbot{
       position: relative;
+      width: 100%;
+      right: 0;
+      left: 0;
+    }
 
+    .time{
+      font-size: 100px;
+    }
+
+    .date{
+      font-size: 40px;
     }
 }
+
+

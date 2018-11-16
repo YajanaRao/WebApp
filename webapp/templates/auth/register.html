@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block header %}
+  {% block title %}Sign Up Page{% endblock %}</h1>
+{% endblock %}
+  {% block content %}
+  {% include "flash.html" %}
+<section class="hero  is-fullheight">
+	<div class="hero-body">
+		<div class="container has-text-centered">
+			<div class="column is-4 is-offset-4">
+				<h3 class="title has-text-grey">Sign Up</h3>
+				<p class="subtitle has-text-grey">Please Sign Up to proceed.</p>
+				<div class="box">
+					<figure class="avatar">
+						<img class="is-128" src="{{ url_for('static',filename='image/avatar.png') }}">
+					</figure>
+						<form method="POST" action="{{ url_for('project.register') }}">
+							<div class="field">
+								<div class="control has-icons-left has-icons-right">
+									<input id="name" name="name" class="input is-large" type="text" placeholder="Username">
+									<span class="icon is-small is-left">
+										<i class="fas fa-user"></i>
+									</span>
+								</div>
+							</div>
+					
+							<div class="field">
+								<div class="control has-icons-left has-icons-right">
+									<input id="email" name="email" class="input is-large" type="email" placeholder="user@email.com">
+									<span class="icon is-small is-left">
+										<i class="fas fa-envelope"></i>
+									</span>
+								</div>
+							</div>
+					
+							<div id="password"></div>
+					
+							<div class="field has-text-left">
+								<label class="label">Country</label>
+								<div class="control">
+									<div class="select">
+										<select name="country">
+											<option>India</option>
+											<option>Pakistan</option>
+										</select>
+									</div>
+								</div>
+							</div>
+					
+					
+							<div class="field has-text-left">
+								<input class="is-checkradio" id="exampleCheckbox" type="checkbox" name="exampleCheckbox" checked="checked" required>
+								<label for="exampleCheckbox">I agree to the <a href="#">terms and conditions</a></label>
+							</div>
+					
+							<button class="button is-block is-info is-large is-fullwidth">Sign Up</button>
+				
+						</form>
+				</div>
+				<p class="has-text-grey">
+					<a href="{{ url_for('project.login') }}">Sign In</a> &nbsp;·&nbsp;
+					<a href="../">Forgot Password</a> &nbsp;·&nbsp;
+					<a href="../">Need Help?</a>	
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+					
+
+</section>
+
+
+<!-- Production Environment -->
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/js/password.js') }}"></script>
+{% endblock %}

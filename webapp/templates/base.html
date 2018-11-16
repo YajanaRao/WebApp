@@ -2,22 +2,24 @@
 <title>{% block title %}{% endblock %} - Flask</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='image/fevicon/fevicon.ico') }}"/>
 {% assets "scss_all" %}
 <link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
 {% endassets %}
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/bulma.min.css') }}">
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
 <body class="w3-light-grey">
-<nav>
+<section class="header">
     {% include "header.html" %}
-</nav>
-<section class="content">
-  {% block content %}
+</section>
+<section>
+  {% block content %} 
   {% endblock %}
 </section>
-<footer class="footer">
+<footer class="footer has-background-dark">
   {% include "footer.html" %}
 </footer>
 </body>

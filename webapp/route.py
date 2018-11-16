@@ -30,22 +30,22 @@ def register():
             print(output)
             error = 'User {} is already registered.'.format(form['name'])
         else:
-            user = User(username=form['name'],email=form['email'],password=form['password'])
+            user = User(username=form['name'],email=form['email'],password=form['password'],country=form['country'])
             User.create(user)
             flash('Account created successfully','success')
             return redirect(url_for('project.login'))
 
 
         flash(error,'error')
-    return render_template('register.html')
+    return render_template('auth/register.html')
 
-@bp.route("forgot",methods=['GET','POST'])
+@bp.route("/forgot",methods=['GET','POST'])
 def forgot():
     if request.method == 'POST':
         error = None
         error = "Not implimented"
         flash(error,'error')
-    return render_template('forgot.html')
+    return render_template('auth/forgot.html')
 
 @bp.route("/login",methods=['GET','POST'])
 def login():
@@ -67,7 +67,7 @@ def login():
             return redirect(url_for('project.index'))
 
         flash(error,'error')
-    return render_template('login.html')
+    return render_template('auth/login.html')
 
 @bp.route("/index")
 def index():
@@ -89,24 +89,95 @@ def login_required(view):
     return wrapped_view
 
 
-
-
 @bp.route("/support")
 def support():
     return render_template('support.html')
 
+@bp.route("/admin",methods=['POST','GET'])
+def admin():
+    if request.method == "POST":
+        user = User.query.filter_by(id=session.get('user_id')).first()
+        user.actype = "admin"
+        User.update()
+        message = "Permission updated successfully"
+        flash(message, 'success')
+    users = []
+    output = {}
+    items = User.query.all()
+    for item in items:
+        user = {}
+        user['id'] = item.id
+        user['username'] = item.username
+        user['email'] = item.email
+        user['country'] = item.country
+        user['type'] = item.actype
+        users.append(user)
+    output['result'] = users
+    return render_template('admin.html', users=output)
 
+
+@bp.route('/profile', methods=['POST','GET'])
+def profile():
+    if request.method == 'POST':
+        print("form submited")
+        error = None
+        form = request.form
+        user = User.query.filter_by(id=session.get('user_id')).first()
+
+        if user is None:
+            error = 'Username or Email Id not found.'
+
+        if user.username != form['username'] and user.email != form['email']:
+            user.username = form['username']
+            user.email = form['email']
+            message = "Username and Email Updated Sucessfully"
+
+        elif user.username != form['username']:
+            user.username = form['username']
+            message = 'Username updated'
+
+        elif user.email != form['email']:
+            user.email = form['email']
+            message = 'Email updated'
+
+        else:
+            error = "Nothing is changed to update"
+
+
+        if error is None:
+            User.update()
+            flash(message,'success')
+            return redirect(url_for('project.profile'))
+        
+        flash(error, 'error')
+    return render_template('profile.html')
 
 @bp.route("/gethint.php",methods=['GET', 'POST'])
 def getHint():
     if request.method == 'GET':
         msg = request.args.get('q')
-        response = Conversation.query.filter_by(input=msg.lower()).first()
-        if response:
-            return jsonify(response)
+        if msg:
+
+            if "delay" in  msg.lower():
+                import time
+                time.sleep(5)
+                return jsonify("thanks for waiting")
+            print(msg)
+            response = Conversation.query.filter_by(input=msg.lower()).first()
+            if response:
+                print(response.output)
+                return jsonify(response.output)
+            else:
+                # return ' '.join(matching)
+                return jsonify("I dont know what you are talking about")
+
         else:
-            # return ' '.join(matching)
-            return jsonify("I dont know what you are talking about")
+            return jsonify("I didn't hear you")
 
     elif request.method == 'POST':
         return "me again"
+
+
+@bp.route("/test")
+def test():
+    return render_template('components/react/password.html')

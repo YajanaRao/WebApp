@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block header %}
+<h1>{% block title %}Admin Panel{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+{% include "flash.html" %}
+<div style="padding-top: 100px;"></div>
+
+
+<div class="container">
+    <div class="card">
+        <form method="POST" action="{{ url_for('project.admin') }}">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><abbr title="Id">ID</abbr></th>
+                    <th><abbr title="name">Username</abbr></th>
+                    <th><abbr title="Email">Email</abbr></th>
+                    <th><abbr title="Country">Country</abbr></th>
+                    <th><abbr title="Type">Type</abbr></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th><abbr title="Id">ID</abbr></th>
+                    <th><abbr title="name">Username</abbr></th>
+                    <th><abbr title="Email">Email</abbr></th>
+                    <th><abbr title="Country">Country</abbr></th>
+                    <th><abbr title="Type">Type</abbr></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for user in users.result %}
+                {% if user.type == "admin" %}
+                <tr class="is-selected">
+                    {% else %}
+                <tr>
+                    {% endif %}
+                    <td name="user_id">{{user.id}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.country}}</td>
+                    <td>{{user.type}}</td>
+                    <th><button  class="button is-primary">Admin</button></th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </form>
+    </div>
+</div>
+{% endblock %}

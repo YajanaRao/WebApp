@@ -8,3 +8,5 @@ Werkzeug==0.14.1
 WTForms==2.2.1
 Flask-Assets
 flask-sqlalchemy
+jsmin==2.2.2
+flask-cors

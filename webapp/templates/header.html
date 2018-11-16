@@ -1,64 +1,99 @@
-<!-- Navbar (sit on top) -->
-<div id="header">
-  <!-- <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
-   <style>
-   /* p,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif} */
-   /* h1 {font-family: "Amatic SC", sans-serif} */
-   .w3-bar  {
-       padding: 16px;
-   }
-   </style>
-  <div class="w3-top">
-    <div class="w3-bar w3-white w3-card" id="myNavbar">
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{{ url_for('project.index')}}">
+      <h1 class="title has-text-primary">YAJANA</h1>
+    </a>
 
-      <a href="{{ url_for('project.index')}}" class="w3-bar-item w3-button w3-wide"><b>YAJANA</b></a>
-      <!-- Right-sided navbar links -->
-      <div class="w3-right w3-hide-small">
-          <a href="{{ url_for('project.index')}}#projects" class="w3-bar-item w3-button"><i class="fa fa-th"></i> PROJECTS</a>
-          <a href="{{ url_for('project.index')}}#slides" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> SLIDE SHOW</a>
-          <a href="{{ url_for('project.support') }}" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> SUPPORT</a>
-          {% if g.user %}
-            <a href="{{ url_for('project.logout') }}" class="w3-bar-item w3-button"><i class="fa fa-user"></i> LOGOUT</a>
-          {% else %}
-            <a href="{{ url_for('project.login') }}" class="w3-bar-item w3-button"><i class="fa fa-user"></i> LOGIN</a>
-          {% endif %}
-      </div>
-      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
 
-  <!-- Sidebar on small screens when clicking the menu icon -->
-  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-    <a href="{{ url_for('project.index')}}#work" onclick="w3_close()" class="w3-bar-item w3-button">PROJECTS</a>
-    <a href="{{ url_for('project.index')}}#slides" onclick="w3_close()" class="w3-bar-item w3-button">SLIDE SHOW</a>
-    <a href="{{ url_for('project.support') }}" onclick="w3_close()" class="w3-bar-item w3-button">SUPPORT</a>
-    {% if g.user %}
-      <a href="{{ url_for('project.logout') }}" class="w3-bar-item w3-button">LOGOUT</a>
-    {% else %}
-      <a href="{{ url_for('project.login') }}" class="w3-bar-item w3-button">LOGIN</a>
-    {% endif %}
-  </nav>
-  <script>
-    var mySidebar = document.getElementById("mySidebar");
 
-    function w3_open() {
-        if (mySidebar.style.display === 'block') {
-            mySidebar.style.display = 'none';
-        } else {
-            mySidebar.style.display = 'block';
-        }
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-item">
+        <a class="navbar-item" href="{{ url_for('project.index')}}">
+          Home
+        </a>
+
+        <a class="navbar-item" href="{{ url_for('project.support')}}">
+          Support
+        </a>
+      </div>
+      {% if g.user %}
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+        <div class="navbar-dropdown">
+          {% if g.user.actype == "admin" %}
+          <a class="navbar-item" href="{{ url_for('project.admin')}}">
+            Admin Panel
+          </a>
+          {% endif %}
+          <a class="navbar-item" href="{{ url_for('project.profile') }}">
+            Profile
+          </a>
+          <a class="navbar-item" href="{{ url_for('project.logout')}}">
+            Logout
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report an issue
+          </a>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="navbar-end">
+      {% if g.user %}
+      <div class="buttons" style="padding-right:10px;padding-left:10px;">
+        <a class="button is-danger" href="{{ url_for('project.login')}}">
+          <strong>Log Out</strong>
+        </a>
+      </div>
+      {% else %}
+      <div class="buttons" style="padding-right:10px;padding-left:10px;">
+        <a class="button is-light" href="{{ url_for('project.login')}}">
+          <strong>Log in</strong>
+        </a>
+        <a class="button is-primary" href="{{url_for('project.register')}}">
+          <strong>Sign up</strong>
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+
+      // Add a click event on each of them
+      $navbarBurgers.forEach(el => {
+        el.addEventListener('click', () => {
+
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+
+        });
+      });
     }
 
-    // Close the sidebar with the close button
-    function w3_close() {
-        mySidebar.style.display = "none";
-    }
-  </script>
-</div>
+  });
+</script>

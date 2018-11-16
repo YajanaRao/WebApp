@@ -1,122 +1,280 @@
 {% extends 'base.html' %}
 <!DOCTYPE html>
 {% block header %}
-  <h1>{% block title %}HOME{% endblock %}</h1>
+  <h1>{% block title %}HOME{% endblock %}</h1>  
 {% endblock %}
 {% block content %}
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<link rel="stylesheet"
- href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
- <!-- or -->
- <link rel="stylesheet"
- href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<meta id="user" data-name="{{g}}" data-other="{{g.user}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bulma-extensions.min.css') }}">
+<!-- <script src="{{ url_for('static',filename='js/bulma-extensions.min.js') }}"></script> -->
 
-<!-- Resources -->
-<script src="https://www.amcharts.com/lib/3/ammap.js"></script>
-<script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
-<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<!-- Styles -->
-<link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
-
-<!-- Chart code -->
-<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+<section>
+  <div class="pageloader is-active" id="pageloader"><span class="title">Loading..</span></div>
+  <script type="text/javascript">
+    setTimeout(function () { document.getElementById("pageloader").classList.remove('is-active'); }, 3000);
+  </script>
+</section>
 
 <!-- Header -->
-<div class="bgimg-1 w3-display-container w3-red w3-center " style="padding:350px 16px" id="home" data-aos="fade-up" data-aos-duration="1000">
-  <img src="{{ url_for('static', filename='image/planeimg.png') }}" id="plane">
-	<h1 class="w3-margin w3-jumbo animated infinite bounce delay-2s title" style="color:white;">START PAGE</h1>
-  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" href="{{ url_for('project.login') }}" data-toggle="tooltip" title="Hooray!">Get Started</button>
-</div>
+<section class="has-text-centered hero is-fullheight" id="home" data-aos="fade-up" data-aos-duration="1000">
+  <!-- <img src="{{ url_for('static', filename='image/planeimg.png') }}" id="plane"> -->
+  <div class="hero-body">
+    <div class="container">
+  <div class="amatic title">
+    <div id="clock"></div>
+    
+    <!-- Production Environment -->
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/js/clock.js') }}" async ></script>
+  </div>
+        <!-- <div class="ani">1 minute of your life</div> -->
+  {% if g.user %}
+  <h1 class="title amatic" style="color:white;">HI {{g.user.username}}</h1>
+  {% else %}
+  <h1 class="title amatic" style="color:white;">WANNA LOG IN</h1>
+  {% endif %}
+  <p class="button is-warning is-outlined has-text-weight-bold" href="{{ url_for('project.login') }}" data-toggle="tooltip" title="Hooray!">Get Started</p>
+  </div>
+  </div>
+</section>
 
+<!-- About -->
+<section class="section" id="about" data-aos="fade-up">
+  <!-- Title -->
+  <div class="section-heading has-text-centered" style="margin-bottom: 6em;">
+    <h3 class="title is-2 ">About Me</h3>
+    <h4 class="subtitle is-5">Jack of all trades, master of "some"</h4>
+    <div class="container">
+      <p>Web developer with more than <strong>2 years</strong> of well-rounded experience with a degree in the
+        field of
+        <strong>Computer Science</strong>, extensive knowledge of modern Web techniques and love for <strong>Coffee</strong>.
+        Looking for an opportunity to work and upgrade, as well as being involved in an organization that
+        believes
+        in gaining a competitive edge and giving back to the community.</p>
+    </div>
+  </div>
+  
+  <div class="columns has-same-height is-gapless">
+    <div class="column">
+      <!-- Profile -->
+      <div class="card" style="height: 100%;">
+        <div class="card-content">
+          <h3 class="title is-4">Profile</h3>
 
-
-
-
-<!-- Services -->
-<div class="w3-container" id="me" style="margin-top:75px" data-aos="fade-in"  data-aos-duration="3000">
-  <h1 class="w3-xxxlarge w3-text-red title"><b>Here I'm.</b></h1>
-  <hr style="width:50px;border:5px solid red" class="w3-round">
-  <p >We are a interior design service that focus on what's best for your home and what's best for you!</p>
-  <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  </p>
-  <div id="chartdiv"></div>
-</div>
-<br></br>
-<!-- About Container -->
-<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="projects">
-  <div class="w3-content" data-aos="fade-in" data-aos-duration="3000">
-    <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">Projects</h1>
-    <p>I love creating and contributing to the open source project, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <!-- <p><strong>The Chef?</strong> Mr. Italiano himself<img src="/w3images/chef.jpg" style="width:150px" class="w3-circle w3-right" alt="Chef"></p> -->
-    <p>We are proud of our interiors.</p>
-    <!-- <img src="/w3images/onepage_restaurant.jpg" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurant"> -->
-    <h1 class="title"><b>MY PROJECTS</b></h1>
-
-    <div class="w3-row" >
-      <div class="w3-col s6">
-        <p><img src="{{ url_for('static', filename='image/PNG/GitHub-Mark-32px.png') }}"> Perftool</p>
-        <p>A Perfromance Monitoring tool</p>
-        <!-- <p>Thursday 10:00 - 24:00</p> -->
-      </div>
-      <div class="w3-col s6">
-        <p><img src="{{ url_for('static', filename='image/PNG/GitHub-Mark-32px.png') }}"> LDAP GRAFANA LOGIN</p>
-        <p>A php front end for grafana</p>
+          <div class="content">
+            <table class="table-profile">
+              <tr>
+                <th colspan="1"></th>
+                <th colspan="2"></th>
+              </tr>
+              <tr>
+                <td>Address:</td>
+                <td>Github, LinkedIn, Facebook</td>
+              </tr>
+              <tr>
+                <td>Phone:</td>
+                <td>0123-456789</td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td>minion@despicable.me</td>
+              </tr>
+            </table>
+          </div>
+          <br>
+          <div class="buttons has-addons is-centered">
+            <a href="https://github.com/YajanaRao" class="button is-link">Github</a>
+            <a href="https://www.linkedin.com/in/yajana-rao-003126131/" class="button is-link">LinkedIn</a>
+            <a href="#" class="button is-link">Twitter</a>
+            <a href="#" class="button is-link">CodeTrace</a>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="column">
+      <!-- Profile picture -->
+      <div class="card" style="height: 100%;">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <!-- Skills -->
+      <div class="card" style="height:100%;">
+        <div class="card-content skills-content">
+          <h3 class="title is-4">Skills</h3>
+          <div class="content">
 
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>JavaScript:</strong>
+                    <br>
+                    <progress class="progress is-primary" value="90" max="100"></progress>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Vue.js:</strong>
+                    <br>
+                    <progress class="progress is-primary" value="90" max="100"></progress>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Node.js:</strong>
+                    <br>
+                    <progress class="progress is-primary" value="75" max="100"></progress>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>HTML5/CSS3</strong>
+                    <br>
+                    <progress class="progress is-primary" value="95" max="100"></progress>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Databases</strong>
+                    <br>
+                    <progress class="progress is-primary" value="66" max="100"></progress>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="w3-container w3-padding-64 w3-green">
-<div class="w3-content" data-aos="fade-in" data-aos-duration="3000">
-  <h1 class="w3-center w3-jumbo"> ಕನ್ನಡ </h1>
-  <br>
-  <p> ಎಲ್ಲಾದರು ಇರು ಎಂತಾದರು ಇರು ಎಂದೆಂದಿಗೂ ನೀ ಕನ್ನಡವಾಗಿರು </p>
-  <p> ಕನ್ನಡವೇ ಸತ್ಯ ಕನ್ನಡವೇ ನಿತ್ಯ </p>
-  <br>
-  <p> ಕನ್ನಡ ಗೋವಿನ ಓ ಮುದ್ದಿನ ಕರು ಕನ್ನಡತನವೊಂದಿದ್ದರೆ ನೀನಮ್ಮಗೆ </p>
-  <p> ಕಲ್ಪತರು ಕನ್ನಡವೇ ಸತ್ಯ ಕನ್ನಡವೇ ನಿತ್ಯ ! </p>
-  <br>
-  <p> -  ಕುವೆಂಪು </p>
-</div>
-</div>
+<!-- About Container -->
+<section class="hero has-background-grey-dark has-text-white-bis is-fullheight" id="projects">
+  <div class="hero-body">
+    <div class="container" data-aos="fade-up">
+      <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">Projects</h1>
+      <p>I love creating and contributing to the open source project, I have created few awesome projects and uploaded to github, make sure to check it out.
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <!-- <p><strong>The Chef?</strong> Mr. Italiano himself<img src="/w3images/chef.jpg" style="width:150px" class="w3-circle w3-right" alt="Chef"></p> -->
+      <p>We are proud of our interiors.</p>
+      <!-- <img src="/w3images/onepage_restaurant.jpg" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurant"> -->
+      <h1 class="title"><b>MY PROJECTS</b></h1>
 
-<div class="w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge" id="slides">
-  <div class="w3-content" data-aos="fade-in" data-aos-duration="3000">
+      <div class="columns">
+        <div class="column">
+          <p>
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            Perftool</p>
+          <p>A Perfromance Monitoring tool</p>
+          <!-- <p>Thursday 10:00 - 24:00</p> -->
+        </div>
+        <div class="column">
+          <p><i class="fab fa-github"></i> LDAP GRAFANA LOGIN</p>
+          <p>A php front end for grafana</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero has-background-success has-text-white-bis is-fullheight">
+  <div class="hero-body">
+  <div class="container" data-aos="zoom-in">
+    <h1 class="w3-center w3-jumbo"> ಕನ್ನಡ </h1>
+    <br>
+    <p> ಎಲ್ಲಾದರು ಇರು ಎಂತಾದರು ಇರು ಎಂದೆಂದಿಗೂ ನೀ ಕನ್ನಡವಾಗಿರು </p>
+    <p> ಕನ್ನಡವೇ ಸತ್ಯ ಕನ್ನಡವೇ ನಿತ್ಯ </p>
+    <br>
+    <p> ಕನ್ನಡ ಗೋವಿನ ಓ ಮುದ್ದಿನ ಕರು ಕನ್ನಡತನವೊಂದಿದ್ದರೆ ನೀನಮ್ಮಗೆ </p>
+    <p> ಕಲ್ಪತರು ಕನ್ನಡವೇ ಸತ್ಯ ಕನ್ನಡವೇ ನಿತ್ಯ ! </p>
+    <br>
+    <p> -  ಕುವೆಂಪು </p>
+  </div>
+  </div>
+</section>
+
+<section class="hero has-background-grey has-text-white-bis is-fullheight" id="slides">
+  <div class="hero-body" data-aos="fade-in" data-aos-duration="3000">
+    <div class="container">
     <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">SLIDE SHOW</h1>
     <p>Find us at some address at some place or call us at 05050515-122330</p>
     <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
-    {% include "slideshow.html" %}
+    {% include "components/slideshow.html" %}
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero" >
+  <div class="hero-body">
+
+        {% include "components/gallery.html" %}
 
   </div>
-</div>
 
+</section>
 
+<!-- Services -->
+<section class="hero is-fullheight has-text-white-bis" id="me">
+  <div class="hero-body">
+    <div class="container" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="title">
+        <h1 class="has-text-danger"><b>Here I'm.</b></h1>
+      </h1>
+      <p>I am a software developer, Using Python I have created desktop application, Web applcaiton (this one), Windows Services and Many console applications</p>
+      <p>I can work on Java, PHP, Javascript. 
+        I have hands on experience with using Amazon Web Services. Lamba, EC2 and S3 mainly.
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing
+        elit,
+        sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi
+        ut aliquip ex ea commodo consequat.
+      </p>
+    </div>
+  </div>
 
-<div >
-  {% include "gallery.html" %}
-</div>
-
+</section>  
 
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
-  <script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-});
-</script>
 {% endblock %}

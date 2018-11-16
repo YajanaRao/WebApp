@@ -13,3 +13,8 @@ setup()
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.errorhandler(404)
+def pagenotfound(error):
+    return "<h1>Page not found 404 </h1>"
