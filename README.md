@@ -2,8 +2,7 @@
 A Flask Web Application
 
 ### Check Out:
-http://perfui.herokuapp.com/project/index
-
+http://perfui.herokuapp.com
 # Tools Used
 ## 1. Flask
 <img src="https://cdn-images-1.medium.com/max/1600/1*Ou6FFJJD3zhcIUU8wBZqIw.png" width=500 height=200/>
