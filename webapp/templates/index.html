@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 <!DOCTYPE html>
 {% block header %}
-  <h1>{% block title %}HOME{% endblock %}</h1>  
+<h1>{% block title %}HOME{% endblock %}</h1>
 {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -21,20 +21,21 @@
   <!-- <img src="{{ url_for('static', filename='image/planeimg.png') }}" id="plane"> -->
   <div class="hero-body">
     <div class="container">
-  <div class="amatic title">
-    <div id="clock"></div>
-    
-    <!-- Production Environment -->
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/js/clock.js') }}" async ></script>
-  </div>
-        <!-- <div class="ani">1 minute of your life</div> -->
-  {% if g.user %}
-  <h1 class="title amatic" style="color:white;">HI {{g.user.username}}</h1>
-  {% else %}
-  <h1 class="title amatic" style="color:white;">WANNA LOG IN</h1>
-  {% endif %}
-  <p class="button is-warning is-outlined has-text-weight-bold" href="{{ url_for('project.login') }}" data-toggle="tooltip" title="Hooray!">Get Started</p>
-  </div>
+      <div class="amatic title">
+        <div id="clock"></div>
+
+        <!-- Production Environment -->
+        <script type="text/javascript" src="{{ url_for('static', filename='scripts/js/clock.js') }}" async></script>
+      </div>
+      <!-- <div class="ani">1 minute of your life</div> -->
+      {% if g.user %}
+      <h1 class="title amatic" style="color:white;">HI {{g.user.username}}</h1>
+      {% else %}
+      <h1 class="title amatic" style="color:white;">WANNA LOG IN</h1>
+      {% endif %}
+      <a class="button is-warning is-outlined has-text-weight-bold" href="{{ url_for('project.login') }}" data-toggle="tooltip"
+        title="Hooray!">Get Started</a>
+    </div>
   </div>
 </section>
 
@@ -45,15 +46,13 @@
     <h3 class="title is-2 ">About Me</h3>
     <h4 class="subtitle is-5">Jack of all trades, master of "some"</h4>
     <div class="container">
-      <p>Web developer with more than <strong>2 years</strong> of well-rounded experience with a degree in the
-        field of
-        <strong>Computer Science</strong>, extensive knowledge of modern Web techniques and love for <strong>Coffee</strong>.
-        Looking for an opportunity to work and upgrade, as well as being involved in an organization that
+      <p>Full Stack developer with more than <strong>2 years</strong> of well-rounded experience and good knowledge of modern Web techniques and love for <strong>Coffee</strong>.
+        Looking for an opportunity to work and upgrade, as well as being involved in an projects that
         believes
         in gaining a competitive edge and giving back to the community.</p>
     </div>
   </div>
-  
+
   <div class="columns has-same-height is-gapless">
     <div class="column">
       <!-- Profile -->
@@ -73,11 +72,11 @@
               </tr>
               <tr>
                 <td>Phone:</td>
-                <td>0123-456789</td>
+                <td>7022085575</td>
               </tr>
               <tr>
                 <td>Email:</td>
-                <td>minion@despicable.me</td>
+                <td>yajananrao@gmail.com</td>
               </tr>
             </table>
           </div>
@@ -85,8 +84,7 @@
           <div class="buttons has-addons is-centered">
             <a href="https://github.com/YajanaRao" class="button is-link">Github</a>
             <a href="https://www.linkedin.com/in/yajana-rao-003126131/" class="button is-link">LinkedIn</a>
-            <a href="#" class="button is-link">Twitter</a>
-            <a href="#" class="button is-link">CodeTrace</a>
+            <a href="https://twitter.com/yajana143" class="button is-link">Twitter</a>
           </div>
         </div>
       </div>
@@ -96,7 +94,7 @@
       <div class="card" style="height: 100%;">
         <div class="card-image">
           <figure class="image is-4by3">
-            <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+            <img src="{{ url_for('static', filename='image/me.jpg') }}" alt="Placeholder image">
           </figure>
         </div>
       </div>
@@ -112,7 +110,7 @@
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <strong>JavaScript:</strong>
+                    <strong>Python</strong>
                     <br>
                     <progress class="progress is-primary" value="90" max="100"></progress>
                   </p>
@@ -124,7 +122,7 @@
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <strong>Vue.js:</strong>
+                    <strong>ReactJS</strong>
                     <br>
                     <progress class="progress is-primary" value="90" max="100"></progress>
                   </p>
@@ -136,7 +134,7 @@
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <strong>Node.js:</strong>
+                    <strong>React Native</strong>
                     <br>
                     <progress class="progress is-primary" value="75" max="100"></progress>
                   </p>
@@ -148,7 +146,7 @@
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <strong>HTML5/CSS3</strong>
+                    <strong>Flask</strong>
                     <br>
                     <progress class="progress is-primary" value="95" max="100"></progress>
                   </p>
@@ -179,7 +177,8 @@
   <div class="hero-body">
     <div class="container" data-aos="fade-up">
       <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">Projects</h1>
-      <p>I love creating and contributing to the open source project, I have created few awesome projects and uploaded to github, make sure to check it out.
+      <p>I love creating and contributing to the open source project, I have created few awesome projects and uploaded
+        to github, make sure to check it out.
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat.</p>
       <!-- <p><strong>The Chef?</strong> Mr. Italiano himself<img src="/w3images/chef.jpg" style="width:150px" class="w3-circle w3-right" alt="Chef"></p> -->
@@ -211,37 +210,38 @@
 
 <section class="hero has-background-success has-text-white-bis is-fullheight">
   <div class="hero-body">
-  <div class="container" data-aos="zoom-in">
-    <h1 class="w3-center w3-jumbo"> ಕನ್ನಡ </h1>
-    <br>
-    <p> ಎಲ್ಲಾದರು ಇರು ಎಂತಾದರು ಇರು ಎಂದೆಂದಿಗೂ ನೀ ಕನ್ನಡವಾಗಿರು </p>
-    <p> ಕನ್ನಡವೇ ಸತ್ಯ ಕನ್ನಡವೇ ನಿತ್ಯ </p>
-    <br>
-    <p> ಕನ್ನಡ ಗೋವಿನ ಓ ಮುದ್ದಿನ ಕರು ಕನ್ನಡತನವೊಂದಿದ್ದರೆ ನೀನಮ್ಮಗೆ </p>
-    <p> ಕಲ್ಪತರು ಕನ್ನಡವೇ ಸತ್ಯ ಕನ್ನಡವೇ ನಿತ್ಯ ! </p>
-    <br>
-    <p> -  ಕುವೆಂಪು </p>
-  </div>
+    <div class="container" data-aos="zoom-in">
+      <h1 class="w3-center w3-jumbo"> ಕನ್ನಡ </h1>
+      <br>
+      <p> ಎಲ್ಲಾದರು ಇರು ಎಂತಾದರು ಇರು ಎಂದೆಂದಿಗೂ ನೀ ಕನ್ನಡವಾಗಿರು </p>
+      <p> ಕನ್ನಡವೇ ಸತ್ಯ ಕನ್ನಡವೇ ನಿತ್ಯ </p>
+      <br>
+      <p> ಕನ್ನಡ ಗೋವಿನ ಓ ಮುದ್ದಿನ ಕರು ಕನ್ನಡತನವೊಂದಿದ್ದರೆ ನೀನಮ್ಮಗೆ </p>
+      <p> ಕಲ್ಪತರು ಕನ್ನಡವೇ ಸತ್ಯ ಕನ್ನಡವೇ ನಿತ್ಯ ! </p>
+      <br>
+      <p> - ಕುವೆಂಪು </p>
+    </div>
   </div>
 </section>
 
 <section class="hero has-background-grey has-text-white-bis is-fullheight" id="slides">
   <div class="hero-body" data-aos="fade-in" data-aos-duration="3000">
     <div class="container">
-    <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">SLIDE SHOW</h1>
-    <p>Find us at some address at some place or call us at 05050515-122330</p>
-    <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
-    {% include "components/slideshow.html" %}
+      <h1 class="w3-center w3-jumbo title" style="margin-bottom:64px">SLIDE SHOW</h1>
+      <p>Find us at some address at some place or call us at 05050515-122330</p>
+      <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand
+        your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
+      {% include "components/slideshow.html" %}
     </div>
   </div>
 </section>
 
 
 
-<section class="hero" >
+<section class="hero">
   <div class="hero-body">
 
-        {% include "components/gallery.html" %}
+    {% include "components/gallery.html" %}
 
   </div>
 
@@ -254,8 +254,9 @@
       <h1 class="title">
         <h1 class="has-text-danger"><b>Here I'm.</b></h1>
       </h1>
-      <p>I am a software developer, Using Python I have created desktop application, Web applcaiton (this one), Windows Services and Many console applications</p>
-      <p>I can work on Java, PHP, Javascript. 
+      <p>I am a software developer, Using Python I have created desktop application, Web applcaiton (this one), Windows
+        Services and Many console applications</p>
+      <p>I can work on Java, PHP, Javascript.
         I have hands on experience with using Amazon Web Services. Lamba, EC2 and S3 mainly.
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
         ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
@@ -270,11 +271,11 @@
     </div>
   </div>
 
-</section>  
+</section>
 
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+<script>
+  AOS.init();
+</script>
 {% endblock %}
