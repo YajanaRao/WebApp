@@ -17,4 +17,4 @@ def index():
 
 @app.errorhandler(404)
 def pagenotfound(error):
-    return "<h1>Page not found 404 </h1>"
+    return render_template('error.html')
