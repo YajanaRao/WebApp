@@ -381,7 +381,7 @@ div.ani {
 .progress-container {
   position: fixed;
   width: 100%;
-  height: 2px;
+  height: 0.2rem;
   background: #ccc;
   z-index: 50;
   @media screen and (max-width: 1088px ){
@@ -393,7 +393,7 @@ div.ani {
 }
 
 .progress-bar {
-  height: 2px;
+  height: 0.2rem;
   background: #00d1b2!important;
   width: 0%;
 }
