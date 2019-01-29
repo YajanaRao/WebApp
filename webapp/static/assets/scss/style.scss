@@ -384,11 +384,11 @@ div.ani {
   height: 2px;
   background: #ccc;
   z-index: 50;
-  @media screen and (max-width: 1360px){
+  @media screen and (max-width: 1088px ){
     margin-top: 3.25rem;
   }
-  @media screen and (min-width: 1360px){
-    margin-top: 3.5rem;
+  @media screen and (min-width: 1088px ){
+    margin-top: 4rem;
   }
 }
 
