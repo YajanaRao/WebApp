@@ -311,3 +311,23 @@
     height: 0.2rem;
     background: #00d1b2 !important;
     width: 0%; }
+
+    .img-zoom figure img {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -webkit-transition: 0.3s ease-in-out;
+      transition: 0.3s ease-in-out; }
+
+      .img-zoom figure:hover img {
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3); }
+
+        .img-zoom-out figure img {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          -webkit-transition: 0.3s ease-in-out;
+          transition: 0.3s ease-in-out; }
+
+          .img-zoom-out figure:hover img {
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5); }

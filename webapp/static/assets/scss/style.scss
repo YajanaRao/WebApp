@@ -398,6 +398,30 @@ div.ani {
   width: 0%;
 }
 
+// image zoom animation
+.img-zoom figure img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.img-zoom figure:hover img {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+// image zoom out animation 
+.img-zoom-out figure img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.img-zoom-out figure:hover img {
+	-webkit-transform: scale(0.5);
+	transform: scale(0.5);
+}
+
 
 
 
