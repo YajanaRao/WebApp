@@ -10,145 +10,148 @@
       input {
         font-family: "Amatic SC" !important; }
 
-        .button {
-          position: inherit !important; }
+        textarea {
+          font-family: "Amatic SC" !important; }
 
-          select {
-            font-family: "Amatic SC" !important; }
+          .button {
+            position: inherit !important; }
 
-            button {
+            select {
               font-family: "Amatic SC" !important; }
 
-              span {
-                pointer-events: initial !important; }
+              button {
+                font-family: "Amatic SC" !important; }
 
-                .para {
-                  font-family: "Amatic SC";
-                  font-size: 20px; }
+                span {
+                  pointer-events: initial !important; }
 
-                  .amatic {
-                    font-family: "Amatic SC"; }
+                  .para {
+                    font-family: "Amatic SC";
+                    font-size: 20px; }
 
-                    #home {
-                      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                                            url('https://unsplash.it/1200/900?random') no-repeat center center fixed;
-                      -webkit-background-size: cover;
-                      -moz-background-size: cover;
-                      -o-background-size: cover;
-                      background-size: cover; }
+                    .amatic {
+                      font-family: "Amatic SC"; }
 
-                      #me {
+                      #home {
                         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                                                url('/static/image/map.png') no-repeat center center fixed;
+                                                url('https://unsplash.it/1200/900?random') no-repeat center center fixed;
                         -webkit-background-size: cover;
                         -moz-background-size: cover;
                         -o-background-size: cover;
                         background-size: cover; }
 
-                        .images {
-                          display: block;
-                          width: 50%;
-                          margin: auto; }
+                        #me {
+                          background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                                                    url('/static/image/map.png') no-repeat center center fixed;
+                          -webkit-background-size: cover;
+                          -moz-background-size: cover;
+                          -o-background-size: cover;
+                          background-size: cover; }
 
-                          .mySlides {
-                            display: none; }
+                          .images {
+                            display: block;
+                            width: 50%;
+                            margin: auto; }
 
-                            .center {
-                              display: block;
-                              margin-left: auto;
-                              margin-right: auto;
-                              float: right; }
+                            .mySlides {
+                              display: none; }
 
-                              .customSidePadding {
-                                padding-bottom: 50px;
-                                padding-left: 20px;
-                                padding-right: 20px; }
+                              .center {
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;
+                                float: right; }
 
-                                .slide-center {
-                                  margin: auto;
-                                  width: 50%;
-                                  border: 3px solid white;
-                                  overflow: hidden;
-                                  height: 500px; }
+                                .customSidePadding {
+                                  padding-bottom: 50px;
+                                  padding-left: 20px;
+                                  padding-right: 20px; }
 
-                                  .chat {
-                                    bottom: 10px;
-                                    right: 10px;
-                                    position: fixed;
-                                    border-radius: 40px !important;
-                                    width: 80px;
-                                    height: 80px; }
+                                  .slide-center {
+                                    margin: auto;
+                                    width: 50%;
+                                    border: 3px solid white;
+                                    overflow: hidden;
+                                    height: 500px; }
 
-                                    .chat:hover {
-                                      width: 90px;
-                                      height: 90px; }
+                                    .chat {
+                                      bottom: 10px;
+                                      right: 10px;
+                                      position: fixed;
+                                      border-radius: 40px !important;
+                                      width: 80px;
+                                      height: 80px; }
 
-                                      .messageframe {
-                                        position: relative;
-                                        height: 500px;
-                                        width: 100%;
-                                        padding: 20px;
-                                        overflow-y: scroll;
-                                        overflow-x: hidden; }
+                                      .chat:hover {
+                                        width: 90px;
+                                        height: 90px; }
 
-                                        .chatbot {
-                                          right: 10px;
-                                          bottom: 10px;
-                                          position: fixed;
-                                          width: 500px;
-                                          background-color: #e0e0e0;
-                                          border-radius: 10px;
-                                          overflow: hidden;
-                                          border: solid 2px green; }
+                                        .messageframe {
+                                          position: relative;
+                                          height: 500px;
+                                          width: 100%;
+                                          padding: 20px;
+                                          overflow-y: scroll;
+                                          overflow-x: hidden; }
 
-                                          .head {
-                                            background-color: white; }
+                                          .chatbot {
+                                            right: 10px;
+                                            bottom: 10px;
+                                            position: fixed;
+                                            width: 500px;
+                                            background-color: #e0e0e0;
+                                            border-radius: 10px;
+                                            overflow: hidden;
+                                            border: solid 2px green; }
 
-                                            .amPm {
-                                              font-size: 30px;
-                                              padding: 10px;
-                                              color: aliceblue; }
+                                            .head {
+                                              background-color: white; }
 
-                                              .date {
+                                              .amPm {
+                                                font-size: 30px;
+                                                padding: 10px;
                                                 color: aliceblue; }
 
-                                                .time {
-                                                  font-size: 170px;
-                                                  color: #ffdc48; }
+                                                .date {
+                                                  color: aliceblue; }
 
-                                                  div.ani {
-                                                    animation: lifetime 60s infinite;
-                                                    font-family: cursive;
-                                                    text-overflow: hide;
-                                                    width: 20px;
-                                                    padding: 10px;
-                                                    border-radius: 5px;
-                                                    padding: 10px; }
+                                                  .time {
+                                                    font-size: 170px;
+                                                    color: #ffdc48; }
 
-                                                    .icon {
+                                                    div.ani {
+                                                      animation: lifetime 60s infinite;
+                                                      font-family: cursive;
+                                                      text-overflow: hide;
+                                                      width: 20px;
+                                                      padding: 10px;
+                                                      border-radius: 5px;
                                                       padding: 10px; }
 
-                                                      .is-canvas {
-                                                        width: 50%;
-                                                        height: 50%;
-                                                        cursor: move;
-                                                        padding: 0;
-                                                        margin: auto;
-                                                        display: block; }
+                                                      .icon {
+                                                        padding: 10px; }
 
-                                                        @keyframes lifetime {
-                                                          0% {
-                                                            background-color: white;
-                                                            width: 100%;
-                                                            color: black;
-                                                            opacity: 100;
-                                                            font-weight: bold;   }
-                                                            100% {
-                                                              background-color: #f44336;
-                                                              width: 0%;
-                                                              color: #f44336;
-                                                              display: none;
-                                                              opacity: 0;   }
+                                                        .is-canvas {
+                                                          width: 50%;
+                                                          height: 50%;
+                                                          cursor: move;
+                                                          padding: 0;
+                                                          margin: auto;
+                                                          display: block; }
+
+                                                          @keyframes lifetime {
+                                                            0% {
+                                                              background-color: white;
+                                                              width: 100%;
+                                                              color: black;
+                                                              opacity: 100;
+                                                              font-weight: bold;   }
+                                                              100% {
+                                                                background-color: #f44336;
+                                                                width: 0%;
+                                                                color: #f44336;
+                                                                display: none;
+                                                                opacity: 0;   }
 }
 
   @media only screen and (max-width: 500px) {
@@ -331,3 +334,10 @@
           .img-zoom-out figure:hover img {
             -webkit-transform: scale(0.5);
             transform: scale(0.5); }
+
+            footer {
+              width: 100%;
+              background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                            url("https://images.unsplash.com/photo-1514227765494-1bbd6ba05916?auto=format&fit=crop&w=1600&q=100") no-repeat;
+              background-size: cover;
+              will-change: transform; }

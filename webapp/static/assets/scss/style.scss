@@ -19,6 +19,11 @@ input {
   font-family: $font-family !important;
  
 }
+
+textarea {
+  font-family: $font-family !important;
+}
+
 .button{
   position: inherit !important;
 }
@@ -422,6 +427,12 @@ div.ani {
 	transform: scale(0.5);
 }
 
+footer {
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url("https://images.unsplash.com/photo-1514227765494-1bbd6ba05916?auto=format&fit=crop&w=1600&q=100") no-repeat;
+    background-size: cover;
+    will-change: transform;
+}
 
 
 
