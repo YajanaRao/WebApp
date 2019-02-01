@@ -71,6 +71,9 @@ span{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .images {
@@ -337,6 +340,14 @@ div.ani {
   padding: 50px !important; 
   width: 100%; 
   margin-right: 2px;
+    -webkit-transition: width 2s, height 4s; /* Safari */
+  transition: width 2s, height 4s;
+  box-shadow: 5px 5px 5px black;
+}
+
+.left-container:hover {
+  background-image: linear-gradient(to bottom right,#ff3860, red);
+  border-radius: 80% 90% 80% 50%; 
 }
 
 .right-container {
@@ -345,6 +356,14 @@ div.ani {
   padding: 50px !important; 
   width: 100%; 
   margin-left: 2px;
+    -webkit-transition: width 2s, height 4s; /* Safari */
+  transition: width 2s, height 4s;
+  box-shadow: 5px 5px 5px black;
+}
+
+.right-container:hover {
+  background-image: linear-gradient(to bottom right, red, #ff3860);
+  border-radius: 80% 50% 60% 60%; 
 }
 
 .stylish-container {
@@ -352,6 +371,14 @@ div.ani {
   border-radius: 70% 80% 90% 60%; 
   padding: 50px; 
   width: 100%;
+  -webkit-transition: width 2s, height 4s; /* Safari */
+  transition: width 2s, height 4s;
+  box-shadow: 5px 5px 5px black;
+}
+
+.stylish-container:hover {
+  background-image: linear-gradient(to bottom right, #ff3860, red);
+  border-radius: 60% 70% 90% 50%;
 }
 
 .top-cloud {
@@ -359,7 +386,9 @@ div.ani {
   border-radius: 0% 0% 90% 0%;
   height: 125px;
   width: 50%;
+  box-shadow: 5px 5px 5px black;
 }
+
 
 .bottom-cloud {
   background-image: linear-gradient(to bottom right, red, #ff3860);
@@ -367,6 +396,7 @@ div.ani {
   height: 125px;
   width: 50%; 
   margin-left: 50%;
+  box-shadow: 5px 5px 5px white;
 }
 
 .has-background-success {
@@ -433,8 +463,6 @@ footer {
     background-size: cover;
     will-change: transform;
 }
-
-
 
 
 
