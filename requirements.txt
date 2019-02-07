@@ -9,4 +9,4 @@ WTForms==2.2.1
 Flask-Assets
 flask-sqlalchemy
 jsmin==2.2.2
-flask-cors
+Flask-Cors==3.0.6
