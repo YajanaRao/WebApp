@@ -336,7 +336,8 @@ div.ani {
 
 
 .left-container {
-  background-image: linear-gradient(to bottom right, red, #ff3860);
+  text-align: center;
+  background-image: linear-gradient(to bottom right, #ff3860, #ffdd57, #00d1b2 33.33333%, #3273dc);
   border-radius: 70% 80% 90% 60%; 
   padding: 50px !important; 
   width: 100%; 
@@ -347,12 +348,15 @@ div.ani {
 }
 
 .left-container:hover {
-  background-image: linear-gradient(to bottom right,#ff3860, red);
-  border-radius: 80% 90% 80% 50%; 
+  // background-image: linear-gradient(to bottom right,#ff3860, red);
+  background-image: linear-gradient(to bottom right, #3273dc, #00d1b2 66.66667%,#ffdd57,#ff3860);
+  border-radius: 70% 65% 55% 50%; 
 }
 
 .right-container {
-  background-image: linear-gradient(to bottom right, #ff3860, red);
+  text-align: center;
+  // background-image: linear-gradient(to bottom right, #ff3860, red);
+  background-image: linear-gradient(to bottom right, #3273dc, #00d1b2 66.66667%,#ffdd57,#ff3860);
   border-radius: 90% 60% 80% 70%; 
   padding: 50px !important; 
   width: 100%; 
@@ -363,12 +367,13 @@ div.ani {
 }
 
 .right-container:hover {
-  background-image: linear-gradient(to bottom right, red, #ff3860);
-  border-radius: 80% 50% 60% 60%; 
+  background-image: linear-gradient(to bottom right, #ff3860, #ffdd57, #00d1b2 33.33333%, #3273dc);
+  border-radius: 55% 50% 60% 65%; 
 }
 
 .stylish-container {
-  background-image: linear-gradient(to bottom right, red, #ff3860);
+  text-align: center;
+  background-image: linear-gradient(to left bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
   border-radius: 70% 80% 90% 60%; 
   padding: 50px; 
   width: 100%;
@@ -378,30 +383,35 @@ div.ani {
 }
 
 .stylish-container:hover {
-  background-image: linear-gradient(to bottom right, #ff3860, red);
-  border-radius: 60% 70% 90% 50%;
+  background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  border-radius: 60% 65% 55% 50%;
 }
 
 .top-cloud {
-  background-image: linear-gradient(to bottom right, red, #ff3860);
-  border-radius: 0% 0% 90% 0%;
+  background-image: linear-gradient(to bottom, #ffffff, #f0f8ff, #d3f4ff, #aef2ff, #8df0ef, #7fe7cb, #89dc9e, #a1cc6f, #bfaf3c, #dc8b24, #f25b38, #f60261);
+  border-radius: 0% 0% 90% 90%;
   height: 125px;
-  width: 50%;
+  width: 100%;
   box-shadow: 5px 5px 5px black;
 }
 
 
 .bottom-cloud {
-  background-image: linear-gradient(to bottom right, red, #ff3860);
+  background-image: linear-gradient(to top, #ed6e4b, #ed8d2e, #ddae0d, #bece16, #8aed4b);
+  // background-image: linear-gradient(to left, #b9b5a3, #c0af96, #caa88b, #d59e87, #df9489, #ea9488, #f49588, #ff9587, #ffa579, #ffb96b, #ffcf61, #fbe75f);
   border-radius: 90% 0% 0% 0%;
   height: 125px;
-  width: 50%; 
-  margin-left: 50%;
-  box-shadow: 5px 5px 5px white;
+  width: 100%; 
+  // margin-left: 50%;
 }
 
-.has-background-success {
-  background-image: linear-gradient(to bottom right, #00d1b2, #23d160);
+.bottom-cloud:hover {
+  border-radius: 0% 90% 0% 0%;
+}
+
+.has-background-gradient {
+  background-image: linear-gradient(to top, #37de63, #95c626, #c4aa00, #e28b26, #ed6e4b);
+  // background-image: linear-gradient(to right top, #4f6757, #4c7b5c, #478e5f, #41a261, #37b662, #30c36f, #23d07d, #00dd8c, #00e5aa, #17edc4, #3df4dc, #5ffbf1);
 }
 
 .has-background-grey-dark {
