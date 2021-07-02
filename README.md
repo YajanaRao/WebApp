@@ -22,7 +22,21 @@ Styling is done via scss
 ## 3. REACTJS
 
 To Create development environment
+
+#### run frontend
 1. run `npm run build`
+
+#### export flask app
+
+```shell
+export FLASK_APP=webapp
+```
+
+### run flask application
+
+```shell
+flask run
+```
 
 ## 4. AOS
 
