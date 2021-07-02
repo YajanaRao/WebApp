@@ -23,8 +23,14 @@ Styling is done via scss
 
 To Create development environment
 
-#### run frontend
-1. run `npm run build`
+#### create frontend build 
+`npm run build`
+
+#### Install python packages
+
+```shel
+pip install -r requirements.txt
+```
 
 #### export flask app
 
